@@ -42,17 +42,36 @@
             Name: item_info <br> 
             Type: functional <br> 
             Summary: Item will contain the follow, Name,Price,Product_id,Product_Count,Item_Location </li>
+
+        <li style="margin-bottom:1em;">
+            Name: pull_total_items <br>
+            Type: functional <br>
+            Summary: Must pull total number of individual product
+        </li>
+
+        <li style="margin-bottom:1em;">
+            Name: Accept_Order <br>
+            Type: Functional <br>
+            Summary: Allows manager interface to accept an order from a customer.  
+            <ul>
+                <li>Type: Constraint <br />
+                    Summary: Will only accept .txt files</li>
+                <li>Type: Constraint <br />
+                    Summary: Will ensure sufficient stock on hand to fulfil order <br />
+                    Note: </li>
+                <li>Type: Constraint <br />
+                    Summary: Convert to a new format to be read by employee interface</li>
+                <li>Type: Constraint <br />
+                    Summary: Save converted file in .txt format</li>
+            </ul>
+        </li>
         
         <li style="margin-bottom:1em;">
             Name: store_data_list <br> 
             Type: risk <br> 
-            Summary: Must interface with Access </li>
+            Summary: Must interface with Microsoft Access </li>
         
-        <li style="margin-bottom:1em;">
-            Name: pull_total_items <br> 
-            Type: functional <br> 
-            Summary: Must pull total number of individual product </li>
-
+        
     </ol>
 
 </body>
