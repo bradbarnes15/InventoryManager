@@ -9,117 +9,135 @@
     <h3> Inventory System Requirements</h3>
     <ol>
         <li style="margin-bottom:1em;">
-            Name: Manager Interface     <br> 
-            Type: Functional            <br> 
-            Summary: User interface accessed by managers. Allows adding/removing/modifying items in the database, create new orders </li>
+            <b>Name:</b> Manager Interface     <br> 
+            <b>Type:</b> Functional            <br> 
+            <b>Summary:</b> User interface accessed by managers. Allows adding/removing/modifying items in the database, create new orders </li>
         
         <li style="margin-bottom:1em;">
-            Name: Employee Interface    <br> 
-            Type: Functional            <br> 
-            Summary: User interface accessed by employees. Allows viewing items, modifying stock, receiving shipments. </li>
+            <b>Name:</b> Employee Interface    <br> 
+            <b>Type:</b> Functional            <br> 
+            <b>Summary:</b> User interface accessed by employees. Allows viewing items, modifying stock, receiving shipments. </li>
         
         <li style="margin-bottom:1em;">
-            Name: add_item      <br> 
-            Type: functional    <br> 
-            Summary: Items should be added to data base. </li>
+            <b>Name:</b> add_item      <br> 
+            <b>Type:</b> functional    <br> 
+            <b>Summary:</b> Items should be added to data base. </li>
         
         <li style="margin-bottom:1em;">
-            Name: remove_item   <br> 
-            Type: functional    <br> 
-            Summary: Items should be removed to data base. </li>
+            <b>Name:</b> remove_item   <br> 
+            <b>Type:</b> functional    <br> 
+            <b>Summary:</b> Items should be removed to data base. </li>
         
         <li style="margin-bottom:1em;">
-            Name: view_item     <br> 
-            Type: functional    <br> 
-            Summary: Item information should be displayed. </li>
+            <b>Name:</b> view_item     <br> 
+            <b>Type:</b> functional    <br> 
+            <b>Summary:</b> Item information should be displayed. </li>
         
         <li style="margin-bottom:1em;">
-            Name: modify_item   <br> 
-            Type: functional    <br> 
-            Summary: Items members should be modifiable. </li>
+            <b>Name:</b> modify_item   <br> 
+            <b>Type:</b> functional    <br> 
+            <b>Summary:</b> Items members should be modifiable. </li>
         
         <li style="margin-bottom:1em;">
-            Name: item_info     <br> 
-            Type: functional    <br> 
-            Summary: Item will contain the follow, Name,Price,Product_id,Product_Count,Item_Location </li>
+            <b>Name:</b> item_info     <br> 
+            <b>Type:</b> functional    <br> 
+            <b>Summary:</b> Item will contain the following, Name,Price,Product_id,Product_Count,Item_Location </li>
 
         <li style="margin-bottom:1em;">
-            Name: pull_total_items  <br>
-            Type: functional        <br>
-            Summary: Must pull total number of individual product
+            <b>Name:</b> pull_total_items  <br>
+            <b>Type:</b> functional        <br>
+            <b>Summary:</b> Must pull total number of individual product
         </li>
 
         <li style="margin-bottom:1em;">
-            Name: Accept_Order  <br>
-            Type: Functional    <br>
-            Summary: Allows manager interface to accept an order from a customer.  
+            <b>Name:</b> Accept_Order  <br>
+            <b>Type:</b> Functional    <br>
+            <b>Summary:</b> Allows manager interface to accept an order from a customer.  
             <ul>
-                <li>Type: Constraint <br />
-                    Summary: Will only accept .txt files</li>
-                <li>Type: Constraint <br />
-                    Summary: Will ensure sufficient stock on hand to fulfil order <br />
-                    Note: Need to determine exactly how to handle insufficient stock. </li>
-                <li>Type: Constraint <br />
-                    Summary: Convert to a new format to be read by employee interface</li>
-                <li>Type: Constraint <br />
-                    Summary: Save converted file in .txt format</li>
+                <li><b>Type:</b> Constraint <br />
+                    <b>Summary:</b> Will only accept .txt files</li>
+                <li><b>Type:</b> Constraint <br />
+                    <b>Summary:</b> Will ensure sufficient stock on hand to fulfil order <br />
+                    <b>Note:</b> Need to determine exactly how to handle insufficient stock. </li>
+                <li><b>Type:</b> Constraint <br />
+                    <b>Summary:</b> Convert to a new format to be read by employee interface</li>
+                <li><b>Type:</b> Constraint <br />
+                    <b>Summary:</b> Save converted file in .txt format</li>
             </ul>
         </li>
 
         <li style="margin-bottom:1em;">
-            Name: Create_Order  <br>
-            Type: Functional    <br>
-            Summary: Manager can create an order to restock items
+            <b>Name:</b>    Create_Order  <br>
+            <b>Type:</b>    Functional    <br>
+            <b>Summary:</b> Manager can create an order to restock items
         </li>
 
         <li style="margin-bottom:1em;">
-            Name: Auto_Order   <br>
-            Type: Functional   <br>
-            Summary: System can automatically add items to an order if stock falls below a set threshold
+            <b>Name:</b> Auto_Order   <br>
+            <b>Type:</b> Functional   <br>
+            <b>Summary:</b> System can automatically add items to an order if stock falls below a set threshold
         </li>
 
         <li style="margin-bottom:1em;">
-            Name: Set_Auto_Order_Threshold  <br>
-            Type: Functional                <br>
-            Summary: Set the number that will trigger an auto order when an item stock falls below
+            <b>Name:</b> Set_Auto_Order_Threshold  <br>
+            <b>Type:</b> Functional                <br>
+            <b>Summary:</b> Set the number that will trigger an auto order when an item stock falls below
         </li>
 
         <li style="margin-bottom:1em;">
-            Name: Auto_Check_Stock  <br>
-            Type: Functional        <br>
-            Summary: Ensures stock does not fall below zero
+            <b>Name:</b> Auto_Check_Stock  <br>
+            <b>Type:</b> Functional        <br>
+            <b>Summary:</b> Ensures stock does not fall below zero
         </li>
 
         <li style="margin-bottom:1em;">
-            Name: Stock_Error    <br>
-            Type: Functional     <br>
-            Summary: When stock falls below zero an error will be sent to the employee interface
+            <b>Name:</b> Stock_Error    <br>
+            <b>Type:</b> Functional     <br>
+            <b>Summary:</b> When stock falls below zero an error will be sent to the employee interface
         </li>
         
         <li style="margin-bottom:1em;">
-            Name: store_data_list <br> 
-            Type: risk <br> 
-            Summary: Must interface with Microsoft Access 
+            <b>Name:</b> store_data_list       <br> 
+            <b>Type:</b> Risk                  <br> 
+            <b>Summary:</b> Must interface with Microsoft Access 
         </li>
         
         <li style="margin-bottom:1em;">
-            Name: Employee interface <br>
-            Type: Functional <br>
-            Summary: Employee must have different job screen for each task.
+            <b>Name:</b> Employee interface    <br>
+            <b>Type:</b> Functional            <br>
+            <b>Summary:</b> Employee must have different job screen for each task.
             <ul>
                 <li>
-                    Name: Order Processing menu <br>
-                    Type: Functional <br>
-                    Summary: All button to process orders. <br>
+                    <b>Name:</b> Outgoing Order Processing menu         <br>
+                    <b>Type:</b> Functional                    <br>
+                    <b>Summary:</b> All buttons to process orders.  
                 </li>
                 <li>
-                    Name: Receving Processing menu <br>
-                    Type: Functional <br>
-                    Summary: All buttons on receive orders. <br>
+                    <b>Name:</b> Receving Order Processing menu      <br>
+                    <b>Type:</b> Functional                    <br>
+                    <b>Summary:</b> All buttons on receiving orders. 
                 </li>
                  
             </ul> 
-        </li>        
+        </li>  
+        
+        <li style="margin-bottom:1em;">
+            <b>Name:</b>  View_order <br />
+            <b>Type:</b>  Functional <br />
+            <b>Summary:</b> In employee interface: Will load a selected order from file
+        </li>  
+        
+        <li style="margin-bottom:1em;">
+            <b>Name:</b> Accept_Order  <br />
+            <b>Type:</b> Functional    <br />
+            <b>Summary:</b> Load order to Employee interface.
+        </li>    
+        
+        <li style="margin-bottom:1em;">
+            <b>Name:</b> Complete_Order <br />
+            <b>Type:</b> Functional     <br />
+            <b>Summary:</b> Removes order from file system, and updates stock 
+        </li>   
         
     </ol>
 
