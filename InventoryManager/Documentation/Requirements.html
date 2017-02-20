@@ -14,11 +14,6 @@
             <b>Summary:</b> User interface accessed by managers. Allows adding/removing/modifying items in the database, create new orders </li>
         
         <li style="margin-bottom:1em;">
-            <b>Name:</b> Employee Interface    <br> 
-            <b>Type:</b> Functional            <br> 
-            <b>Summary:</b> User interface accessed by employees. Allows viewing items, modifying stock, receiving shipments. </li>
-        
-        <li style="margin-bottom:1em;">
             <b>Name:</b> add_item      <br> 
             <b>Type:</b> functional    <br> 
             <b>Summary:</b> Items should be added to data base. </li>
@@ -53,9 +48,7 @@
             <b>Name:</b> Accept_Order  <br>
             <b>Type:</b> Functional    <br>
             <b>Summary:</b> Allows manager interface to accept an order from a customer.  
-            <ul>
-                <li><b>Type:</b> Constraint <br />
-                    <b>Summary:</b> Will only accept .txt files</li>
+            <ol>
                 <li><b>Type:</b> Constraint <br />
                     <b>Summary:</b> Will ensure sufficient stock on hand to fulfil order <br />
                     <b>Note:</b> Need to determine exactly how to handle insufficient stock. </li>
@@ -63,7 +56,7 @@
                     <b>Summary:</b> Convert to a new format to be read by employee interface</li>
                 <li><b>Type:</b> Constraint <br />
                     <b>Summary:</b> Save converted file in .txt format</li>
-            </ul>
+            </ol>
         </li>
 
         <li style="margin-bottom:1em;">
@@ -103,10 +96,16 @@
         </li>
         
         <li style="margin-bottom:1em;">
+            <b>Name:</b> Employee Interface    <br>
+            <b>Type:</b> Functional            <br>
+            <b>Summary:</b> User interface accessed by employees. Allows viewing items, modifying stock, receiving shipments.
+        </li>
+
+        <li style="margin-bottom:1em;">
             <b>Name:</b> Employee interface    <br>
             <b>Type:</b> Functional            <br>
             <b>Summary:</b> Employee must have different job screen for each task.
-            <ul>
+            <ol>
                 <li>
                     <b>Name:</b> Outgoing Order Processing menu         <br>
                     <b>Type:</b> Functional                    <br>
@@ -118,7 +117,7 @@
                     <b>Summary:</b> All buttons on receiving orders. 
                 </li>
                  
-            </ul> 
+            </ol> 
         </li>  
         
         <li style="margin-bottom:1em;">
@@ -136,7 +135,7 @@
         <li style="margin-bottom:1em;">
             <b>Name:</b> Complete_Order <br />
             <b>Type:</b> Functional     <br />
-            <b>Summary:</b> Removes order from file system, and updates stock 
+            <b>Summary:</b> Removes order from orders to be completed, and updates stock 
         </li>   
         
     </ol>
