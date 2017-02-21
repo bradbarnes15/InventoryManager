@@ -1,0 +1,924 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/UseCaseModel" xmlns:dm11="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner"
+  dslVersion="1.0.0.0"
+  Id="c1f856c5-3037-460e-af9c-049a9087b2ac"
+  name="ModelingProject1" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
+      <profileInstance
+        Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791"
+        name="StandardProfileL2" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="29349502-908c-4fda-9054-c48619c59ed0">
+      <profileInstance
+        Id="532ea607-fb19-44b8-8502-3351b05452be"
+        name="StandardProfileL3" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <useCase
+        Id="0dacfa3a-e1ca-489a-96fd-f3bfac723b64"
+        name="Manager Login"
+        isAbstract="false"
+        isLeaf="false">
+        <suppliersInternal>
+          <dependency
+            Id="3d422523-19ab-476d-8905-c244c2a993e4">
+            <useCaseMoniker
+              Id="954598b0-f26b-4c24-81d7-5f1b5990cb17"
+              LastKnownName="Create Order"
+              LastKnownLocation="ModelingProject1.uml" />
+          </dependency>
+          <dependency
+            Id="e4072d5a-617f-4204-8d4f-287be7d45bb7">
+            <useCaseMoniker
+              Id="2c0ddda8-84c2-4a58-b629-b98ac00dfb14"
+              LastKnownName="Add Items"
+              LastKnownLocation="ModelingProject1.uml" />
+          </dependency>
+          <dependency
+            Id="3a3a967a-e0e5-47f8-a674-9397c34169d2">
+            <useCaseMoniker
+              Id="525cbf2a-b334-4d90-80b0-b0bcf8417b64"
+              LastKnownName="Inventory"
+              LastKnownLocation="ModelingProject1.uml" />
+          </dependency>
+          <dependency
+            Id="cf63ac96-3f50-437b-9fcd-f1e9e573865e">
+            <actorMoniker
+              Id="bb5d0778-601b-4998-aa0f-6acf44302a8f"
+              LastKnownName="Sever"
+              LastKnownLocation="ModelingProject1.uml" />
+          </dependency>
+        </suppliersInternal>
+        <subjects>
+          <subsystemMoniker
+            Id="650ffdd4-c3ee-4f0f-b35d-f4943792e9d4"
+            LastKnownName="Manager Interface"
+            LastKnownLocation="ModelingProject1.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="d65ed1b6-a89c-4e4b-b30c-0fa45e3e1324"
+        name="Manager"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="dbe00be4-6e7c-472b-8bd9-f90229da3201"
+            isDerived="false"
+            sourceEndRoleName="Actor1"
+            targetEndRoleName="UseCase1"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="0dacfa3a-e1ca-489a-96fd-f3bfac723b64"
+              LastKnownName="Manager Login"
+              LastKnownLocation="ModelingProject1.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="54b14ed4-8b22-457e-9b51-c84d96029010"
+                  name="Actor1"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="973714e2-0de4-4afa-bd2d-cf247961672b"
+                  name="UseCase1"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <subsystem
+        Id="650ffdd4-c3ee-4f0f-b35d-f4943792e9d4"
+        name="Manager Interface"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="954598b0-f26b-4c24-81d7-5f1b5990cb17"
+        name="Create Order"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="650ffdd4-c3ee-4f0f-b35d-f4943792e9d4"
+            LastKnownName="Manager Interface"
+            LastKnownLocation="ModelingProject1.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="2c0ddda8-84c2-4a58-b629-b98ac00dfb14"
+        name="Add Items"
+        isAbstract="false"
+        isLeaf="false">
+        <suppliersInternal>
+          <dependency
+            Id="5968db85-75a5-45e7-88cc-14eec900a636">
+            <useCaseMoniker
+              Id="f2489168-8dff-4c17-9669-927b0f526b1f"
+              LastKnownName="Modify Item"
+              LastKnownLocation="ModelingProject1.uml" />
+          </dependency>
+        </suppliersInternal>
+        <subjects>
+          <subsystemMoniker
+            Id="650ffdd4-c3ee-4f0f-b35d-f4943792e9d4"
+            LastKnownName="Manager Interface"
+            LastKnownLocation="ModelingProject1.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="f2489168-8dff-4c17-9669-927b0f526b1f"
+        name="Modify Item"
+        isAbstract="false"
+        isLeaf="false">
+        <suppliersInternal>
+          <dependency
+            Id="16a7a806-2145-4cec-8c8a-997858372e07">
+            <useCaseMoniker
+              Id="af0f0b9e-2c3e-4a83-b946-73b022ad5c8c"
+              LastKnownName="View Item"
+              LastKnownLocation="ModelingProject1.uml" />
+          </dependency>
+        </suppliersInternal>
+        <subjects>
+          <subsystemMoniker
+            Id="650ffdd4-c3ee-4f0f-b35d-f4943792e9d4"
+            LastKnownName="Manager Interface"
+            LastKnownLocation="ModelingProject1.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="af0f0b9e-2c3e-4a83-b946-73b022ad5c8c"
+        name="View Item"
+        isAbstract="false"
+        isLeaf="false">
+        <suppliersInternal>
+          <dependency
+            Id="f87d0ea4-49b2-47f7-9f1d-794c5486801b">
+            <useCaseMoniker
+              Id="69652aa5-96b5-44e2-8a1d-de8ffb592831"
+              LastKnownName="Delete Item"
+              LastKnownLocation="ModelingProject1.uml" />
+          </dependency>
+        </suppliersInternal>
+        <subjects>
+          <subsystemMoniker
+            Id="650ffdd4-c3ee-4f0f-b35d-f4943792e9d4"
+            LastKnownName="Manager Interface"
+            LastKnownLocation="ModelingProject1.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="69652aa5-96b5-44e2-8a1d-de8ffb592831"
+        name="Delete Item"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="650ffdd4-c3ee-4f0f-b35d-f4943792e9d4"
+            LastKnownName="Manager Interface"
+            LastKnownLocation="ModelingProject1.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="525cbf2a-b334-4d90-80b0-b0bcf8417b64"
+        name="Inventory"
+        isAbstract="false"
+        isLeaf="false">
+        <suppliersInternal>
+          <dependency
+            Id="fe4f2e85-4f7c-420c-894a-4dbfe2385ca7">
+            <useCaseMoniker
+              Id="8c8ca758-333e-4517-86fc-1e5520c9df1b"
+              LastKnownName="set_auto_thereshold"
+              LastKnownLocation="ModelingProject1.uml" />
+          </dependency>
+        </suppliersInternal>
+        <subjects>
+          <subsystemMoniker
+            Id="650ffdd4-c3ee-4f0f-b35d-f4943792e9d4"
+            LastKnownName="Manager Interface"
+            LastKnownLocation="ModelingProject1.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="8c8ca758-333e-4517-86fc-1e5520c9df1b"
+        name="set_auto_thereshold"
+        isAbstract="false"
+        isLeaf="false">
+        <suppliersInternal>
+          <dependency
+            Id="09ae5a5b-984d-47a1-9f67-43f828092cb9">
+            <useCaseMoniker
+              Id="9c59d75e-05b4-46fb-be89-02dd86a6e333"
+              LastKnownName="Auto_check_ stock"
+              LastKnownLocation="ModelingProject1.uml" />
+          </dependency>
+        </suppliersInternal>
+        <subjects>
+          <subsystemMoniker
+            Id="650ffdd4-c3ee-4f0f-b35d-f4943792e9d4"
+            LastKnownName="Manager Interface"
+            LastKnownLocation="ModelingProject1.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="9fe1a08e-e95e-48ab-9d26-fb6437ba8cd1"
+        name="Auto order"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="5e015b35-331e-45e3-98d9-d8bd552edc73"
+            isDerived="false"
+            sourceEndRoleName="Auto order"
+            targetEndRoleName="Sever"
+            isLeaf="false"
+            isAbstract="false">
+            <actorMoniker
+              Id="bb5d0778-601b-4998-aa0f-6acf44302a8f"
+              LastKnownName="Sever"
+              LastKnownLocation="ModelingProject1.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="51d7d4ed-96e1-4130-9729-65cca1017752"
+                  name="Auto order"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="880f5ea2-c190-48e5-ad93-d2090a9f7cd8"
+                  name="Sever"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <subjects>
+          <subsystemMoniker
+            Id="650ffdd4-c3ee-4f0f-b35d-f4943792e9d4"
+            LastKnownName="Manager Interface"
+            LastKnownLocation="ModelingProject1.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="9c59d75e-05b4-46fb-be89-02dd86a6e333"
+        name="Auto_check_ stock"
+        isAbstract="false"
+        isLeaf="false">
+        <suppliersInternal>
+          <dependency
+            Id="08eb0edf-6658-4732-b6bd-6fb6b5dfbb3c">
+            <useCaseMoniker
+              Id="9fe1a08e-e95e-48ab-9d26-fb6437ba8cd1"
+              LastKnownName="Auto order"
+              LastKnownLocation="ModelingProject1.uml" />
+          </dependency>
+        </suppliersInternal>
+        <subjects>
+          <subsystemMoniker
+            Id="650ffdd4-c3ee-4f0f-b35d-f4943792e9d4"
+            LastKnownName="Manager Interface"
+            LastKnownLocation="ModelingProject1.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="bb5d0778-601b-4998-aa0f-6acf44302a8f"
+        name="Sever"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <subsystem
+        Id="c280fb24-8c5a-4155-86e1-f00a13efbea5"
+        name="Employee Interface"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="7982ed9d-9652-4ad0-b265-9f359e020957"
+        name="Employee"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="2febe303-4595-46f9-9720-95c2ea71966b"
+            isDerived="false"
+            sourceEndRoleName="Employee"
+            targetEndRoleName="Employee Login"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="6387a213-3361-4b74-a825-0258c7e8277c"
+              LastKnownName="Employee Login"
+              LastKnownLocation="ModelingProject1.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="dcaeb21d-2b11-4b89-bdc1-de2c79197b3b"
+                  name="Employee"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="0fb7bdd4-4cc3-4dac-9f14-8b6490d3895b"
+                  name="Employee Login"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="6387a213-3361-4b74-a825-0258c7e8277c"
+        name="Employee Login"
+        isAbstract="false"
+        isLeaf="false">
+        <suppliersInternal>
+          <dependency
+            Id="a6a51975-a7ac-4652-be8c-9fe1387c48f8">
+            <useCaseMoniker
+              Id="6aed8cb7-d92b-486c-b0b0-98fa021b59b9"
+              LastKnownName="Order Picking"
+              LastKnownLocation="ModelingProject1.uml" />
+          </dependency>
+          <dependency
+            Id="bdda62cc-adf8-4ece-9b47-71dcdecdfb37">
+            <useCaseMoniker
+              Id="61c9834f-e94e-45c8-90e4-ba069a0ef8b7"
+              LastKnownName="Receving"
+              LastKnownLocation="ModelingProject1.uml" />
+          </dependency>
+          <dependency
+            Id="c11b750c-8d8c-4d44-b401-bc54d7becfe0">
+            <useCaseMoniker
+              Id="5b8131af-e53d-4295-af1f-377fe0d528bf"
+              LastKnownName="Inventory1"
+              LastKnownLocation="ModelingProject1.uml" />
+          </dependency>
+          <dependency
+            Id="8196cff7-8831-453d-9ae2-8cc4c21ac535">
+            <actorMoniker
+              Id="bb5d0778-601b-4998-aa0f-6acf44302a8f"
+              LastKnownName="Sever"
+              LastKnownLocation="ModelingProject1.uml" />
+          </dependency>
+        </suppliersInternal>
+        <subjects>
+          <subsystemMoniker
+            Id="c280fb24-8c5a-4155-86e1-f00a13efbea5"
+            LastKnownName="Employee Interface"
+            LastKnownLocation="ModelingProject1.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="6aed8cb7-d92b-486c-b0b0-98fa021b59b9"
+        name="Order Picking"
+        isAbstract="false"
+        isLeaf="false">
+        <suppliersInternal>
+          <dependency
+            Id="39d43a66-22eb-4468-b361-0f47c3cc9820">
+            <useCaseMoniker
+              Id="556fc5f9-e5e4-42e6-bbd7-0911a69177eb"
+              LastKnownName="View Order"
+              LastKnownLocation="ModelingProject1.uml" />
+          </dependency>
+        </suppliersInternal>
+        <subjects>
+          <subsystemMoniker
+            Id="c280fb24-8c5a-4155-86e1-f00a13efbea5"
+            LastKnownName="Employee Interface"
+            LastKnownLocation="ModelingProject1.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="61c9834f-e94e-45c8-90e4-ba069a0ef8b7"
+        name="Receving"
+        isAbstract="false"
+        isLeaf="false">
+        <suppliersInternal>
+          <dependency
+            Id="6dea9950-687a-41d6-8162-48a2033a41d0">
+            <useCaseMoniker
+              Id="556fc5f9-e5e4-42e6-bbd7-0911a69177eb"
+              LastKnownName="View Order"
+              LastKnownLocation="ModelingProject1.uml" />
+          </dependency>
+        </suppliersInternal>
+        <subjects>
+          <subsystemMoniker
+            Id="c280fb24-8c5a-4155-86e1-f00a13efbea5"
+            LastKnownName="Employee Interface"
+            LastKnownLocation="ModelingProject1.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="90a42902-a8f4-4c73-9cb2-54bff0bf3ba3"
+        name="Complete Order"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="1aea65f1-c925-4062-a3c1-d52839e23a81"
+            isDerived="false"
+            sourceEndRoleName="Complete Order"
+            targetEndRoleName="Sever"
+            isLeaf="false"
+            isAbstract="false">
+            <actorMoniker
+              Id="bb5d0778-601b-4998-aa0f-6acf44302a8f"
+              LastKnownName="Sever"
+              LastKnownLocation="ModelingProject1.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b10b8ce8-3da1-4184-bb6f-cbcadf783f1c"
+                  name="Complete Order"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ddc54005-8e12-4bd3-b022-1feed5cb8e38"
+                  name="Sever"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <subjects>
+          <subsystemMoniker
+            Id="c280fb24-8c5a-4155-86e1-f00a13efbea5"
+            LastKnownName="Employee Interface"
+            LastKnownLocation="ModelingProject1.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="556fc5f9-e5e4-42e6-bbd7-0911a69177eb"
+        name="View Order"
+        isAbstract="false"
+        isLeaf="false">
+        <suppliersInternal>
+          <dependency
+            Id="250e32fa-3bb3-42f7-bc8c-79a9efe88229">
+            <useCaseMoniker
+              Id="5869f13f-4419-406c-9d67-a1554f63b4fb"
+              LastKnownName="Accept Order"
+              LastKnownLocation="ModelingProject1.uml" />
+          </dependency>
+        </suppliersInternal>
+        <subjects>
+          <subsystemMoniker
+            Id="c280fb24-8c5a-4155-86e1-f00a13efbea5"
+            LastKnownName="Employee Interface"
+            LastKnownLocation="ModelingProject1.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="d6f9ca73-de40-4bc3-801c-18db8d051c39"
+        name="UseCase15"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="5869f13f-4419-406c-9d67-a1554f63b4fb"
+        name="Accept Order"
+        isAbstract="false"
+        isLeaf="false">
+        <suppliersInternal>
+          <dependency
+            Id="78d18cc7-05f6-4302-b52d-e516f7618345">
+            <useCaseMoniker
+              Id="90a42902-a8f4-4c73-9cb2-54bff0bf3ba3"
+              LastKnownName="Complete Order"
+              LastKnownLocation="ModelingProject1.uml" />
+          </dependency>
+        </suppliersInternal>
+        <subjects>
+          <subsystemMoniker
+            Id="c280fb24-8c5a-4155-86e1-f00a13efbea5"
+            LastKnownName="Employee Interface"
+            LastKnownLocation="ModelingProject1.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="5b8131af-e53d-4295-af1f-377fe0d528bf"
+        name="Inventory1"
+        isAbstract="false"
+        isLeaf="false">
+        <suppliersInternal>
+          <dependency
+            Id="7b410e9b-8acf-4284-81fb-88251d13bf04">
+            <useCaseMoniker
+              Id="783ebd7c-db8f-4290-b27e-68e5a71169ff"
+              LastKnownName="View Items"
+              LastKnownLocation="ModelingProject1.uml" />
+          </dependency>
+        </suppliersInternal>
+        <subjects>
+          <subsystemMoniker
+            Id="c280fb24-8c5a-4155-86e1-f00a13efbea5"
+            LastKnownName="Employee Interface"
+            LastKnownLocation="ModelingProject1.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="1e3d11da-5ddf-4915-8dd7-3b427755f3b0"
+        name="UseCase151"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="b6773b37-d9d5-4853-9415-0b29e68537d8"
+        name="Modify Items"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="7079473d-fb64-4faf-911e-c302c3ff16a4"
+            isDerived="false"
+            sourceEndRoleName="Modify Items"
+            targetEndRoleName="Sever"
+            isLeaf="false"
+            isAbstract="false">
+            <actorMoniker
+              Id="bb5d0778-601b-4998-aa0f-6acf44302a8f"
+              LastKnownName="Sever"
+              LastKnownLocation="ModelingProject1.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="20054e19-057b-4003-a125-69df70cf8453"
+                  name="Modify Items"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="58ae5d8d-63c6-4bca-9bc0-da7758460372"
+                  name="Sever"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <subjects>
+          <subsystemMoniker
+            Id="c280fb24-8c5a-4155-86e1-f00a13efbea5"
+            LastKnownName="Employee Interface"
+            LastKnownLocation="ModelingProject1.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="783ebd7c-db8f-4290-b27e-68e5a71169ff"
+        name="View Items"
+        isAbstract="false"
+        isLeaf="false">
+        <suppliersInternal>
+          <dependency
+            Id="974fc1b5-03ad-4904-9a52-a70743cd3691">
+            <useCaseMoniker
+              Id="b6773b37-d9d5-4853-9415-0b29e68537d8"
+              LastKnownName="Modify Items"
+              LastKnownLocation="ModelingProject1.uml" />
+          </dependency>
+        </suppliersInternal>
+        <subjects>
+          <subsystemMoniker
+            Id="c280fb24-8c5a-4155-86e1-f00a13efbea5"
+            LastKnownName="Employee Interface"
+            LastKnownLocation="ModelingProject1.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <activity
+        Id="8d197e59-89d4-4dbf-a6e3-be73c006626b"
+        name="Activity"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <initialNode
+            Id="9be03fff-b6b2-4453-b38f-9b8995614e5f"
+            name="Initial1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="d310b20d-dec4-4f2f-882e-95c2bb1e94a8"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="7c00af2c-6234-4897-9792-3656da1623f9"
+                  LastKnownName="Order Picking Interface"
+                  LastKnownLocation="ModelingProject1.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <activityFinalNode
+            Id="ba34ba6b-4db9-4d4f-82e1-194b7d909da7"
+            name="ActivityFinal1"
+            isLeaf="false" />
+          <opaqueAction
+            Id="7c00af2c-6234-4897-9792-3656da1623f9"
+            name="Order Picking Interface"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="aa8ed603-33d0-4920-8df8-475fc3e9cdfa"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="063e0dd5-8e25-41ea-a0a5-a9c5492f4c55"
+                  LastKnownName="Select Order Menu"
+                  LastKnownLocation="ModelingProject1.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="063e0dd5-8e25-41ea-a0a5-a9c5492f4c55"
+            name="Select Order Menu"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="0479238b-222f-4000-b2d6-5aed88e8957e"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="c784fb6a-9405-494a-bafb-4ddac67f94e3"
+                  LastKnownName="Select Order"
+                  LastKnownLocation="ModelingProject1.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="c784fb6a-9405-494a-bafb-4ddac67f94e3"
+            name="Select Order"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="df798868-3ca4-447f-9300-eea6a0945c11"
+                guard="correct order"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="153c7a15-f85d-428b-8809-bc57e0753a13"
+                  LastKnownName="Decision1"
+                  LastKnownLocation="ModelingProject1.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="153c7a15-f85d-428b-8809-bc57e0753a13"
+            name="Decision1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="4a438cbd-3b5c-457f-99db-a6db150f4646"
+                guard="no"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="c784fb6a-9405-494a-bafb-4ddac67f94e3"
+                  LastKnownName="Select Order"
+                  LastKnownLocation="ModelingProject1.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="668d5cb8-5617-448d-a292-cb64f6f166cc"
+                guard="yes"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="e11f76d7-5ce6-45dd-ba53-2e1b868f4724"
+                  LastKnownName="Accept Order"
+                  LastKnownLocation="ModelingProject1.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction
+            Id="e11f76d7-5ce6-45dd-ba53-2e1b868f4724"
+            name="Accept Order"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="65cd188c-77d3-4fa2-a6bf-4d5b736bd808"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="b2687278-7dc8-4245-a5a7-a1381a05ad70"
+                  LastKnownName="Start Picking Order"
+                  LastKnownLocation="ModelingProject1.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="b2687278-7dc8-4245-a5a7-a1381a05ad70"
+            name="Start Picking Order"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="5ea5f88b-1f1f-414e-a3d5-32a56a1f6a43"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="6c55ce44-ab6d-4949-b452-59d91516ebf9"
+                  LastKnownName="Adjust Inventory"
+                  LastKnownLocation="ModelingProject1.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="6c55ce44-ab6d-4949-b452-59d91516ebf9"
+            name="Adjust Inventory"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="4e581c9f-ceff-4dc1-9635-c61cdbf41d5e"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="c76195b8-6c61-4c86-b4f1-fa675ea0d3ad"
+                  LastKnownName="Complete Order"
+                  LastKnownLocation="ModelingProject1.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="c76195b8-6c61-4c86-b4f1-fa675ea0d3ad"
+            name="Complete Order"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="892248b4-1334-4eda-be02-cb4cf2a0dfbf"
+                guard="pick another order"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="54297061-4ff7-465b-952b-0f2cf2690706"
+                  LastKnownName="Decision11"
+                  LastKnownLocation="ModelingProject1.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="54297061-4ff7-465b-952b-0f2cf2690706"
+            name="Decision11"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="60449dc1-0d1d-4f2c-aad0-ccde8c569aff"
+                guard="yes"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="c784fb6a-9405-494a-bafb-4ddac67f94e3"
+                  LastKnownName="Select Order"
+                  LastKnownLocation="ModelingProject1.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="bf7ef2dd-a5c3-46ec-84e8-72aa7bdb859f"
+                guard="no"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="ba34ba6b-4db9-4d4f-82e1-194b7d909da7"
+                  LastKnownName="ActivityFinal1"
+                  LastKnownLocation="ModelingProject1.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+        </nodes>
+      </activity>
+    </packageHasNamedElement>
+  </packagedElements>
+  <primitiveType
+    Id="220a3521-e091-4221-bae9-3ef9018e845c"
+    name="Integer"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+    name="Boolean"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+    name="String"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
+    name="UnlimitedNatural"
+    isAbstract="false"
+    isLeaf="false" />
+</modelStoreModel>
