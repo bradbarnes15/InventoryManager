@@ -6,17 +6,14 @@
     <title> Requirements Page</title>
 </head>
 <body>
-    <h3> Inventory System Requirements</h3>
+    <h1> Inventory System Requirements </h1>
+
     <ol>
+        <h3>Manager interface</h3>
         <li style="margin-bottom:1em;">
             <b>Name:</b> Manager Interface     <br> 
             <b>Type:</b> Functional            <br> 
             <b>Summary:</b> User interface accessed by managers. Allows adding/removing/modifying items in the database, create new orders </li>
-        
-        <li style="margin-bottom:1em;">
-            <b>Name:</b> Employee Interface    <br> 
-            <b>Type:</b> Functional            <br> 
-            <b>Summary:</b> User interface accessed by employees. Allows viewing items, modifying stock, receiving shipments. </li>
         
         <li style="margin-bottom:1em;">
             <b>Name:</b> add_item      <br> 
@@ -49,13 +46,11 @@
             <b>Summary:</b> Must pull total number of individual product
         </li>
 
-        <li style="margin-bottom:1em;">
+        <!-- <li style="margin-bottom:1em;">
             <b>Name:</b> Accept_Order  <br>
             <b>Type:</b> Functional    <br>
             <b>Summary:</b> Allows manager interface to accept an order from a customer.  
-            <ul>
-                <li><b>Type:</b> Constraint <br />
-                    <b>Summary:</b> Will only accept .txt files</li>
+            <ol>
                 <li><b>Type:</b> Constraint <br />
                     <b>Summary:</b> Will ensure sufficient stock on hand to fulfil order <br />
                     <b>Note:</b> Need to determine exactly how to handle insufficient stock. </li>
@@ -63,8 +58,8 @@
                     <b>Summary:</b> Convert to a new format to be read by employee interface</li>
                 <li><b>Type:</b> Constraint <br />
                     <b>Summary:</b> Save converted file in .txt format</li>
-            </ul>
-        </li>
+            </ol>
+        </li> -->
 
         <li style="margin-bottom:1em;">
             <b>Name:</b>    Create_Order  <br>
@@ -96,34 +91,40 @@
             <b>Summary:</b> When stock falls below zero an error will be sent to the employee interface
         </li>
         
-        <li style="margin-bottom:1em;">
-            <b>Name:</b> store_data_list       <br> 
-            <b>Type:</b> Risk                  <br> 
-            <b>Summary:</b> Must interface with Microsoft Access 
-        </li>
         
+        
+        <h2> Employee Interface </h2>
+
+        <li style="margin-bottom:1em;">
+            <b>Name:</b> Employee Interface    <br>
+            <b>Type:</b> Functional            <br>
+            <b>Summary:</b> User interface accessed by employees. Allows viewing items, modifying stock, receiving shipments.
+        </li>
+
         <li style="margin-bottom:1em;">
             <b>Name:</b> Employee interface    <br>
             <b>Type:</b> Functional            <br>
             <b>Summary:</b> Employee must have different job screen for each task.
-            <ul>
+            <ol>
                 <li>
-                    <b>Name:</b> Outgoing Order Processing menu         <br>
-                    <b>Type:</b> Functional                    <br>
-                    <b>Summary:</b> All buttons to process orders.  
+                    <b>Name:</b> Outgoing Order Processing menu         <br />
+                    <b>Type:</b> Functional                             <br />
+                    <b>Summary:</b> Page to process outgoing orders     <br />
+                    <span style="color: red;"> <b>Updated</b> </span>   <br />
                 </li>
                 <li>
-                    <b>Name:</b> Receving Order Processing menu      <br>
-                    <b>Type:</b> Functional                    <br>
-                    <b>Summary:</b> All buttons on receiving orders. 
+                    <b>Name:</b> Receving Order Processing menu         <br />
+                    <b>Type:</b> Functional                             <br />
+                    <b>Summary:</b> Page to process receiving orders    <br />
+                    <span style="color: red;"> <b>Updated</b> </span>   <br />
                 </li>
                  
-            </ul> 
+            </ol> 
         </li>  
         
         <li style="margin-bottom:1em;">
-            <b>Name:</b>  View_order <br />
-            <b>Type:</b>  Functional <br />
+            <b>Name:</b>  View_order    <br />
+            <b>Type:</b>  Functional    <br />
             <b>Summary:</b> In employee interface: Will load a selected order from file
         </li>  
         
@@ -134,11 +135,30 @@
         </li>    
         
         <li style="margin-bottom:1em;">
-            <b>Name:</b> Complete_Order <br />
-            <b>Type:</b> Functional     <br />
-            <b>Summary:</b> Removes order from file system, and updates stock 
+            <b>Name:</b> Complete_Order                                                     <br />
+            <b>Type:</b> Functional                                                         <br />
+            <b>Summary:</b> Removes order from orders to be completed, and updates stock    <br />
+            <span style="color: red;"> <b>Updated</b> </span>                               <br />
         </li>   
-        
+
+
+
+        <h2>Miscellaneous</h2>
+
+        <li style="margin-bottom:1em;">
+            <b>Name:</b> store_data       <br>
+            <b>Type:</b> Risk                  <br>
+            <b>Summary:</b> Must interface with Microsoft Access
+        </li>
+
+        <li style="margin-bottom:1em;">
+             
+            <b>Name:</b> User_Login                                             <br />
+            <b>Type:</b> Constraint                                             <br />
+            <b>Summary:</b> User password will be required to access interfaces <br />
+            <span style="color: red;"> <b>New</b> </span>                       <br />
+        </li>
+
     </ol>
 
 </body>
