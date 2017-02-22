@@ -1,0 +1,397 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm11="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner" dslVersion="1.0.0.0" Id="454fc368-591c-4459-8112-05b28be35366" name="UMLUseCase" linkedPackageId="e22d9862-ec09-4177-9656-494832467fee" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <profileInstances>
+    <packageHasProfileInstances Id="6716511f-8eed-4b0c-9c9f-87021b73ce40">
+      <profileInstance Id="c546ecca-5333-41b3-84d0-527994eaaf74" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="0ec83edb-6b18-4211-9017-7bf9534a4753">
+      <profileInstance Id="b7fcf696-8bca-4432-a2ba-ecb0046cd185" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <useCase Id="a9892976-9d48-4adc-b8f2-32d8c15c8eaa" name="Manager Login" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="0dacfa3a-e1ca-489a-96fd-f3bfac723b64" />
+        <suppliersInternal>
+          <dependency Id="961c0bbb-eea8-418b-b8f7-bc62958c48a8">
+            <useCaseMoniker Id="4f4fae9d-e437-4caf-a42c-4e2e61223393" LastKnownName="Create Order" />
+            <elementDefinition Id="3d422523-19ab-476d-8905-c244c2a993e4" />
+          </dependency>
+          <dependency Id="24371cb4-e8fd-432a-a49c-280730aadf4e">
+            <useCaseMoniker Id="5dbf8ff4-dab7-4f46-9196-1a9785257d6e" LastKnownName="Add Items" />
+            <elementDefinition Id="e4072d5a-617f-4204-8d4f-287be7d45bb7" />
+          </dependency>
+          <dependency Id="54358410-1066-4a01-8eb2-e52898410bf5">
+            <useCaseMoniker Id="ba65eeb8-d7eb-4bcb-85e5-a546d1c38db5" LastKnownName="Inventory" />
+            <elementDefinition Id="3a3a967a-e0e5-47f8-a674-9397c34169d2" />
+          </dependency>
+          <dependency Id="1bc44af6-3534-4c76-bae4-3b95acb7d78b">
+            <actorMoniker Id="2b6203cc-f608-4a5b-b29e-5d54bd16fe59" LastKnownName="Sever" />
+            <elementDefinition Id="cf63ac96-3f50-437b-9fcd-f1e9e573865e" />
+          </dependency>
+        </suppliersInternal>
+        <subjects>
+          <subsystemMoniker Id="477bfeeb-ebfa-4a87-a42e-48181fcc3710" LastKnownName="Manager Interface" />
+        </subjects>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="65e593d1-cd91-41d8-a5b2-c617968046cc" name="Manager" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="d65ed1b6-a89c-4e4b-b30c-0fa45e3e1324" />
+        <targetEnds>
+          <association Id="227de6de-a5f5-4e5e-9e9a-55f1c65d83d9" isDerived="false" sourceEndRoleName="Actor1" targetEndRoleName="UseCase1" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="a9892976-9d48-4adc-b8f2-32d8c15c8eaa" LastKnownName="Manager Login" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="20b81206-84fa-44b2-bd88-75be17a9a2b8" name="Actor1" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="54b14ed4-8b22-457e-9b51-c84d96029010" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="8a57ae34-c863-4a3a-a104-22e46cef6310" name="UseCase1" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="973714e2-0de4-4afa-bd2d-cf247961672b" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="dbe00be4-6e7c-472b-8bd9-f90229da3201" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <subsystem Id="477bfeeb-ebfa-4a87-a42e-48181fcc3710" name="Manager Interface" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="650ffdd4-c3ee-4f0f-b35d-f4943792e9d4" />
+      </subsystem>
+    </useCaseModelRootHasTypes>
+    <packageHasNamedElement>
+      <useCase Id="4f4fae9d-e437-4caf-a42c-4e2e61223393" name="Create Order" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="954598b0-f26b-4c24-81d7-5f1b5990cb17" />
+        <subjects>
+          <subsystemMoniker Id="477bfeeb-ebfa-4a87-a42e-48181fcc3710" LastKnownName="Manager Interface" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="5dbf8ff4-dab7-4f46-9196-1a9785257d6e" name="Add Items" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="2c0ddda8-84c2-4a58-b629-b98ac00dfb14" />
+        <suppliersInternal>
+          <dependency Id="2da39be6-9899-435d-9710-66ee338ff9e4">
+            <useCaseMoniker Id="6021fdfc-56cf-41a2-a52f-74f256042f05" LastKnownName="Modify Item" />
+            <elementDefinition Id="5968db85-75a5-45e7-88cc-14eec900a636" />
+          </dependency>
+        </suppliersInternal>
+        <subjects>
+          <subsystemMoniker Id="477bfeeb-ebfa-4a87-a42e-48181fcc3710" LastKnownName="Manager Interface" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="6021fdfc-56cf-41a2-a52f-74f256042f05" name="Modify Item" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="f2489168-8dff-4c17-9669-927b0f526b1f" />
+        <suppliersInternal>
+          <dependency Id="dd66a6d7-fd5e-45c1-973b-f15f9865b349">
+            <useCaseMoniker Id="938454a1-4c60-49d2-bdee-3c17954e7168" LastKnownName="View Item" />
+            <elementDefinition Id="16a7a806-2145-4cec-8c8a-997858372e07" />
+          </dependency>
+        </suppliersInternal>
+        <subjects>
+          <subsystemMoniker Id="477bfeeb-ebfa-4a87-a42e-48181fcc3710" LastKnownName="Manager Interface" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="938454a1-4c60-49d2-bdee-3c17954e7168" name="View Item" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="af0f0b9e-2c3e-4a83-b946-73b022ad5c8c" />
+        <suppliersInternal>
+          <dependency Id="faf0df3b-624b-47cc-b8c7-36e0add77b13">
+            <useCaseMoniker Id="eb954c36-7adf-4fe7-a1c8-691686d3ef9b" LastKnownName="Delete Item" />
+            <elementDefinition Id="f87d0ea4-49b2-47f7-9f1d-794c5486801b" />
+          </dependency>
+        </suppliersInternal>
+        <subjects>
+          <subsystemMoniker Id="477bfeeb-ebfa-4a87-a42e-48181fcc3710" LastKnownName="Manager Interface" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="eb954c36-7adf-4fe7-a1c8-691686d3ef9b" name="Delete Item" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="69652aa5-96b5-44e2-8a1d-de8ffb592831" />
+        <subjects>
+          <subsystemMoniker Id="477bfeeb-ebfa-4a87-a42e-48181fcc3710" LastKnownName="Manager Interface" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="ba65eeb8-d7eb-4bcb-85e5-a546d1c38db5" name="Inventory" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="525cbf2a-b334-4d90-80b0-b0bcf8417b64" />
+        <suppliersInternal>
+          <dependency Id="1665689d-5288-4403-91bf-5f09ac566cfb">
+            <useCaseMoniker Id="788514a9-6c09-4083-910d-e89e97142b9c" LastKnownName="set_auto_thereshold" />
+            <elementDefinition Id="fe4f2e85-4f7c-420c-894a-4dbfe2385ca7" />
+          </dependency>
+        </suppliersInternal>
+        <subjects>
+          <subsystemMoniker Id="477bfeeb-ebfa-4a87-a42e-48181fcc3710" LastKnownName="Manager Interface" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="788514a9-6c09-4083-910d-e89e97142b9c" name="set_auto_thereshold" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="8c8ca758-333e-4517-86fc-1e5520c9df1b" />
+        <suppliersInternal>
+          <dependency Id="e83bb710-7395-4d58-8074-7ac285cee460">
+            <useCaseMoniker Id="c1ca690a-76ce-47f2-8adc-255a265e1ffd" LastKnownName="Auto_check_ stock" />
+            <elementDefinition Id="09ae5a5b-984d-47a1-9f67-43f828092cb9" />
+          </dependency>
+        </suppliersInternal>
+        <subjects>
+          <subsystemMoniker Id="477bfeeb-ebfa-4a87-a42e-48181fcc3710" LastKnownName="Manager Interface" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="917e7157-fed2-4215-a817-40bacbde022a" name="Auto order" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="9fe1a08e-e95e-48ab-9d26-fb6437ba8cd1" />
+        <targetEnds>
+          <association Id="fdff21ac-188a-4d61-bc48-d6812c194da8" isDerived="false" sourceEndRoleName="Auto order" targetEndRoleName="Sever" isLeaf="false" isAbstract="false">
+            <actorMoniker Id="2b6203cc-f608-4a5b-b29e-5d54bd16fe59" LastKnownName="Sever" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="22f6097d-86ca-42f1-91b8-3040bfab5edb" name="Auto order" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="51d7d4ed-96e1-4130-9729-65cca1017752" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="037ff3e5-2e62-4f7f-8acd-31440f269096" name="Sever" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="880f5ea2-c190-48e5-ad93-d2090a9f7cd8" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="5e015b35-331e-45e3-98d9-d8bd552edc73" />
+          </association>
+        </targetEnds>
+        <subjects>
+          <subsystemMoniker Id="477bfeeb-ebfa-4a87-a42e-48181fcc3710" LastKnownName="Manager Interface" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="c1ca690a-76ce-47f2-8adc-255a265e1ffd" name="Auto_check_ stock" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="9c59d75e-05b4-46fb-be89-02dd86a6e333" />
+        <suppliersInternal>
+          <dependency Id="1958b1e8-8a82-4331-80f6-267d38123450">
+            <useCaseMoniker Id="917e7157-fed2-4215-a817-40bacbde022a" LastKnownName="Auto order" />
+            <elementDefinition Id="08eb0edf-6658-4732-b6bd-6fb6b5dfbb3c" />
+          </dependency>
+        </suppliersInternal>
+        <subjects>
+          <subsystemMoniker Id="477bfeeb-ebfa-4a87-a42e-48181fcc3710" LastKnownName="Manager Interface" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <useCaseModelRootHasTypes>
+      <actor Id="2b6203cc-f608-4a5b-b29e-5d54bd16fe59" name="Sever" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="bb5d0778-601b-4998-aa0f-6acf44302a8f" />
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <subsystem Id="cd993f41-d964-4e0b-bd61-14355e29dcc4" name="Employee Interface" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="c280fb24-8c5a-4155-86e1-f00a13efbea5" />
+      </subsystem>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="f987f16f-6f9b-4eec-bd35-8914ec1e9f33" name="Employee" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="7982ed9d-9652-4ad0-b265-9f359e020957" />
+        <targetEnds>
+          <association Id="7de6cd34-22be-4261-b479-734f5a48f220" isDerived="false" sourceEndRoleName="Employee" targetEndRoleName="Employee Login" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="5a92c293-ee87-4641-ab5d-120a9350adac" LastKnownName="Employee Login" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="79d1af8e-16d7-48d2-b9a7-fec8a464b157" name="Employee" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="dcaeb21d-2b11-4b89-bdc1-de2c79197b3b" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="48519dc7-2134-4aea-8c21-40811174b378" name="Employee Login" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="0fb7bdd4-4cc3-4dac-9f14-8b6490d3895b" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="2febe303-4595-46f9-9720-95c2ea71966b" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <packageHasNamedElement>
+      <useCase Id="5a92c293-ee87-4641-ab5d-120a9350adac" name="Employee Login" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="6387a213-3361-4b74-a825-0258c7e8277c" />
+        <suppliersInternal>
+          <dependency Id="3b17f19f-54d3-49fb-98af-8a6ca5772a34">
+            <useCaseMoniker Id="5c668b51-e2e9-4efb-8e8f-9344d5479e6c" LastKnownName="Order Picking" />
+            <elementDefinition Id="a6a51975-a7ac-4652-be8c-9fe1387c48f8" />
+          </dependency>
+          <dependency Id="c9131de6-2524-47b9-ba3a-fab553f5a026">
+            <useCaseMoniker Id="afc123a4-b032-4a81-89b2-1d56ce611d0f" LastKnownName="Receving" />
+            <elementDefinition Id="bdda62cc-adf8-4ece-9b47-71dcdecdfb37" />
+          </dependency>
+          <dependency Id="e607754a-b2a7-472e-8c6a-49b3f8954940">
+            <useCaseMoniker Id="5da447da-13a9-4dab-bf40-e63c1489bda0" LastKnownName="Inventory1" />
+            <elementDefinition Id="c11b750c-8d8c-4d44-b401-bc54d7becfe0" />
+          </dependency>
+          <dependency Id="bdb9e42f-209b-4e32-a2a5-502e8e3dea02">
+            <actorMoniker Id="2b6203cc-f608-4a5b-b29e-5d54bd16fe59" LastKnownName="Sever" />
+            <elementDefinition Id="8196cff7-8831-453d-9ae2-8cc4c21ac535" />
+          </dependency>
+        </suppliersInternal>
+        <subjects>
+          <subsystemMoniker Id="cd993f41-d964-4e0b-bd61-14355e29dcc4" LastKnownName="Employee Interface" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="5c668b51-e2e9-4efb-8e8f-9344d5479e6c" name="Order Picking" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="6aed8cb7-d92b-486c-b0b0-98fa021b59b9" />
+        <suppliersInternal>
+          <dependency Id="891c532c-ac98-48e6-9e57-cf7a29dc3183">
+            <useCaseMoniker Id="74c56fd7-1012-4c1c-ac1b-9c3b8fac09c7" LastKnownName="View Order" />
+            <elementDefinition Id="39d43a66-22eb-4468-b361-0f47c3cc9820" />
+          </dependency>
+        </suppliersInternal>
+        <subjects>
+          <subsystemMoniker Id="cd993f41-d964-4e0b-bd61-14355e29dcc4" LastKnownName="Employee Interface" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="afc123a4-b032-4a81-89b2-1d56ce611d0f" name="Receving" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="61c9834f-e94e-45c8-90e4-ba069a0ef8b7" />
+        <suppliersInternal>
+          <dependency Id="bda218e1-a475-4858-bad1-f81360e362f3">
+            <useCaseMoniker Id="74c56fd7-1012-4c1c-ac1b-9c3b8fac09c7" LastKnownName="View Order" />
+            <elementDefinition Id="6dea9950-687a-41d6-8162-48a2033a41d0" />
+          </dependency>
+        </suppliersInternal>
+        <subjects>
+          <subsystemMoniker Id="cd993f41-d964-4e0b-bd61-14355e29dcc4" LastKnownName="Employee Interface" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="eea6312c-9f69-4811-bf49-5c2d80e26423" name="Complete Order" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="90a42902-a8f4-4c73-9cb2-54bff0bf3ba3" />
+        <targetEnds>
+          <association Id="f02b9ad1-b3a6-4ee6-9a9a-a6633d3e18e3" isDerived="false" sourceEndRoleName="Complete Order" targetEndRoleName="Sever" isLeaf="false" isAbstract="false">
+            <actorMoniker Id="2b6203cc-f608-4a5b-b29e-5d54bd16fe59" LastKnownName="Sever" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="38cadd33-d931-412e-9c59-7d9046cb70d1" name="Complete Order" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="b10b8ce8-3da1-4184-bb6f-cbcadf783f1c" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="6ebe827d-367f-4bab-862e-84e7482beef6" name="Sever" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="ddc54005-8e12-4bd3-b022-1feed5cb8e38" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="1aea65f1-c925-4062-a3c1-d52839e23a81" />
+          </association>
+        </targetEnds>
+        <subjects>
+          <subsystemMoniker Id="cd993f41-d964-4e0b-bd61-14355e29dcc4" LastKnownName="Employee Interface" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="74c56fd7-1012-4c1c-ac1b-9c3b8fac09c7" name="View Order" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="556fc5f9-e5e4-42e6-bbd7-0911a69177eb" />
+        <suppliersInternal>
+          <dependency Id="d352b74b-1a4c-4ae5-8e9b-1073cb3acfbb">
+            <useCaseMoniker Id="d6eb45c5-922f-4c31-895a-d17a2bcb4b78" LastKnownName="Accept Order" />
+            <elementDefinition Id="250e32fa-3bb3-42f7-bc8c-79a9efe88229" />
+          </dependency>
+        </suppliersInternal>
+        <subjects>
+          <subsystemMoniker Id="cd993f41-d964-4e0b-bd61-14355e29dcc4" LastKnownName="Employee Interface" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="d6eb45c5-922f-4c31-895a-d17a2bcb4b78" name="Accept Order" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="5869f13f-4419-406c-9d67-a1554f63b4fb" />
+        <suppliersInternal>
+          <dependency Id="634dc539-545b-43ae-8292-37185a7e5fb0">
+            <useCaseMoniker Id="eea6312c-9f69-4811-bf49-5c2d80e26423" LastKnownName="Complete Order" />
+            <elementDefinition Id="78d18cc7-05f6-4302-b52d-e516f7618345" />
+          </dependency>
+        </suppliersInternal>
+        <subjects>
+          <subsystemMoniker Id="cd993f41-d964-4e0b-bd61-14355e29dcc4" LastKnownName="Employee Interface" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="5da447da-13a9-4dab-bf40-e63c1489bda0" name="Inventory1" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="5b8131af-e53d-4295-af1f-377fe0d528bf" />
+        <suppliersInternal>
+          <dependency Id="116268eb-e5f4-489f-b139-2b87cf50c85e">
+            <useCaseMoniker Id="14f588c0-8edd-4f5d-b24d-e1afc9f6eb9a" LastKnownName="View Items" />
+            <elementDefinition Id="7b410e9b-8acf-4284-81fb-88251d13bf04" />
+          </dependency>
+        </suppliersInternal>
+        <subjects>
+          <subsystemMoniker Id="cd993f41-d964-4e0b-bd61-14355e29dcc4" LastKnownName="Employee Interface" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="77ef2a9e-7fec-4278-95ba-0ebdf91140af" name="Modify Items" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="b6773b37-d9d5-4853-9415-0b29e68537d8" />
+        <targetEnds>
+          <association Id="409d17b3-65ac-4a04-b39f-9c093d843811" isDerived="false" sourceEndRoleName="Modify Items" targetEndRoleName="Sever" isLeaf="false" isAbstract="false">
+            <actorMoniker Id="2b6203cc-f608-4a5b-b29e-5d54bd16fe59" LastKnownName="Sever" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="9edbea9f-d542-46d1-88cf-f44cc1e9ec20" name="Modify Items" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="20054e19-057b-4003-a125-69df70cf8453" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="5880a64f-f6ca-4b2c-8d4b-e501aaa10562" name="Sever" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="58ae5d8d-63c6-4bca-9bc0-da7758460372" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="7079473d-fb64-4faf-911e-c302c3ff16a4" />
+          </association>
+        </targetEnds>
+        <subjects>
+          <subsystemMoniker Id="cd993f41-d964-4e0b-bd61-14355e29dcc4" LastKnownName="Employee Interface" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="14f588c0-8edd-4f5d-b24d-e1afc9f6eb9a" name="View Items" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="783ebd7c-db8f-4290-b27e-68e5a71169ff" />
+        <suppliersInternal>
+          <dependency Id="214c6153-073c-4379-90df-0a97057c004e">
+            <useCaseMoniker Id="77ef2a9e-7fec-4278-95ba-0ebdf91140af" LastKnownName="Modify Items" />
+            <elementDefinition Id="974fc1b5-03ad-4904-9a52-a70743cd3691" />
+          </dependency>
+        </suppliersInternal>
+        <subjects>
+          <subsystemMoniker Id="cd993f41-d964-4e0b-bd61-14355e29dcc4" LastKnownName="Employee Interface" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+  </packagedElements>
+  <package Id="e22d9862-ec09-4177-9656-494832467fee" name="ModelingProject1">
+    <elementDefinition Id="c1f856c5-3037-460e-af9c-049a9087b2ac" />
+  </package>
+</useCaseModelRoot>
