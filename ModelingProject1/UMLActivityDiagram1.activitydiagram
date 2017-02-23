@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<activityRootModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm11="http://schemas.microsoft.com/dsltools/UseCaseModel" xmlns:dm12="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" dslVersion="1.0.0.0" Id="4a3b507e-094b-49ee-a6d6-56f821a2ba49" name="Activity1" linkedPackageId="c08da5ef-6b5b-4ed7-a3d2-8b0c298dc21d" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner">
+  <packagedElements>
+    <activityRootModelHasActivity>
+      <activity Id="22dc5faa-7fa3-4702-8d0c-00876e0b8d69" name="Activity1" isAbstract="false" isLeaf="false" isActiveClass="false" isReentrant="false" isReadOnly="false" isSingleExecution="false">
+        <elementDefinition Id="a92ba171-f66a-4020-8f31-f8bee82ed72e" />
+        <nodes>
+          <initialNode Id="61272fbe-138a-480e-9d60-bde66a219baa" name="Initial1" isLeaf="false">
+            <elementDefinition Id="3970d8de-793e-4c01-8a4e-5b93d2ab8a0b" />
+            <flowNodeTargets>
+              <controlFlow Id="4f2048a0-bdbb-4a48-9aa3-2114055322af" isLeaf="false">
+                <opaqueActionMoniker Id="466547c3-b388-4035-82eb-71070c4921ee" LastKnownName="manager interface" />
+                <elementDefinition Id="f87d031f-56ed-4651-b7b5-6370f5bf42ff" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <opaqueAction Id="466547c3-b388-4035-82eb-71070c4921ee" name="manager interface" isLeaf="false">
+            <elementDefinition Id="ad3afa10-4813-4bc7-a1eb-1c054b5af3b0" />
+            <flowNodeTargets>
+              <controlFlow Id="e3972f72-bc64-4910-94d7-bb82986566b7" isLeaf="false">
+                <opaqueActionMoniker Id="498ad54d-d681-46af-a6d6-d7d47550db69" LastKnownName="create order menu" />
+                <elementDefinition Id="239dcef0-4d42-48d8-8e4a-5dcf32c98a19" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="498ad54d-d681-46af-a6d6-d7d47550db69" name="create order menu" isLeaf="false">
+            <elementDefinition Id="d08e7644-8d86-417e-953c-b3654ae347f8" />
+            <flowNodeTargets>
+              <controlFlow Id="68d9b8ec-4377-499f-8607-612c44592356" isLeaf="false">
+                <opaqueActionMoniker Id="4f641436-425e-45f1-bf86-5016ac01ad57" LastKnownName="Select Suppliers" />
+                <elementDefinition Id="822b905a-6ad7-490f-8c6c-66613ab1ef5b" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="4f641436-425e-45f1-bf86-5016ac01ad57" name="Select Suppliers" isLeaf="false">
+            <elementDefinition Id="8a1b3435-ab8b-436e-801c-f52542d69160" />
+            <flowNodeTargets>
+              <controlFlow Id="e9e6c613-4cd0-46dd-b447-4713ec82ab33" guard="correct supplier" isLeaf="false">
+                <decisionNodeMoniker Id="bc9a5a45-4deb-419c-9ddc-7754e4d50f33" LastKnownName="Decision1" />
+                <elementDefinition Id="94eb5aae-fa69-4cc3-8e7c-c2c9845e74aa" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="04843687-8ddc-415a-8a16-0a3a65eb09a2" name="choose product" isLeaf="false">
+            <elementDefinition Id="52ee9ac4-69b1-4deb-a607-c7c74ab518dc" />
+            <flowNodeTargets>
+              <controlFlow Id="f5b5cd9b-2e32-4e53-8fae-4cb768b0ac40" isLeaf="false">
+                <opaqueActionMoniker Id="0c2eb009-53e6-4c97-be5e-aa3fbf5f1318" LastKnownName="select quantity" />
+                <elementDefinition Id="215aa2e3-e8fc-4b41-8998-b8128e19eff7" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="0c2eb009-53e6-4c97-be5e-aa3fbf5f1318" name="select quantity" isLeaf="false">
+            <elementDefinition Id="acfd5482-fc03-47f8-b948-d6137159569f" />
+            <flowNodeTargets>
+              <controlFlow Id="dd465129-2481-4b69-8797-5ea22fd67827" isLeaf="false">
+                <opaqueActionMoniker Id="503a30e1-735d-4579-8db6-f62c14ddda48" LastKnownName="update order total" />
+                <elementDefinition Id="8648cb31-5714-4d3c-b43f-b53fc3b0a694" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode Id="bc9a5a45-4deb-419c-9ddc-7754e4d50f33" name="Decision1" isLeaf="false">
+            <elementDefinition Id="15820953-e721-4e23-bf64-f77cee35c726" />
+            <flowNodeTargets>
+              <controlFlow Id="28fd5bba-25a6-46a9-9d05-9d0df769aea9" guard="no" isLeaf="false">
+                <opaqueActionMoniker Id="4f641436-425e-45f1-bf86-5016ac01ad57" LastKnownName="Select Suppliers" />
+                <elementDefinition Id="e1ce7b8a-8f9d-47c6-8875-b13bc7014840" />
+              </controlFlow>
+              <controlFlow Id="3fe0fbf6-f33b-4dc0-882a-727866c76162" guard="yes" isLeaf="false">
+                <opaqueActionMoniker Id="04843687-8ddc-415a-8a16-0a3a65eb09a2" LastKnownName="choose product" />
+                <elementDefinition Id="d5f18e61-b190-40ac-b1c9-898dac9dd0f6" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <decisionNode Id="6f1f7253-cbd4-4af8-b0a8-219b92b64cbd" name="Decision2" isLeaf="false">
+            <elementDefinition Id="9facef88-a056-498e-b11e-9484f56bb97b" />
+            <flowNodeTargets>
+              <controlFlow Id="ff2d678e-5ccf-44ec-8356-e5f4bc932046" guard="yes" isLeaf="false">
+                <opaqueActionMoniker Id="4f641436-425e-45f1-bf86-5016ac01ad57" LastKnownName="Select Suppliers" />
+                <elementDefinition Id="b85c671a-b634-4add-8213-4bd807265a05" />
+              </controlFlow>
+              <controlFlow Id="cec74afa-8556-4b3a-b5d4-21e4941cbb26" guard="no" isLeaf="false">
+                <opaqueActionMoniker Id="b72572c0-b2c2-4769-a0ed-2570724aab2d" LastKnownName="submit order" />
+                <elementDefinition Id="bef5d2d4-57e5-4bce-94fc-9bcc45c9f9b2" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction Id="503a30e1-735d-4579-8db6-f62c14ddda48" name="update order total" isLeaf="false">
+            <elementDefinition Id="eb1eb3e5-2ee1-463a-bd53-f27eebe494c3" />
+            <flowNodeTargets>
+              <controlFlow Id="737486d4-855d-44cb-a683-cc8423542b48" guard="another supplier" isLeaf="false">
+                <decisionNodeMoniker Id="6f1f7253-cbd4-4af8-b0a8-219b92b64cbd" LastKnownName="Decision2" />
+                <elementDefinition Id="1151d9ae-9a78-4e41-baf6-923f2d3bc59c" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <activityFinalNode Id="2db4401e-a764-444e-a10f-e43fbd58c467" name="ActivityFinal1" isLeaf="false">
+            <elementDefinition Id="0e97d5c7-1965-40b8-8ef6-7f240a51a012" />
+          </activityFinalNode>
+          <opaqueAction Id="b72572c0-b2c2-4769-a0ed-2570724aab2d" name="submit order" isLeaf="false">
+            <elementDefinition Id="53b2f91b-4e5e-4324-b682-91d86694b350" />
+            <flowNodeTargets>
+              <controlFlow Id="ad750050-2b58-40ba-ad22-2ee77616c67c" isLeaf="false">
+                <activityFinalNodeMoniker Id="2db4401e-a764-444e-a10f-e43fbd58c467" LastKnownName="ActivityFinal1" />
+                <elementDefinition Id="751e65e4-fff1-4c58-81d8-3679147fc245" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+        </nodes>
+      </activity>
+    </activityRootModelHasActivity>
+  </packagedElements>
+  <package Id="c08da5ef-6b5b-4ed7-a3d2-8b0c298dc21d" name="ModelingProject1">
+    <elementDefinition Id="c1f856c5-3037-460e-af9c-049a9087b2ac" />
+    <profileInstances>
+      <packageHasProfileInstances Id="474923b0-81dd-43af-b122-4d1ec73a02ed">
+        <profileInstance Id="e56a4ebc-5fe2-45e4-95a6-7e34d939e070" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="3d639a8c-2c4c-45e9-84b5-e2fb2afd8850">
+        <profileInstance Id="a31e0fb8-90f2-4fec-9cf3-804eacb32ad6" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</activityRootModel>

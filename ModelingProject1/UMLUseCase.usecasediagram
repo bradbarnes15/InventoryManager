@@ -1,32 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm11="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner" dslVersion="1.0.0.0" Id="454fc368-591c-4459-8112-05b28be35366" name="UMLUseCase" linkedPackageId="e22d9862-ec09-4177-9656-494832467fee" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
-  <profileInstances>
-    <packageHasProfileInstances Id="6716511f-8eed-4b0c-9c9f-87021b73ce40">
-      <profileInstance Id="c546ecca-5333-41b3-84d0-527994eaaf74" name="StandardProfileL2">
-        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
-      </profileInstance>
-      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
-    </packageHasProfileInstances>
-    <packageHasProfileInstances Id="0ec83edb-6b18-4211-9017-7bf9534a4753">
-      <profileInstance Id="b7fcf696-8bca-4432-a2ba-ecb0046cd185" name="StandardProfileL3">
-        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
-      </profileInstance>
-      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
-    </packageHasProfileInstances>
-  </profileInstances>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm11="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner" xmlns:dm12="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" dslVersion="1.0.0.0" Id="454fc368-591c-4459-8112-05b28be35366" name="UMLUseCase" linkedPackageId="e22d9862-ec09-4177-9656-494832467fee" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
   <packagedElements>
     <useCaseModelRootHasTypes>
       <useCase Id="a9892976-9d48-4adc-b8f2-32d8c15c8eaa" name="Manager Login" isAbstract="false" isLeaf="false">
         <elementDefinition Id="0dacfa3a-e1ca-489a-96fd-f3bfac723b64" />
         <suppliersInternal>
-          <dependency Id="961c0bbb-eea8-418b-b8f7-bc62958c48a8">
-            <useCaseMoniker Id="4f4fae9d-e437-4caf-a42c-4e2e61223393" LastKnownName="Create Order" />
-            <elementDefinition Id="3d422523-19ab-476d-8905-c244c2a993e4" />
-          </dependency>
-          <dependency Id="24371cb4-e8fd-432a-a49c-280730aadf4e">
-            <useCaseMoniker Id="5dbf8ff4-dab7-4f46-9196-1a9785257d6e" LastKnownName="Add Items" />
-            <elementDefinition Id="e4072d5a-617f-4204-8d4f-287be7d45bb7" />
-          </dependency>
           <dependency Id="54358410-1066-4a01-8eb2-e52898410bf5">
             <useCaseMoniker Id="ba65eeb8-d7eb-4bcb-85e5-a546d1c38db5" LastKnownName="Inventory" />
             <elementDefinition Id="3a3a967a-e0e5-47f8-a674-9397c34169d2" />
@@ -34,6 +12,14 @@
           <dependency Id="1bc44af6-3534-4c76-bae4-3b95acb7d78b">
             <actorMoniker Id="2b6203cc-f608-4a5b-b29e-5d54bd16fe59" LastKnownName="Sever" />
             <elementDefinition Id="cf63ac96-3f50-437b-9fcd-f1e9e573865e" />
+          </dependency>
+          <dependency Id="f7d9a5cb-54d5-43d9-8787-008808ba6fbd">
+            <useCaseMoniker Id="49fb2aa7-a0ca-403e-a2f0-5fe0cc8063d1" LastKnownName="item menu" />
+            <elementDefinition Id="3af0bf53-6eb2-43bf-879c-4b75cbc10dc0" />
+          </dependency>
+          <dependency Id="b68f6393-4eec-4a23-8e33-89b85027106e">
+            <useCaseMoniker Id="4f4fae9d-e437-4caf-a42c-4e2e61223393" LastKnownName="Create Order" />
+            <elementDefinition Id="3e9a45ad-b889-4069-a275-690f10167dc0" />
           </dependency>
         </suppliersInternal>
         <subjects>
@@ -81,9 +67,9 @@
       <useCase Id="5dbf8ff4-dab7-4f46-9196-1a9785257d6e" name="Add Items" isAbstract="false" isLeaf="false">
         <elementDefinition Id="2c0ddda8-84c2-4a58-b629-b98ac00dfb14" />
         <suppliersInternal>
-          <dependency Id="2da39be6-9899-435d-9710-66ee338ff9e4">
-            <useCaseMoniker Id="6021fdfc-56cf-41a2-a52f-74f256042f05" LastKnownName="Modify Item" />
-            <elementDefinition Id="5968db85-75a5-45e7-88cc-14eec900a636" />
+          <dependency Id="cef0cd4b-625f-4dab-b0cb-a0f8d16be032">
+            <actorMoniker Id="cf7a9653-8425-4dc0-aafc-d42a63c9bfe5" LastKnownName="Sever" />
+            <elementDefinition Id="4acfe1fa-9cc7-44a3-9764-60fab0e8bcda" />
           </dependency>
         </suppliersInternal>
         <subjects>
@@ -95,9 +81,9 @@
       <useCase Id="6021fdfc-56cf-41a2-a52f-74f256042f05" name="Modify Item" isAbstract="false" isLeaf="false">
         <elementDefinition Id="f2489168-8dff-4c17-9669-927b0f526b1f" />
         <suppliersInternal>
-          <dependency Id="dd66a6d7-fd5e-45c1-973b-f15f9865b349">
-            <useCaseMoniker Id="938454a1-4c60-49d2-bdee-3c17954e7168" LastKnownName="View Item" />
-            <elementDefinition Id="16a7a806-2145-4cec-8c8a-997858372e07" />
+          <dependency Id="a2c52f4f-9969-4a6a-9734-a5b69a575b38">
+            <actorMoniker Id="cf7a9653-8425-4dc0-aafc-d42a63c9bfe5" LastKnownName="Sever" />
+            <elementDefinition Id="3422080f-5b7f-404f-acdf-6c747fd05bd9" />
           </dependency>
         </suppliersInternal>
         <subjects>
@@ -109,9 +95,9 @@
       <useCase Id="938454a1-4c60-49d2-bdee-3c17954e7168" name="View Item" isAbstract="false" isLeaf="false">
         <elementDefinition Id="af0f0b9e-2c3e-4a83-b946-73b022ad5c8c" />
         <suppliersInternal>
-          <dependency Id="faf0df3b-624b-47cc-b8c7-36e0add77b13">
-            <useCaseMoniker Id="eb954c36-7adf-4fe7-a1c8-691686d3ef9b" LastKnownName="Delete Item" />
-            <elementDefinition Id="f87d0ea4-49b2-47f7-9f1d-794c5486801b" />
+          <dependency Id="edf2d9a9-975a-45f5-a55a-0628ec223303">
+            <actorMoniker Id="cf7a9653-8425-4dc0-aafc-d42a63c9bfe5" LastKnownName="Sever" />
+            <elementDefinition Id="bddaec8d-d977-4176-b269-770f75edb424" />
           </dependency>
         </suppliersInternal>
         <subjects>
@@ -122,6 +108,12 @@
     <packageHasNamedElement>
       <useCase Id="eb954c36-7adf-4fe7-a1c8-691686d3ef9b" name="Delete Item" isAbstract="false" isLeaf="false">
         <elementDefinition Id="69652aa5-96b5-44e2-8a1d-de8ffb592831" />
+        <suppliersInternal>
+          <dependency Id="7241ec7a-4b19-4bbb-a7ab-cc8620a55105">
+            <actorMoniker Id="cf7a9653-8425-4dc0-aafc-d42a63c9bfe5" LastKnownName="Sever" />
+            <elementDefinition Id="2c11a4ad-af8a-4c65-8e9e-dd345e57832d" />
+          </dependency>
+        </suppliersInternal>
         <subjects>
           <subsystemMoniker Id="477bfeeb-ebfa-4a87-a42e-48181fcc3710" LastKnownName="Manager Interface" />
         </subjects>
@@ -132,7 +124,7 @@
         <elementDefinition Id="525cbf2a-b334-4d90-80b0-b0bcf8417b64" />
         <suppliersInternal>
           <dependency Id="1665689d-5288-4403-91bf-5f09ac566cfb">
-            <useCaseMoniker Id="788514a9-6c09-4083-910d-e89e97142b9c" LastKnownName="set_auto_thereshold" />
+            <useCaseMoniker Id="788514a9-6c09-4083-910d-e89e97142b9c" LastKnownName="set_auto_threshold" />
             <elementDefinition Id="fe4f2e85-4f7c-420c-894a-4dbfe2385ca7" />
           </dependency>
         </suppliersInternal>
@@ -142,7 +134,7 @@
       </useCase>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <useCase Id="788514a9-6c09-4083-910d-e89e97142b9c" name="set_auto_thereshold" isAbstract="false" isLeaf="false">
+      <useCase Id="788514a9-6c09-4083-910d-e89e97142b9c" name="set_auto_threshold" isAbstract="false" isLeaf="false">
         <elementDefinition Id="8c8ca758-333e-4517-86fc-1e5520c9df1b" />
         <suppliersInternal>
           <dependency Id="e83bb710-7395-4d58-8074-7ac285cee460">
@@ -390,8 +382,53 @@
         </subjects>
       </useCase>
     </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="49fb2aa7-a0ca-403e-a2f0-5fe0cc8063d1" name="item menu" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="4b4b5db2-cad9-485a-a7aa-6f1cae181697" />
+        <suppliersInternal>
+          <dependency Id="7bf1e4d3-00f4-4337-9086-1f98548c1029">
+            <useCaseMoniker Id="938454a1-4c60-49d2-bdee-3c17954e7168" LastKnownName="View Item" />
+            <elementDefinition Id="4bdbaddb-4a5c-4137-9e56-6b8c1f8520f4" />
+          </dependency>
+          <dependency Id="084c52f3-283c-4133-9e99-6e3b913c6dd1">
+            <useCaseMoniker Id="5dbf8ff4-dab7-4f46-9196-1a9785257d6e" LastKnownName="Add Items" />
+            <elementDefinition Id="375b39a6-742c-4e09-a813-f2ef1b215b6b" />
+          </dependency>
+          <dependency Id="10ac7b90-ab75-4108-866c-abe72ad2eb94">
+            <useCaseMoniker Id="6021fdfc-56cf-41a2-a52f-74f256042f05" LastKnownName="Modify Item" />
+            <elementDefinition Id="22039dda-d0ca-499c-835e-bc7556ef6e51" />
+          </dependency>
+          <dependency Id="2a294748-66bd-4e05-b234-c2528865157e">
+            <useCaseMoniker Id="eb954c36-7adf-4fe7-a1c8-691686d3ef9b" LastKnownName="Delete Item" />
+            <elementDefinition Id="c34826e7-e070-4100-ab87-03e4db1eb6c3" />
+          </dependency>
+        </suppliersInternal>
+        <subjects>
+          <subsystemMoniker Id="477bfeeb-ebfa-4a87-a42e-48181fcc3710" LastKnownName="Manager Interface" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <useCaseModelRootHasTypes>
+      <actor Id="cf7a9653-8425-4dc0-aafc-d42a63c9bfe5" name="Sever" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="53898ae0-4da3-4b6f-b8c3-45a7037fd660" />
+      </actor>
+    </useCaseModelRootHasTypes>
   </packagedElements>
   <package Id="e22d9862-ec09-4177-9656-494832467fee" name="ModelingProject1">
     <elementDefinition Id="c1f856c5-3037-460e-af9c-049a9087b2ac" />
+    <profileInstances>
+      <packageHasProfileInstances Id="6716511f-8eed-4b0c-9c9f-87021b73ce40">
+        <profileInstance Id="c546ecca-5333-41b3-84d0-527994eaaf74" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="0ec83edb-6b18-4211-9017-7bf9534a4753">
+        <profileInstance Id="b7fcf696-8bca-4432-a2ba-ecb0046cd185" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
   </package>
 </useCaseModelRoot>
