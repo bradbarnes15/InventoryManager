@@ -26,20 +26,6 @@
         isLeaf="false">
         <suppliersInternal>
           <dependency
-            Id="3d422523-19ab-476d-8905-c244c2a993e4">
-            <useCaseMoniker
-              Id="954598b0-f26b-4c24-81d7-5f1b5990cb17"
-              LastKnownName="Create Order"
-              LastKnownLocation="ModelingProject1.uml" />
-          </dependency>
-          <dependency
-            Id="e4072d5a-617f-4204-8d4f-287be7d45bb7">
-            <useCaseMoniker
-              Id="2c0ddda8-84c2-4a58-b629-b98ac00dfb14"
-              LastKnownName="Add Items"
-              LastKnownLocation="ModelingProject1.uml" />
-          </dependency>
-          <dependency
             Id="3a3a967a-e0e5-47f8-a674-9397c34169d2">
             <useCaseMoniker
               Id="525cbf2a-b334-4d90-80b0-b0bcf8417b64"
@@ -51,6 +37,20 @@
             <actorMoniker
               Id="bb5d0778-601b-4998-aa0f-6acf44302a8f"
               LastKnownName="Sever"
+              LastKnownLocation="ModelingProject1.uml" />
+          </dependency>
+          <dependency
+            Id="3af0bf53-6eb2-43bf-879c-4b75cbc10dc0">
+            <useCaseMoniker
+              Id="4b4b5db2-cad9-485a-a7aa-6f1cae181697"
+              LastKnownName="item menu"
+              LastKnownLocation="ModelingProject1.uml" />
+          </dependency>
+          <dependency
+            Id="3e9a45ad-b889-4069-a275-690f10167dc0">
+            <useCaseMoniker
+              Id="954598b0-f26b-4c24-81d7-5f1b5990cb17"
+              LastKnownName="Create Order"
               LastKnownLocation="ModelingProject1.uml" />
           </dependency>
         </suppliersInternal>
@@ -141,10 +141,10 @@
         isLeaf="false">
         <suppliersInternal>
           <dependency
-            Id="5968db85-75a5-45e7-88cc-14eec900a636">
-            <useCaseMoniker
-              Id="f2489168-8dff-4c17-9669-927b0f526b1f"
-              LastKnownName="Modify Item"
+            Id="4acfe1fa-9cc7-44a3-9764-60fab0e8bcda">
+            <actorMoniker
+              Id="53898ae0-4da3-4b6f-b8c3-45a7037fd660"
+              LastKnownName="Sever"
               LastKnownLocation="ModelingProject1.uml" />
           </dependency>
         </suppliersInternal>
@@ -164,10 +164,10 @@
         isLeaf="false">
         <suppliersInternal>
           <dependency
-            Id="16a7a806-2145-4cec-8c8a-997858372e07">
-            <useCaseMoniker
-              Id="af0f0b9e-2c3e-4a83-b946-73b022ad5c8c"
-              LastKnownName="View Item"
+            Id="3422080f-5b7f-404f-acdf-6c747fd05bd9">
+            <actorMoniker
+              Id="53898ae0-4da3-4b6f-b8c3-45a7037fd660"
+              LastKnownName="Sever"
               LastKnownLocation="ModelingProject1.uml" />
           </dependency>
         </suppliersInternal>
@@ -187,10 +187,10 @@
         isLeaf="false">
         <suppliersInternal>
           <dependency
-            Id="f87d0ea4-49b2-47f7-9f1d-794c5486801b">
-            <useCaseMoniker
-              Id="69652aa5-96b5-44e2-8a1d-de8ffb592831"
-              LastKnownName="Delete Item"
+            Id="bddaec8d-d977-4176-b269-770f75edb424">
+            <actorMoniker
+              Id="53898ae0-4da3-4b6f-b8c3-45a7037fd660"
+              LastKnownName="Sever"
               LastKnownLocation="ModelingProject1.uml" />
           </dependency>
         </suppliersInternal>
@@ -208,6 +208,15 @@
         name="Delete Item"
         isAbstract="false"
         isLeaf="false">
+        <suppliersInternal>
+          <dependency
+            Id="2c11a4ad-af8a-4c65-8e9e-dd345e57832d">
+            <actorMoniker
+              Id="53898ae0-4da3-4b6f-b8c3-45a7037fd660"
+              LastKnownName="Sever"
+              LastKnownLocation="ModelingProject1.uml" />
+          </dependency>
+        </suppliersInternal>
         <subjects>
           <subsystemMoniker
             Id="650ffdd4-c3ee-4f0f-b35d-f4943792e9d4"
@@ -2621,6 +2630,247 @@
       <executionEvent
         Id="2a65d124-81fc-4c48-8190-b5a489c905dd"
         name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <activity
+        Id="a92ba171-f66a-4020-8f31-f8bee82ed72e"
+        name="Activity1"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <initialNode
+            Id="3970d8de-793e-4c01-8a4e-5b93d2ab8a0b"
+            name="Initial1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="f87d031f-56ed-4651-b7b5-6370f5bf42ff"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="ad3afa10-4813-4bc7-a1eb-1c054b5af3b0"
+                  LastKnownName="manager interface"
+                  LastKnownLocation="ModelingProject1.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <opaqueAction
+            Id="ad3afa10-4813-4bc7-a1eb-1c054b5af3b0"
+            name="manager interface"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="239dcef0-4d42-48d8-8e4a-5dcf32c98a19"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="d08e7644-8d86-417e-953c-b3654ae347f8"
+                  LastKnownName="create order menu"
+                  LastKnownLocation="ModelingProject1.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="d08e7644-8d86-417e-953c-b3654ae347f8"
+            name="create order menu"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="822b905a-6ad7-490f-8c6c-66613ab1ef5b"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="8a1b3435-ab8b-436e-801c-f52542d69160"
+                  LastKnownName="Select Suppliers"
+                  LastKnownLocation="ModelingProject1.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="8a1b3435-ab8b-436e-801c-f52542d69160"
+            name="Select Suppliers"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="94eb5aae-fa69-4cc3-8e7c-c2c9845e74aa"
+                guard="correct supplier"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="15820953-e721-4e23-bf64-f77cee35c726"
+                  LastKnownName="Decision1"
+                  LastKnownLocation="ModelingProject1.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="52ee9ac4-69b1-4deb-a607-c7c74ab518dc"
+            name="choose product"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="215aa2e3-e8fc-4b41-8998-b8128e19eff7"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="acfd5482-fc03-47f8-b948-d6137159569f"
+                  LastKnownName="select quantity"
+                  LastKnownLocation="ModelingProject1.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="acfd5482-fc03-47f8-b948-d6137159569f"
+            name="select quantity"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="8648cb31-5714-4d3c-b43f-b53fc3b0a694"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="eb1eb3e5-2ee1-463a-bd53-f27eebe494c3"
+                  LastKnownName="update order total"
+                  LastKnownLocation="ModelingProject1.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="15820953-e721-4e23-bf64-f77cee35c726"
+            name="Decision1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="e1ce7b8a-8f9d-47c6-8875-b13bc7014840"
+                guard="no"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="8a1b3435-ab8b-436e-801c-f52542d69160"
+                  LastKnownName="Select Suppliers"
+                  LastKnownLocation="ModelingProject1.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="d5f18e61-b190-40ac-b1c9-898dac9dd0f6"
+                guard="yes"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="52ee9ac4-69b1-4deb-a607-c7c74ab518dc"
+                  LastKnownName="choose product"
+                  LastKnownLocation="ModelingProject1.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <decisionNode
+            Id="9facef88-a056-498e-b11e-9484f56bb97b"
+            name="Decision2"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="b85c671a-b634-4add-8213-4bd807265a05"
+                guard="yes"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="8a1b3435-ab8b-436e-801c-f52542d69160"
+                  LastKnownName="Select Suppliers"
+                  LastKnownLocation="ModelingProject1.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="bef5d2d4-57e5-4bce-94fc-9bcc45c9f9b2"
+                guard="no"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="53b2f91b-4e5e-4324-b682-91d86694b350"
+                  LastKnownName="submit order"
+                  LastKnownLocation="ModelingProject1.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction
+            Id="eb1eb3e5-2ee1-463a-bd53-f27eebe494c3"
+            name="update order total"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="1151d9ae-9a78-4e41-baf6-923f2d3bc59c"
+                guard="another supplier"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="9facef88-a056-498e-b11e-9484f56bb97b"
+                  LastKnownName="Decision2"
+                  LastKnownLocation="ModelingProject1.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <activityFinalNode
+            Id="0e97d5c7-1965-40b8-8ef6-7f240a51a012"
+            name="ActivityFinal1"
+            isLeaf="false" />
+          <opaqueAction
+            Id="53b2f91b-4e5e-4324-b682-91d86694b350"
+            name="submit order"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="751e65e4-fff1-4c58-81d8-3679147fc245"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="0e97d5c7-1965-40b8-8ef6-7f240a51a012"
+                  LastKnownName="ActivityFinal1"
+                  LastKnownLocation="ModelingProject1.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+        </nodes>
+      </activity>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="4b4b5db2-cad9-485a-a7aa-6f1cae181697"
+        name="item menu"
+        isAbstract="false"
+        isLeaf="false">
+        <suppliersInternal>
+          <dependency
+            Id="4bdbaddb-4a5c-4137-9e56-6b8c1f8520f4">
+            <useCaseMoniker
+              Id="af0f0b9e-2c3e-4a83-b946-73b022ad5c8c"
+              LastKnownName="View Item"
+              LastKnownLocation="ModelingProject1.uml" />
+          </dependency>
+          <dependency
+            Id="375b39a6-742c-4e09-a813-f2ef1b215b6b">
+            <useCaseMoniker
+              Id="2c0ddda8-84c2-4a58-b629-b98ac00dfb14"
+              LastKnownName="Add Items"
+              LastKnownLocation="ModelingProject1.uml" />
+          </dependency>
+          <dependency
+            Id="22039dda-d0ca-499c-835e-bc7556ef6e51">
+            <useCaseMoniker
+              Id="f2489168-8dff-4c17-9669-927b0f526b1f"
+              LastKnownName="Modify Item"
+              LastKnownLocation="ModelingProject1.uml" />
+          </dependency>
+          <dependency
+            Id="c34826e7-e070-4100-ab87-03e4db1eb6c3">
+            <useCaseMoniker
+              Id="69652aa5-96b5-44e2-8a1d-de8ffb592831"
+              LastKnownName="Delete Item"
+              LastKnownLocation="ModelingProject1.uml" />
+          </dependency>
+        </suppliersInternal>
+        <subjects>
+          <subsystemMoniker
+            Id="650ffdd4-c3ee-4f0f-b35d-f4943792e9d4"
+            LastKnownName="Manager Interface"
+            LastKnownLocation="ModelingProject1.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="53898ae0-4da3-4b6f-b8c3-45a7037fd660"
+        name="Sever"
+        isAbstract="false"
+        isLeaf="false" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType
