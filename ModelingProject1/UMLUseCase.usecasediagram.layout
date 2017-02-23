@@ -50,7 +50,7 @@
           <relativeChildShapes />
         </useCaseShape>
         <useCaseShape Id="7136be24-5b68-4c72-b2be-dbe3b2f0e063" absoluteBounds="6.25, 3.375, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
-          <useCaseMoniker Id="788514a9-6c09-4083-910d-e89e97142b9c" LastKnownName="set_auto_thereshold" />
+          <useCaseMoniker Id="788514a9-6c09-4083-910d-e89e97142b9c" LastKnownName="set_auto_threshold" />
           <relativeChildShapes />
         </useCaseShape>
         <useCaseShape Id="4f417052-2e6f-46b1-b5cc-2cc2c7d87350" absoluteBounds="7.375, 4.875, 1, 0.5" customColor="238, 237, 131" heightOffset="0">

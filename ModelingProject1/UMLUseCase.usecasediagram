@@ -124,7 +124,7 @@
         <elementDefinition Id="525cbf2a-b334-4d90-80b0-b0bcf8417b64" />
         <suppliersInternal>
           <dependency Id="1665689d-5288-4403-91bf-5f09ac566cfb">
-            <useCaseMoniker Id="788514a9-6c09-4083-910d-e89e97142b9c" LastKnownName="set_auto_thereshold" />
+            <useCaseMoniker Id="788514a9-6c09-4083-910d-e89e97142b9c" LastKnownName="set_auto_threshold" />
             <elementDefinition Id="fe4f2e85-4f7c-420c-894a-4dbfe2385ca7" />
           </dependency>
         </suppliersInternal>
@@ -134,7 +134,7 @@
       </useCase>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <useCase Id="788514a9-6c09-4083-910d-e89e97142b9c" name="set_auto_thereshold" isAbstract="false" isLeaf="false">
+      <useCase Id="788514a9-6c09-4083-910d-e89e97142b9c" name="set_auto_threshold" isAbstract="false" isLeaf="false">
         <elementDefinition Id="8c8ca758-333e-4517-86fc-1e5520c9df1b" />
         <suppliersInternal>
           <dependency Id="e83bb710-7395-4d58-8074-7ac285cee460">

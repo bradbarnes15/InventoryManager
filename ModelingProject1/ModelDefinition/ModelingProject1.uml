@@ -236,7 +236,7 @@
             Id="fe4f2e85-4f7c-420c-894a-4dbfe2385ca7">
             <useCaseMoniker
               Id="8c8ca758-333e-4517-86fc-1e5520c9df1b"
-              LastKnownName="set_auto_thereshold"
+              LastKnownName="set_auto_threshold"
               LastKnownLocation="ModelingProject1.uml" />
           </dependency>
         </suppliersInternal>
@@ -251,7 +251,7 @@
     <packageHasNamedElement>
       <useCase
         Id="8c8ca758-333e-4517-86fc-1e5520c9df1b"
-        name="set_auto_thereshold"
+        name="set_auto_threshold"
         isAbstract="false"
         isLeaf="false">
         <suppliersInternal>
@@ -2871,6 +2871,238 @@
         name="Sever"
         isAbstract="false"
         isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <activity
+        Id="dc70502a-556a-4bbb-8d37-42e76e031037"
+        name="Activity2"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <initialNode
+            Id="448c6357-6f37-4347-a298-3134f772432b"
+            name="Initial1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="15d2d606-8df8-4a1e-a587-8b84f1eee440"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="4dc4326a-2e3c-4aee-b995-fdde0d9a7b0d"
+                  LastKnownName="manager interface"
+                  LastKnownLocation="ModelingProject1.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <opaqueAction
+            Id="4dc4326a-2e3c-4aee-b995-fdde0d9a7b0d"
+            name="manager interface"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="f843e8cb-8391-4a5e-9890-a1395ffed764"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="04058fae-f191-4b8b-827b-8a919a62d457"
+                  LastKnownName="inventory"
+                  LastKnownLocation="ModelingProject1.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="04058fae-f191-4b8b-827b-8a919a62d457"
+            name="inventory"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="df2b7688-e1dd-4db1-b745-091e522c864d"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="e70c20a8-b1e3-49cf-b385-75c922c4fa4f"
+                  LastKnownName="select item"
+                  LastKnownLocation="ModelingProject1.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="e70c20a8-b1e3-49cf-b385-75c922c4fa4f"
+            name="select item"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="9327ee11-fe0d-43a1-96aa-9f84d1aa50d9"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="dee86514-71c1-4080-84b3-7c9c4d3f4fda"
+                  LastKnownName="set auto threshold"
+                  LastKnownLocation="ModelingProject1.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="dee86514-71c1-4080-84b3-7c9c4d3f4fda"
+            name="set auto threshold"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="4e5db609-4bcd-4a31-8838-5990f69fb44f"
+                guard="select another item"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="a0d8a2d8-d870-43c6-8990-9260237f6091"
+                  LastKnownName="Decision1"
+                  LastKnownLocation="ModelingProject1.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="a0d8a2d8-d870-43c6-8990-9260237f6091"
+            name="Decision1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="58981e7b-d124-423b-8653-5f9a21c02b4d"
+                guard="yes"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="e70c20a8-b1e3-49cf-b385-75c922c4fa4f"
+                  LastKnownName="select item"
+                  LastKnownLocation="ModelingProject1.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="4834b175-f6ca-4bea-b0fc-7ed27468542a"
+                guard="no"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="a64f0fb6-7be4-4f8d-8931-f6ca2f2efde6"
+                  LastKnownName="auto check stock"
+                  LastKnownLocation="ModelingProject1.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction
+            Id="a64f0fb6-7be4-4f8d-8931-f6ca2f2efde6"
+            name="auto check stock"
+            isLeaf="false">
+            <objectFlowTargets>
+              <objectFlow
+                Id="dc962da7-0df4-44ce-afca-7f429b142240"
+                isLeaf="false"
+                isMulticast="false"
+                isMultireceive="false">
+                <objectNodeMoniker
+                  Id="c85b9007-f2a5-4806-b8fb-6bf0ede90d9c"
+                  LastKnownName="items to be ordered"
+                  LastKnownLocation="ModelingProject1.uml" />
+              </objectFlow>
+            </objectFlowTargets>
+          </opaqueAction>
+          <objectNode
+            Id="c85b9007-f2a5-4806-b8fb-6bf0ede90d9c"
+            name="items to be ordered"
+            isLeaf="false"
+            ordering="Unordered"
+            isControlType="false">
+            <objectFlowTargets>
+              <objectFlow
+                Id="80aea426-0af3-4e3c-92d9-90526f0d6bd1"
+                isLeaf="false"
+                isMulticast="false"
+                isMultireceive="false">
+                <opaqueActionMoniker
+                  Id="78757db0-b272-4546-8fe4-6bde205122c8"
+                  LastKnownName="review orders"
+                  LastKnownLocation="ModelingProject1.uml" />
+              </objectFlow>
+            </objectFlowTargets>
+            <upperBound>
+              <literalInteger
+                Id="d3bbe042-3116-47ed-a36f-b8aa436062b2"
+                name="2147483647"
+                value="2147483647" />
+            </upperBound>
+          </objectNode>
+          <opaqueAction
+            Id="78757db0-b272-4546-8fe4-6bde205122c8"
+            name="review orders"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="49f1f31a-c152-4584-b4c9-15a989bb9be6"
+                guard="order correct"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="5d5cfa4e-e7fd-4710-b641-fdb9b3b7e4ba"
+                  LastKnownName="Decision2"
+                  LastKnownLocation="ModelingProject1.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="5d5cfa4e-e7fd-4710-b641-fdb9b3b7e4ba"
+            name="Decision2"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="0aaccc85-275b-492d-bc80-172c507dc539"
+                guard="no"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="29e9d3b0-b8c1-456f-a05f-a30d1065270f"
+                  LastKnownName="update quanitys"
+                  LastKnownLocation="ModelingProject1.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="c86eac64-f2cc-4446-aa4b-801531f45509"
+                guard="yes"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="948b5952-981e-445e-95a4-cab7c218a883"
+                  LastKnownName="submit order"
+                  LastKnownLocation="ModelingProject1.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction
+            Id="29e9d3b0-b8c1-456f-a05f-a30d1065270f"
+            name="update quanitys"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="21951615-3832-411c-b93e-5ceaea992e40"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="78757db0-b272-4546-8fe4-6bde205122c8"
+                  LastKnownName="review orders"
+                  LastKnownLocation="ModelingProject1.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="948b5952-981e-445e-95a4-cab7c218a883"
+            name="submit order"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="c8e7360a-17f9-4bd1-8df4-b6713aa1ef65"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="45f8878f-e10b-4f17-8cc2-f9b19ed68817"
+                  LastKnownName="ActivityFinal1"
+                  LastKnownLocation="ModelingProject1.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <activityFinalNode
+            Id="45f8878f-e10b-4f17-8cc2-f9b19ed68817"
+            name="ActivityFinal1"
+            isLeaf="false" />
+        </nodes>
+      </activity>
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType
