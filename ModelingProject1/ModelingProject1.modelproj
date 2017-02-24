@@ -50,6 +50,20 @@
       <SubType>Content</SubType>
       <DependentUpon>UMLSequenceDiagram.sequencediagram</DependentUpon>
     </Content>
+    <Content Include="UMLSequenceDiagram1.sequencediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="UMLSequenceDiagram1.sequencediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>UMLSequenceDiagram1.sequencediagram</DependentUpon>
+    </Content>
+    <Content Include="UMLSequenceDiagram2.sequencediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="UMLSequenceDiagram2.sequencediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>UMLSequenceDiagram2.sequencediagram</DependentUpon>
+    </Content>
     <Content Include="UMLUseCase.usecasediagram">
       <SubType>Content</SubType>
     </Content>
