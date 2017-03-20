@@ -95,7 +95,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\InventoryManagerLib\InventoryManagerLib.csproj">
+      <Project>{8027ac93-861b-4c1f-8132-b5a68d78adbe}</Project>
+      <Name>InventoryManagerLib</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Documentation\Requirements.html" />
   </ItemGroup>

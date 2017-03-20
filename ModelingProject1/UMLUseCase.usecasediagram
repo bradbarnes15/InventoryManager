@@ -1,27 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm11="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner" xmlns:dm12="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" dslVersion="1.0.0.0" Id="454fc368-591c-4459-8112-05b28be35366" name="Use_Case" linkedPackageId="e22d9862-ec09-4177-9656-494832467fee" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm11="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner" xmlns:dm12="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" dslVersion="1.0.0.0" Id="454fc368-591c-4459-8112-05b28be35366" name="Use_Case" linkedPackageId="e22d9862-ec09-4177-9656-494832467fee" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
   <packagedElements>
     <useCaseModelRootHasTypes>
       <useCase Id="a9892976-9d48-4adc-b8f2-32d8c15c8eaa" name="Manager Login" isAbstract="false" isLeaf="false">
         <elementDefinition Id="0dacfa3a-e1ca-489a-96fd-f3bfac723b64" />
-        <suppliersInternal>
-          <dependency Id="54358410-1066-4a01-8eb2-e52898410bf5">
-            <useCaseMoniker Id="ba65eeb8-d7eb-4bcb-85e5-a546d1c38db5" LastKnownName="Inventory" />
-            <elementDefinition Id="3a3a967a-e0e5-47f8-a674-9397c34169d2" />
-          </dependency>
-          <dependency Id="1bc44af6-3534-4c76-bae4-3b95acb7d78b">
-            <actorMoniker Id="2b6203cc-f608-4a5b-b29e-5d54bd16fe59" LastKnownName="Sever" />
-            <elementDefinition Id="cf63ac96-3f50-437b-9fcd-f1e9e573865e" />
-          </dependency>
-          <dependency Id="f7d9a5cb-54d5-43d9-8787-008808ba6fbd">
-            <useCaseMoniker Id="49fb2aa7-a0ca-403e-a2f0-5fe0cc8063d1" LastKnownName="item menu" />
-            <elementDefinition Id="3af0bf53-6eb2-43bf-879c-4b75cbc10dc0" />
-          </dependency>
-          <dependency Id="b68f6393-4eec-4a23-8e33-89b85027106e">
-            <useCaseMoniker Id="4f4fae9d-e437-4caf-a42c-4e2e61223393" LastKnownName="Create Order" />
-            <elementDefinition Id="3e9a45ad-b889-4069-a275-690f10167dc0" />
-          </dependency>
-        </suppliersInternal>
+        <targetEnds>
+          <association Id="c14634db-2068-4e74-9b89-2ee41341205d" isDerived="false" sourceEndRoleName="Manager Login" targetEndRoleName="Database" isLeaf="false" isAbstract="false">
+            <actorMoniker Id="2b6203cc-f608-4a5b-b29e-5d54bd16fe59" LastKnownName="Database" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="fe010e7c-4b3a-4de5-b8e7-2f441eb68b79" name="Manager Login" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="e8790f33-53cf-49a6-a15d-fbd7b89910bf" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="c4aa2b32-e085-4e8c-b949-81e6321b95b9" name="Database" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="1cc1f80a-fd13-4607-921a-16e9f650202e" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="869212d3-6a6f-47c2-8db1-b8c6f2e45e2a" />
+          </association>
+        </targetEnds>
         <subjects>
           <subsystemMoniker Id="477bfeeb-ebfa-4a87-a42e-48181fcc3710" LastKnownName="Manager Interface" />
         </subjects>
@@ -47,6 +47,70 @@
             </relationshipOwnedElementsInternal>
             <elementDefinition Id="dbe00be4-6e7c-472b-8bd9-f90229da3201" />
           </association>
+          <association Id="5af356f8-947f-468f-af53-b24818ab1bed" isDerived="false" sourceEndRoleName="Manager" targetEndRoleName="Create Order" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="4f4fae9d-e437-4caf-a42c-4e2e61223393" LastKnownName="Create Order" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="79a84ec0-14ed-4561-a5d0-b9ad8073cb23" name="Manager" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="c8f197aa-b125-43ef-b783-27a6c33133b8" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="9e2d99b3-bfb7-4791-a921-05ba54e621dd" name="Create Order" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="03e6a37d-b1d6-49e6-a46d-6e45a7d81b61" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="8574ec95-ce87-405d-b115-6fda1a3e07e7" />
+          </association>
+          <association Id="94e04eb0-10aa-47ce-8147-68a09d4d55fc" isDerived="false" sourceEndRoleName="Manager" targetEndRoleName="create item" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="49fb2aa7-a0ca-403e-a2f0-5fe0cc8063d1" LastKnownName="create item" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="05dcd313-2e8d-443b-a0d0-4e1b71218f34" name="Manager" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="7e5b0190-4bf8-4e41-939f-d2711377b866" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="70fe1571-60a3-4e8a-bdcc-b1c1ff4865f9" name="create item" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="07e7fe55-090a-40e3-84ba-6efd70ace9a5" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="d6cfcd64-9317-4935-8f77-4608982507d9" />
+          </association>
+          <association Id="9ab146bc-9766-4060-8a66-f8abb609af00" isDerived="false" sourceEndRoleName="Manager" targetEndRoleName="Inventory" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="ba65eeb8-d7eb-4bcb-85e5-a546d1c38db5" LastKnownName="Inventory" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="60c58e2e-226c-4f32-aa56-5e27c2d80c3b" name="Manager" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="b74471f8-aeaa-4f3f-ba5a-98ff24789b54" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="3c78122d-5ef7-49f0-8ba5-7dc013ae625f" name="Inventory" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="3e802df1-f3e7-4485-a6d4-e7028fc95886" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="523717c7-3851-4d50-9516-ee4eb0bf9309" />
+          </association>
+          <association Id="53b5a87d-8346-4b47-b067-c57839b26fb3" isDerived="false" sourceEndRoleName="Manager" targetEndRoleName="setup auto order" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="61d3bcd5-2a19-46ae-8425-d7336a82eff8" LastKnownName="setup auto order" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="87280223-6a44-434a-9aab-63483454340d" name="Manager" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="c91a48b3-7914-4099-af8f-da0994389ca2" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="8799e792-560a-4150-ba6a-53b273e48450" name="setup auto order" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="b0cd1c44-1a4c-4aba-80c5-11902fb5ffea" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="cce1a942-b058-425c-9e79-4ecbb195b9ce" />
+          </association>
         </targetEnds>
       </actor>
     </useCaseModelRootHasTypes>
@@ -58,60 +122,10 @@
     <packageHasNamedElement>
       <useCase Id="4f4fae9d-e437-4caf-a42c-4e2e61223393" name="Create Order" isAbstract="false" isLeaf="false">
         <elementDefinition Id="954598b0-f26b-4c24-81d7-5f1b5990cb17" />
-        <subjects>
-          <subsystemMoniker Id="477bfeeb-ebfa-4a87-a42e-48181fcc3710" LastKnownName="Manager Interface" />
-        </subjects>
-      </useCase>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <useCase Id="5dbf8ff4-dab7-4f46-9196-1a9785257d6e" name="Add Items" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="2c0ddda8-84c2-4a58-b629-b98ac00dfb14" />
         <suppliersInternal>
-          <dependency Id="cef0cd4b-625f-4dab-b0cb-a0f8d16be032">
-            <actorMoniker Id="cf7a9653-8425-4dc0-aafc-d42a63c9bfe5" LastKnownName="Sever" />
-            <elementDefinition Id="4acfe1fa-9cc7-44a3-9764-60fab0e8bcda" />
-          </dependency>
-        </suppliersInternal>
-        <subjects>
-          <subsystemMoniker Id="477bfeeb-ebfa-4a87-a42e-48181fcc3710" LastKnownName="Manager Interface" />
-        </subjects>
-      </useCase>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <useCase Id="6021fdfc-56cf-41a2-a52f-74f256042f05" name="Modify Item" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="f2489168-8dff-4c17-9669-927b0f526b1f" />
-        <suppliersInternal>
-          <dependency Id="a2c52f4f-9969-4a6a-9734-a5b69a575b38">
-            <actorMoniker Id="cf7a9653-8425-4dc0-aafc-d42a63c9bfe5" LastKnownName="Sever" />
-            <elementDefinition Id="3422080f-5b7f-404f-acdf-6c747fd05bd9" />
-          </dependency>
-        </suppliersInternal>
-        <subjects>
-          <subsystemMoniker Id="477bfeeb-ebfa-4a87-a42e-48181fcc3710" LastKnownName="Manager Interface" />
-        </subjects>
-      </useCase>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <useCase Id="938454a1-4c60-49d2-bdee-3c17954e7168" name="View Item" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="af0f0b9e-2c3e-4a83-b946-73b022ad5c8c" />
-        <suppliersInternal>
-          <dependency Id="edf2d9a9-975a-45f5-a55a-0628ec223303">
-            <actorMoniker Id="cf7a9653-8425-4dc0-aafc-d42a63c9bfe5" LastKnownName="Sever" />
-            <elementDefinition Id="bddaec8d-d977-4176-b269-770f75edb424" />
-          </dependency>
-        </suppliersInternal>
-        <subjects>
-          <subsystemMoniker Id="477bfeeb-ebfa-4a87-a42e-48181fcc3710" LastKnownName="Manager Interface" />
-        </subjects>
-      </useCase>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <useCase Id="eb954c36-7adf-4fe7-a1c8-691686d3ef9b" name="Delete Item" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="69652aa5-96b5-44e2-8a1d-de8ffb592831" />
-        <suppliersInternal>
-          <dependency Id="7241ec7a-4b19-4bbb-a7ab-cc8620a55105">
-            <actorMoniker Id="cf7a9653-8425-4dc0-aafc-d42a63c9bfe5" LastKnownName="Sever" />
-            <elementDefinition Id="2c11a4ad-af8a-4c65-8e9e-dd345e57832d" />
+          <dependency Id="b30d5220-a188-4e12-aa1b-6fc54a6ff30c">
+            <useCaseMoniker Id="a9892976-9d48-4adc-b8f2-32d8c15c8eaa" LastKnownName="Manager Login" />
+            <elementDefinition Id="3cb0535a-a031-4c2c-a012-32e5297fb297" />
           </dependency>
         </suppliersInternal>
         <subjects>
@@ -123,23 +137,9 @@
       <useCase Id="ba65eeb8-d7eb-4bcb-85e5-a546d1c38db5" name="Inventory" isAbstract="false" isLeaf="false">
         <elementDefinition Id="525cbf2a-b334-4d90-80b0-b0bcf8417b64" />
         <suppliersInternal>
-          <dependency Id="1665689d-5288-4403-91bf-5f09ac566cfb">
-            <useCaseMoniker Id="788514a9-6c09-4083-910d-e89e97142b9c" LastKnownName="set_auto_threshold" />
-            <elementDefinition Id="fe4f2e85-4f7c-420c-894a-4dbfe2385ca7" />
-          </dependency>
-        </suppliersInternal>
-        <subjects>
-          <subsystemMoniker Id="477bfeeb-ebfa-4a87-a42e-48181fcc3710" LastKnownName="Manager Interface" />
-        </subjects>
-      </useCase>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <useCase Id="788514a9-6c09-4083-910d-e89e97142b9c" name="set_auto_threshold" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="8c8ca758-333e-4517-86fc-1e5520c9df1b" />
-        <suppliersInternal>
-          <dependency Id="e83bb710-7395-4d58-8074-7ac285cee460">
-            <useCaseMoniker Id="c1ca690a-76ce-47f2-8adc-255a265e1ffd" LastKnownName="Auto_check_ stock" />
-            <elementDefinition Id="09ae5a5b-984d-47a1-9f67-43f828092cb9" />
+          <dependency Id="51358b5b-27d8-40d1-8ea8-625e43cf74c7">
+            <useCaseMoniker Id="a9892976-9d48-4adc-b8f2-32d8c15c8eaa" LastKnownName="Manager Login" />
+            <elementDefinition Id="ce3594f0-add0-44fd-938e-5246b809f215" />
           </dependency>
         </suppliersInternal>
         <subjects>
@@ -150,22 +150,28 @@
     <packageHasNamedElement>
       <useCase Id="917e7157-fed2-4215-a817-40bacbde022a" name="Auto order" isAbstract="false" isLeaf="false">
         <elementDefinition Id="9fe1a08e-e95e-48ab-9d26-fb6437ba8cd1" />
+        <suppliersInternal>
+          <dependency Id="3de2560c-ee5e-4846-b742-759a4ef43f96">
+            <useCaseMoniker Id="61d3bcd5-2a19-46ae-8425-d7336a82eff8" LastKnownName="setup auto order" />
+            <elementDefinition Id="00bdc771-ed1c-4c3a-8b52-833b9cc60697" />
+          </dependency>
+        </suppliersInternal>
         <targetEnds>
-          <association Id="fdff21ac-188a-4d61-bc48-d6812c194da8" isDerived="false" sourceEndRoleName="Auto order" targetEndRoleName="Sever" isLeaf="false" isAbstract="false">
-            <actorMoniker Id="2b6203cc-f608-4a5b-b29e-5d54bd16fe59" LastKnownName="Sever" />
+          <association Id="4c164ecd-0cba-4518-b46a-ae02497426e7" isDerived="false" sourceEndRoleName="Auto order" targetEndRoleName="Database" isLeaf="false" isAbstract="false">
+            <actorMoniker Id="2b6203cc-f608-4a5b-b29e-5d54bd16fe59" LastKnownName="Database" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
-                <memberEnd Id="22f6097d-86ca-42f1-91b8-3040bfab5edb" name="Auto order" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="51d7d4ed-96e1-4130-9729-65cca1017752" />
+                <memberEnd Id="32be7eca-926b-4b59-870d-cf0f99191837" name="Auto order" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="068a37d0-9a0b-499a-9223-30f08ec4c8dd" />
                 </memberEnd>
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
-                <memberEnd Id="037ff3e5-2e62-4f7f-8acd-31440f269096" name="Sever" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="880f5ea2-c190-48e5-ad93-d2090a9f7cd8" />
+                <memberEnd Id="55a2e9e8-a715-4372-ae80-7d53d7978f60" name="Database" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="5df13f0d-bae3-45f6-9ca8-25fbc9a821e8" />
                 </memberEnd>
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
-            <elementDefinition Id="5e015b35-331e-45e3-98d9-d8bd552edc73" />
+            <elementDefinition Id="3d9e3ee0-0787-48fc-a6f3-f90a3d1bae3f" />
           </association>
         </targetEnds>
         <subjects>
@@ -173,23 +179,43 @@
         </subjects>
       </useCase>
     </packageHasNamedElement>
-    <packageHasNamedElement>
-      <useCase Id="c1ca690a-76ce-47f2-8adc-255a265e1ffd" name="Auto_check_ stock" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="9c59d75e-05b4-46fb-be89-02dd86a6e333" />
-        <suppliersInternal>
-          <dependency Id="1958b1e8-8a82-4331-80f6-267d38123450">
-            <useCaseMoniker Id="917e7157-fed2-4215-a817-40bacbde022a" LastKnownName="Auto order" />
-            <elementDefinition Id="08eb0edf-6658-4732-b6bd-6fb6b5dfbb3c" />
-          </dependency>
-        </suppliersInternal>
-        <subjects>
-          <subsystemMoniker Id="477bfeeb-ebfa-4a87-a42e-48181fcc3710" LastKnownName="Manager Interface" />
-        </subjects>
-      </useCase>
-    </packageHasNamedElement>
     <useCaseModelRootHasTypes>
-      <actor Id="2b6203cc-f608-4a5b-b29e-5d54bd16fe59" name="Sever" isAbstract="false" isLeaf="false">
+      <actor Id="2b6203cc-f608-4a5b-b29e-5d54bd16fe59" name="Database" isAbstract="false" isLeaf="false">
         <elementDefinition Id="bb5d0778-601b-4998-aa0f-6acf44302a8f" />
+        <targetEnds>
+          <association Id="1296f151-6f33-4802-b4f9-0a5feed4c210" isDerived="false" sourceEndRoleName="Database" targetEndRoleName="View Items" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="14f588c0-8edd-4f5d-b24d-e1afc9f6eb9a" LastKnownName="View Items" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="9469c9d0-c68a-4614-bc4d-c860216ad647" name="Database" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="c5c59b52-46e4-41cd-a8ed-de6c0be8e586" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="1b5dbccf-3d6d-4411-87cc-a9dd808dafe6" name="View Items" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="da18b86a-0019-4302-ae36-6f97e4478fd4" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="1e5e2b8d-5176-4f73-bd3d-c85ddfd3f256" />
+          </association>
+          <association Id="40b0fd4d-795f-4588-9758-ad0657db6725" isDerived="false" sourceEndRoleName="Database" targetEndRoleName="View Order" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="74c56fd7-1012-4c1c-ac1b-9c3b8fac09c7" LastKnownName="View Order" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="61671125-5a00-425f-b07a-c0013be75775" name="Database" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="e729fbc8-87b0-4865-aa1c-410946e61560" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="175c6158-e1e0-46d9-b04e-0facd62e90ed" name="View Order" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="6f31cbdb-b593-4cad-a098-2044ba07752d" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="7d79e5e8-f344-498c-bca6-a4aa0538964b" />
+          </association>
+        </targetEnds>
       </actor>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
@@ -217,58 +243,110 @@
             </relationshipOwnedElementsInternal>
             <elementDefinition Id="2febe303-4595-46f9-9720-95c2ea71966b" />
           </association>
+          <association Id="1fc1c5eb-99f3-4f6f-b0cb-59b45485bad8" isDerived="false" sourceEndRoleName="Employee" targetEndRoleName="View Items" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="14f588c0-8edd-4f5d-b24d-e1afc9f6eb9a" LastKnownName="View Items" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="49a8cab9-e4f8-42fd-8342-f7554fb77958" name="Employee" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="43f333a9-ba26-496a-9506-3f8f57b67868" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="4cc4385e-92d0-46cc-bbd9-5bed6f089075" name="View Items" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="8b9c79ac-cda8-4bec-ae2a-1ff9026f383d" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="766e9e5e-4676-433d-b538-e55a52bde62f" />
+          </association>
+          <association Id="24bab48e-f950-4213-bd6e-58c66fbe0ad6" isDerived="false" sourceEndRoleName="Employee" targetEndRoleName="Accept Order" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="d6eb45c5-922f-4c31-895a-d17a2bcb4b78" LastKnownName="Accept Order" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="4fc7af57-8c3b-4993-afb6-b31c9660a6f4" name="Employee" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="fc7f8f3a-638f-4a8c-a5ed-6f70ed5ff44d" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="f53edfd0-e5d4-450a-befe-2fadd13cffb9" name="Accept Order" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="73ef3995-e34b-4e74-80d8-452b35d0d8bc" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="9bc94121-d4ba-4e7a-b4f3-09c34e49ebc6" />
+          </association>
+          <association Id="c1f711a4-1ea4-4f48-a5e5-1ea66843c3c8" isDerived="false" sourceEndRoleName="Employee" targetEndRoleName="View Order" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="74c56fd7-1012-4c1c-ac1b-9c3b8fac09c7" LastKnownName="View Order" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="e5a7e90c-ee91-440d-85f5-af4ce3e6d019" name="Employee" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="c38cb031-4c8d-4944-bf3b-f0c3dbb9b57d" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="ddf3f300-7aec-43d2-bee3-767b8ac2b754" name="View Order" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="ffa75f8e-107e-49aa-b178-ab609d87cbe8" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="7d8ec1cb-5895-43a1-a9cc-a9e159087a01" />
+          </association>
+          <association Id="ca934331-cd61-4873-8073-cbc3ab6dc7fb" isDerived="false" sourceEndRoleName="Employee" targetEndRoleName="Complete Order" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="eea6312c-9f69-4811-bf49-5c2d80e26423" LastKnownName="Complete Order" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="adb3b26d-fa91-43fb-be33-d118a972f1fc" name="Employee" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="9cd7d62b-a81d-4ebb-886a-09391ad2880c" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="a585c327-ebf4-452b-aaa3-6a44e8225967" name="Complete Order" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="ef495ee2-90ee-4f6f-9748-562bb44bfcf1" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="aa82efdd-2714-44d1-be8c-3e02d79918d5" />
+          </association>
+          <association Id="78832704-d047-43d0-9730-a44d38bad2a0" isDerived="false" sourceEndRoleName="Employee" targetEndRoleName="Modify Items" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="77ef2a9e-7fec-4278-95ba-0ebdf91140af" LastKnownName="Modify Items" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="88969ce2-a732-4bc6-bb90-cec10820893c" name="Employee" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="98093a82-95a6-48e4-9101-9d58a512c5b6" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="b34d64c7-2841-4877-887f-d885cbe3fa28" name="Modify Items" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="8a92a834-6970-40a1-9c33-071e91099034" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="54a9ef72-76f7-4165-aece-e44bda92c43c" />
+          </association>
         </targetEnds>
       </actor>
     </useCaseModelRootHasTypes>
     <packageHasNamedElement>
       <useCase Id="5a92c293-ee87-4641-ab5d-120a9350adac" name="Employee Login" isAbstract="false" isLeaf="false">
         <elementDefinition Id="6387a213-3361-4b74-a825-0258c7e8277c" />
-        <suppliersInternal>
-          <dependency Id="3b17f19f-54d3-49fb-98af-8a6ca5772a34">
-            <useCaseMoniker Id="5c668b51-e2e9-4efb-8e8f-9344d5479e6c" LastKnownName="Order Picking" />
-            <elementDefinition Id="a6a51975-a7ac-4652-be8c-9fe1387c48f8" />
-          </dependency>
-          <dependency Id="c9131de6-2524-47b9-ba3a-fab553f5a026">
-            <useCaseMoniker Id="afc123a4-b032-4a81-89b2-1d56ce611d0f" LastKnownName="Receving" />
-            <elementDefinition Id="bdda62cc-adf8-4ece-9b47-71dcdecdfb37" />
-          </dependency>
-          <dependency Id="e607754a-b2a7-472e-8c6a-49b3f8954940">
-            <useCaseMoniker Id="5da447da-13a9-4dab-bf40-e63c1489bda0" LastKnownName="Inventory1" />
-            <elementDefinition Id="c11b750c-8d8c-4d44-b401-bc54d7becfe0" />
-          </dependency>
-          <dependency Id="bdb9e42f-209b-4e32-a2a5-502e8e3dea02">
-            <actorMoniker Id="2b6203cc-f608-4a5b-b29e-5d54bd16fe59" LastKnownName="Sever" />
-            <elementDefinition Id="8196cff7-8831-453d-9ae2-8cc4c21ac535" />
-          </dependency>
-        </suppliersInternal>
-        <subjects>
-          <subsystemMoniker Id="cd993f41-d964-4e0b-bd61-14355e29dcc4" LastKnownName="Employee Interface" />
-        </subjects>
-      </useCase>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <useCase Id="5c668b51-e2e9-4efb-8e8f-9344d5479e6c" name="Order Picking" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="6aed8cb7-d92b-486c-b0b0-98fa021b59b9" />
-        <suppliersInternal>
-          <dependency Id="891c532c-ac98-48e6-9e57-cf7a29dc3183">
-            <useCaseMoniker Id="74c56fd7-1012-4c1c-ac1b-9c3b8fac09c7" LastKnownName="View Order" />
-            <elementDefinition Id="39d43a66-22eb-4468-b361-0f47c3cc9820" />
-          </dependency>
-        </suppliersInternal>
-        <subjects>
-          <subsystemMoniker Id="cd993f41-d964-4e0b-bd61-14355e29dcc4" LastKnownName="Employee Interface" />
-        </subjects>
-      </useCase>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <useCase Id="afc123a4-b032-4a81-89b2-1d56ce611d0f" name="Receving" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="61c9834f-e94e-45c8-90e4-ba069a0ef8b7" />
-        <suppliersInternal>
-          <dependency Id="bda218e1-a475-4858-bad1-f81360e362f3">
-            <useCaseMoniker Id="74c56fd7-1012-4c1c-ac1b-9c3b8fac09c7" LastKnownName="View Order" />
-            <elementDefinition Id="6dea9950-687a-41d6-8162-48a2033a41d0" />
-          </dependency>
-        </suppliersInternal>
+        <targetEnds>
+          <association Id="542ae9f2-0732-497d-85cf-9a341962ceb3" isDerived="false" sourceEndRoleName="Employee Login" targetEndRoleName="Database" isLeaf="false" isAbstract="false">
+            <actorMoniker Id="2b6203cc-f608-4a5b-b29e-5d54bd16fe59" LastKnownName="Database" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="bdccc903-d09a-4e82-8d80-fb0051f1162f" name="Employee Login" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="37ae7043-0e56-4a88-a1c7-94f19921c07f" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="aa8deb3e-468c-4323-a998-91286a7a529c" name="Database" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="1dcb0cf8-4e7d-4b5f-a382-8f1bcc907cda" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="696f2272-a724-44fb-83ca-b21aff71b0fc" />
+          </association>
+        </targetEnds>
         <subjects>
           <subsystemMoniker Id="cd993f41-d964-4e0b-bd61-14355e29dcc4" LastKnownName="Employee Interface" />
         </subjects>
@@ -277,22 +355,28 @@
     <packageHasNamedElement>
       <useCase Id="eea6312c-9f69-4811-bf49-5c2d80e26423" name="Complete Order" isAbstract="false" isLeaf="false">
         <elementDefinition Id="90a42902-a8f4-4c73-9cb2-54bff0bf3ba3" />
+        <suppliersInternal>
+          <dependency Id="6d803e98-6b35-4c95-86b6-229aacb22a4c">
+            <useCaseMoniker Id="5a92c293-ee87-4641-ab5d-120a9350adac" LastKnownName="Employee Login" />
+            <elementDefinition Id="e8b5aade-445b-4c07-b1ae-fce76e6f5b9f" />
+          </dependency>
+        </suppliersInternal>
         <targetEnds>
-          <association Id="f02b9ad1-b3a6-4ee6-9a9a-a6633d3e18e3" isDerived="false" sourceEndRoleName="Complete Order" targetEndRoleName="Sever" isLeaf="false" isAbstract="false">
-            <actorMoniker Id="2b6203cc-f608-4a5b-b29e-5d54bd16fe59" LastKnownName="Sever" />
+          <association Id="634e3f17-48c5-4ebd-8fe1-3337079ac2d8" isDerived="false" sourceEndRoleName="Complete Order" targetEndRoleName="Database" isLeaf="false" isAbstract="false">
+            <actorMoniker Id="2b6203cc-f608-4a5b-b29e-5d54bd16fe59" LastKnownName="Database" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
-                <memberEnd Id="38cadd33-d931-412e-9c59-7d9046cb70d1" name="Complete Order" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="b10b8ce8-3da1-4184-bb6f-cbcadf783f1c" />
+                <memberEnd Id="85ae56c2-4d60-4600-bbe9-b1ac0bdca6cc" name="Complete Order" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="8e16b967-63f0-4d3c-bd47-43e88ea1825a" />
                 </memberEnd>
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
-                <memberEnd Id="6ebe827d-367f-4bab-862e-84e7482beef6" name="Sever" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="ddc54005-8e12-4bd3-b022-1feed5cb8e38" />
+                <memberEnd Id="097bd62f-debc-4955-b186-e129a5c2bdde" name="Database" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="9acfdba5-c239-4a01-9879-2e19d7b51489" />
                 </memberEnd>
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
-            <elementDefinition Id="1aea65f1-c925-4062-a3c1-d52839e23a81" />
+            <elementDefinition Id="7ed0169a-9b9e-450a-9995-930d5ddeffce" />
           </association>
         </targetEnds>
         <subjects>
@@ -304,9 +388,9 @@
       <useCase Id="74c56fd7-1012-4c1c-ac1b-9c3b8fac09c7" name="View Order" isAbstract="false" isLeaf="false">
         <elementDefinition Id="556fc5f9-e5e4-42e6-bbd7-0911a69177eb" />
         <suppliersInternal>
-          <dependency Id="d352b74b-1a4c-4ae5-8e9b-1073cb3acfbb">
-            <useCaseMoniker Id="d6eb45c5-922f-4c31-895a-d17a2bcb4b78" LastKnownName="Accept Order" />
-            <elementDefinition Id="250e32fa-3bb3-42f7-bc8c-79a9efe88229" />
+          <dependency Id="c68c30fb-ba27-41f9-beeb-2b64f2af1845">
+            <useCaseMoniker Id="5a92c293-ee87-4641-ab5d-120a9350adac" LastKnownName="Employee Login" />
+            <elementDefinition Id="86e19107-a678-4a5d-b05e-84f794961f98" />
           </dependency>
         </suppliersInternal>
         <subjects>
@@ -318,25 +402,29 @@
       <useCase Id="d6eb45c5-922f-4c31-895a-d17a2bcb4b78" name="Accept Order" isAbstract="false" isLeaf="false">
         <elementDefinition Id="5869f13f-4419-406c-9d67-a1554f63b4fb" />
         <suppliersInternal>
-          <dependency Id="634dc539-545b-43ae-8292-37185a7e5fb0">
-            <useCaseMoniker Id="eea6312c-9f69-4811-bf49-5c2d80e26423" LastKnownName="Complete Order" />
-            <elementDefinition Id="78d18cc7-05f6-4302-b52d-e516f7618345" />
+          <dependency Id="186ce127-de61-47c1-b669-4afbb0459b84">
+            <useCaseMoniker Id="5a92c293-ee87-4641-ab5d-120a9350adac" LastKnownName="Employee Login" />
+            <elementDefinition Id="86f34c6e-d3b0-4c32-a443-19a6367fc11a" />
           </dependency>
         </suppliersInternal>
-        <subjects>
-          <subsystemMoniker Id="cd993f41-d964-4e0b-bd61-14355e29dcc4" LastKnownName="Employee Interface" />
-        </subjects>
-      </useCase>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <useCase Id="5da447da-13a9-4dab-bf40-e63c1489bda0" name="Inventory1" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="5b8131af-e53d-4295-af1f-377fe0d528bf" />
-        <suppliersInternal>
-          <dependency Id="116268eb-e5f4-489f-b139-2b87cf50c85e">
-            <useCaseMoniker Id="14f588c0-8edd-4f5d-b24d-e1afc9f6eb9a" LastKnownName="View Items" />
-            <elementDefinition Id="7b410e9b-8acf-4284-81fb-88251d13bf04" />
-          </dependency>
-        </suppliersInternal>
+        <targetEnds>
+          <association Id="9a9d3fa9-8c4b-4f62-96d2-150fa0df100e" isDerived="false" sourceEndRoleName="Accept Order" targetEndRoleName="Database" isLeaf="false" isAbstract="false">
+            <actorMoniker Id="2b6203cc-f608-4a5b-b29e-5d54bd16fe59" LastKnownName="Database" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="9e7c5750-2d8e-4027-a38d-96b2c8e6d080" name="Accept Order" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="e259d726-5550-4bda-898b-8ced3dd2acb8" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="bb32847b-abd8-4e1f-8111-e1bd232f9c38" name="Database" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="7663a2fe-0f25-46e7-a54d-79a37e95c7a1" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="431f742c-a774-4cb8-8755-6dd4229540f9" />
+          </association>
+        </targetEnds>
         <subjects>
           <subsystemMoniker Id="cd993f41-d964-4e0b-bd61-14355e29dcc4" LastKnownName="Employee Interface" />
         </subjects>
@@ -345,22 +433,44 @@
     <packageHasNamedElement>
       <useCase Id="77ef2a9e-7fec-4278-95ba-0ebdf91140af" name="Modify Items" isAbstract="false" isLeaf="false">
         <elementDefinition Id="b6773b37-d9d5-4853-9415-0b29e68537d8" />
+        <suppliersInternal>
+          <dependency Id="d81e6b65-0048-46ba-8f00-56ee20b5c019">
+            <useCaseMoniker Id="5a92c293-ee87-4641-ab5d-120a9350adac" LastKnownName="Employee Login" />
+            <elementDefinition Id="bb4a9249-839a-4975-9ad1-819c49bd1dd4" />
+          </dependency>
+        </suppliersInternal>
         <targetEnds>
-          <association Id="409d17b3-65ac-4a04-b39f-9c093d843811" isDerived="false" sourceEndRoleName="Modify Items" targetEndRoleName="Sever" isLeaf="false" isAbstract="false">
-            <actorMoniker Id="2b6203cc-f608-4a5b-b29e-5d54bd16fe59" LastKnownName="Sever" />
+          <association Id="12018746-2004-47f3-8be2-fe9f6a3583ac" isDerived="false" sourceEndRoleName="Modify Items" targetEndRoleName="Modify Items" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="77ef2a9e-7fec-4278-95ba-0ebdf91140af" LastKnownName="Modify Items" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
-                <memberEnd Id="9edbea9f-d542-46d1-88cf-f44cc1e9ec20" name="Modify Items" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="20054e19-057b-4003-a125-69df70cf8453" />
+                <memberEnd Id="e35d888c-356c-45c9-b578-b9d56217a988" name="Modify Items" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="02cbde83-f3e4-44e5-9c9e-bc36b26279a3" />
                 </memberEnd>
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
-                <memberEnd Id="5880a64f-f6ca-4b2c-8d4b-e501aaa10562" name="Sever" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="58ae5d8d-63c6-4bca-9bc0-da7758460372" />
+                <memberEnd Id="6e3fceb6-2af6-4aa6-a9ca-58711fa3fb17" name="Modify Items" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="e1a97a25-ebd3-4888-a207-f0b6797d8c50" />
                 </memberEnd>
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
-            <elementDefinition Id="7079473d-fb64-4faf-911e-c302c3ff16a4" />
+            <elementDefinition Id="553292e0-2bf6-4a2b-b8ea-4df6690ca5fb" />
+          </association>
+          <association Id="b2ff3344-062a-41ba-abcc-6a0d0894066a" isDerived="false" sourceEndRoleName="Modify Items" targetEndRoleName="Database" isLeaf="false" isAbstract="false">
+            <actorMoniker Id="2b6203cc-f608-4a5b-b29e-5d54bd16fe59" LastKnownName="Database" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="7d55770e-4026-4b27-860f-7255ac8dcf3e" name="Modify Items" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="45273c47-ac07-4efe-b03d-0b76b18fe17f" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="ffd5a3ce-0d23-4559-bc6c-78bfeede37c4" name="Database" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="e40a573b-a5f7-4387-ae03-c1f3fdd3b3fc" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="9d66b0c9-5f1b-416e-bee1-dca24a7c89fc" />
           </association>
         </targetEnds>
         <subjects>
@@ -372,9 +482,9 @@
       <useCase Id="14f588c0-8edd-4f5d-b24d-e1afc9f6eb9a" name="View Items" isAbstract="false" isLeaf="false">
         <elementDefinition Id="783ebd7c-db8f-4290-b27e-68e5a71169ff" />
         <suppliersInternal>
-          <dependency Id="214c6153-073c-4379-90df-0a97057c004e">
-            <useCaseMoniker Id="77ef2a9e-7fec-4278-95ba-0ebdf91140af" LastKnownName="Modify Items" />
-            <elementDefinition Id="974fc1b5-03ad-4904-9a52-a70743cd3691" />
+          <dependency Id="7523c7a2-bac5-473f-af3c-48ad82ca331d">
+            <useCaseMoniker Id="5a92c293-ee87-4641-ab5d-120a9350adac" LastKnownName="Employee Login" />
+            <elementDefinition Id="77312a6e-02ec-4710-bf8b-a394ccf38e0f" />
           </dependency>
         </suppliersInternal>
         <subjects>
@@ -383,24 +493,12 @@
       </useCase>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <useCase Id="49fb2aa7-a0ca-403e-a2f0-5fe0cc8063d1" name="item menu" isAbstract="false" isLeaf="false">
+      <useCase Id="49fb2aa7-a0ca-403e-a2f0-5fe0cc8063d1" name="create item" isAbstract="false" isLeaf="false">
         <elementDefinition Id="4b4b5db2-cad9-485a-a7aa-6f1cae181697" />
         <suppliersInternal>
-          <dependency Id="7bf1e4d3-00f4-4337-9086-1f98548c1029">
-            <useCaseMoniker Id="938454a1-4c60-49d2-bdee-3c17954e7168" LastKnownName="View Item" />
-            <elementDefinition Id="4bdbaddb-4a5c-4137-9e56-6b8c1f8520f4" />
-          </dependency>
-          <dependency Id="084c52f3-283c-4133-9e99-6e3b913c6dd1">
-            <useCaseMoniker Id="5dbf8ff4-dab7-4f46-9196-1a9785257d6e" LastKnownName="Add Items" />
-            <elementDefinition Id="375b39a6-742c-4e09-a813-f2ef1b215b6b" />
-          </dependency>
-          <dependency Id="10ac7b90-ab75-4108-866c-abe72ad2eb94">
-            <useCaseMoniker Id="6021fdfc-56cf-41a2-a52f-74f256042f05" LastKnownName="Modify Item" />
-            <elementDefinition Id="22039dda-d0ca-499c-835e-bc7556ef6e51" />
-          </dependency>
-          <dependency Id="2a294748-66bd-4e05-b234-c2528865157e">
-            <useCaseMoniker Id="eb954c36-7adf-4fe7-a1c8-691686d3ef9b" LastKnownName="Delete Item" />
-            <elementDefinition Id="c34826e7-e070-4100-ab87-03e4db1eb6c3" />
+          <dependency Id="2216a408-74b1-408e-a587-ff3f05f6e8d9">
+            <useCaseMoniker Id="a9892976-9d48-4adc-b8f2-32d8c15c8eaa" LastKnownName="Manager Login" />
+            <elementDefinition Id="af9e4951-2683-4d1f-a841-dc077f547352" />
           </dependency>
         </suppliersInternal>
         <subjects>
@@ -408,11 +506,20 @@
         </subjects>
       </useCase>
     </packageHasNamedElement>
-    <useCaseModelRootHasTypes>
-      <actor Id="cf7a9653-8425-4dc0-aafc-d42a63c9bfe5" name="Sever" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="53898ae0-4da3-4b6f-b8c3-45a7037fd660" />
-      </actor>
-    </useCaseModelRootHasTypes>
+    <packageHasNamedElement>
+      <useCase Id="61d3bcd5-2a19-46ae-8425-d7336a82eff8" name="setup auto order" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="d23a6526-71bd-43e6-8889-587921a2b124" />
+        <suppliersInternal>
+          <dependency Id="0d2c0af6-8478-4f17-836b-89e8375a466f">
+            <useCaseMoniker Id="a9892976-9d48-4adc-b8f2-32d8c15c8eaa" LastKnownName="Manager Login" />
+            <elementDefinition Id="c9d3eab8-935c-413b-83ee-e443f1105f45" />
+          </dependency>
+        </suppliersInternal>
+        <subjects>
+          <subsystemMoniker Id="477bfeeb-ebfa-4a87-a42e-48181fcc3710" LastKnownName="Manager Interface" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
   </packagedElements>
   <package Id="e22d9862-ec09-4177-9656-494832467fee" name="ModelingProject1">
     <elementDefinition Id="c1f856c5-3037-460e-af9c-049a9087b2ac" />
