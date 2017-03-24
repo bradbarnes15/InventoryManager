@@ -4,7 +4,7 @@
     [Product Name] NCHAR (10)   NOT NULL,
     [Unit Cost]    MONEY        NOT NULL,
     [List Price]   MONEY        NOT NULL,
-    [Discontinue]  BIT          NOT NULL,
+    [Discontinue]  BIT          NOT NULL DEFAULT 0,
     [Category]     VARCHAR (50) NOT NULL,
     PRIMARY KEY CLUSTERED ([Product_Id] ASC)
 );
