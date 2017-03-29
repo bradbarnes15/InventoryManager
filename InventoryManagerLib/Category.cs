@@ -14,8 +14,7 @@ public class Category : DBConnection
 	private string Category
 	{
 		get;
-
-		set;
+        set;
 	}
 
 	private int Category_Id
