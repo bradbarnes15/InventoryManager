@@ -6,10 +6,11 @@
 //------------------------------------------------------------------------------
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 
-public class OrderStatus
+public class OrderStatus 
 {
 	public virtual object StatusText
 	{
@@ -25,7 +26,17 @@ public class OrderStatus
 
 	public virtual void Operation1()
 	{
-		throw new System.NotImplementedException();
+        using(SqlConnection conn = new SqlConnection())
+        {
+            conn.ConnectionString = DBConnection.CONNECTION_STRING;
+            conn.Open();
+
+            string sql;
+            sql = "INSERT INTO [OrderStatus] (Status_Text) "
+                + "VALUES(New)";
+
+            SqlCommand command = new SqlCommand(sql, conn);
+        }
 	}
 
 }
