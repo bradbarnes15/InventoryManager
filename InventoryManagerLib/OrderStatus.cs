@@ -9,30 +9,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class DBConnection : Inventory, Product, Customer
+public class OrderStatus
 {
-	public virtual string connString
+	public virtual object StatusText
 	{
 		get;
 		set;
 	}
 
-	public virtual void add()
+	public virtual DBConnection DBConnection
 	{
-		throw new System.NotImplementedException();
+		get;
+		set;
 	}
 
-	public virtual void delete()
-	{
-		throw new System.NotImplementedException();
-	}
-
-	public virtual void search()
-	{
-		throw new System.NotImplementedException();
-	}
-
-	public virtual void save()
+	public virtual void Operation1()
 	{
 		throw new System.NotImplementedException();
 	}

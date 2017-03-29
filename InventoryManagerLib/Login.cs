@@ -11,5 +11,33 @@ using System.Text;
 
 public class Login
 {
+	private string userName
+	{
+		get;
+		set;
+	}
+
+	private string passWord
+	{
+		get;
+		set;
+	}
+
+	private int employeeCODE
+	{
+		get;
+		set;
+	}
+
+	private void VerifyPassword(string fn, string ln, int id, int employeeCode)
+	{
+		throw new System.NotImplementedException();
+	}
+
+	private void CreatePassword()
+	{
+		throw new System.NotImplementedException();
+	}
+
 }
 

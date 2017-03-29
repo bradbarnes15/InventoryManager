@@ -9,32 +9,57 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class DBConnection : Inventory, Product, Customer
+public class Product
 {
-	public virtual string connString
+	private string productName
 	{
 		get;
 		set;
 	}
 
-	public virtual void add()
+	private Double standardCost
+	{
+		get;
+		set;
+	}
+
+	private int productCode
+	{
+		get;
+		set;
+	}
+
+	private int itemStock
+	{
+		get;
+		set;
+	}
+
+	private bool discontine
+	{
+		get;
+		set;
+	}
+
+	private string supplier
+	{
+		get;
+		set;
+	}
+
+	private string foodCatorgory
+	{
+		get;
+		set;
+	}
+
+	public virtual void ToString()
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void delete()
+	public Product()
 	{
-		throw new System.NotImplementedException();
-	}
-
-	public virtual void search()
-	{
-		throw new System.NotImplementedException();
-	}
-
-	public virtual void save()
-	{
-		throw new System.NotImplementedException();
 	}
 
 }

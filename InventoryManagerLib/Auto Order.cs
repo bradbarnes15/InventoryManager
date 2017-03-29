@@ -9,30 +9,39 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class DBConnection : Inventory, Product, Customer
+public class Auto Order
 {
-	public virtual string connString
+	private int MinStockAllowed
 	{
 		get;
 		set;
 	}
 
-	public virtual void add()
+	private int maxStockAllowed
 	{
-		throw new System.NotImplementedException();
+		get;
+		set;
 	}
 
-	public virtual void delete()
+	private int critical
 	{
-		throw new System.NotImplementedException();
+		get;
+		set;
 	}
 
-	public virtual void search()
+	private int currentStock
 	{
-		throw new System.NotImplementedException();
+		get;
+		set;
 	}
 
-	public virtual void save()
+	private int productCode
+	{
+		get;
+		set;
+	}
+
+	public virtual void CreateOrder()
 	{
 		throw new System.NotImplementedException();
 	}
