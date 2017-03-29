@@ -9,39 +9,63 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class Auto Order
+public class PurchaseOrder : DBConnection
 {
-	private int MinStockAllowed
+	private int purchaseOrderDetailId
 	{
 		get;
 		set;
 	}
 
-	private int maxStockAllowed
+	private string orderDate
 	{
 		get;
 		set;
 	}
 
-	private int critical
+	private string createdBy
 	{
 		get;
 		set;
 	}
 
-	private int currentStock
+	private string createdDate
 	{
 		get;
 		set;
 	}
 
-	private int productCode
+	private Double shippingFees
 	{
 		get;
 		set;
 	}
 
-	public virtual void CreateOrder()
+	private Double taxes
+	{
+		get;
+		set;
+	}
+
+	private string paymentDate
+	{
+		get;
+		set;
+	}
+
+	private Double paymentAmount
+	{
+		get;
+		set;
+	}
+
+	private Double orderTotal
+	{
+		get;
+		set;
+	}
+
+	public virtual void ToString()
 	{
 		throw new System.NotImplementedException();
 	}

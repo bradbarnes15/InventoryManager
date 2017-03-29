@@ -9,30 +9,39 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class Order Processing
+public class AutoOrder
 {
-	private string fileName
+	private int MinStockAllowed
 	{
 		get;
 		set;
 	}
 
-	public virtual void getOrder(string file)
+	private int maxStockAllowed
 	{
-		throw new System.NotImplementedException();
+		get;
+		set;
 	}
 
-	public virtual void applyFiltersToOrder()
+	private int critical
 	{
-		throw new System.NotImplementedException();
+		get;
+		set;
 	}
 
-	public virtual void createOrder()
+	private int currentStock
 	{
-		throw new System.NotImplementedException();
+		get;
+		set;
 	}
 
-	public virtual void ToString()
+	private int productCode
+	{
+		get;
+		set;
+	}
+
+	public virtual void CreateOrder()
 	{
 		throw new System.NotImplementedException();
 	}

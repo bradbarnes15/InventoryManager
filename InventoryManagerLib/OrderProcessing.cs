@@ -9,60 +9,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class Purchase Order : DBConnection
+public class OrderProcessing
 {
-	private int purchaseOrderDetailId
+	private string fileName
 	{
 		get;
 		set;
 	}
 
-	private string orderDate
+	public virtual void getOrder(string file)
 	{
-		get;
-		set;
+		throw new System.NotImplementedException();
 	}
 
-	private string createdBy
+	public virtual void applyFiltersToOrder()
 	{
-		get;
-		set;
+		throw new System.NotImplementedException();
 	}
 
-	private string createdDate
+	public virtual void createOrder()
 	{
-		get;
-		set;
-	}
-
-	private Double shippingFees
-	{
-		get;
-		set;
-	}
-
-	private Double taxes
-	{
-		get;
-		set;
-	}
-
-	private string paymentDate
-	{
-		get;
-		set;
-	}
-
-	private Double paymentAmount
-	{
-		get;
-		set;
-	}
-
-	private Double orderTotal
-	{
-		get;
-		set;
+		throw new System.NotImplementedException();
 	}
 
 	public virtual void ToString()
