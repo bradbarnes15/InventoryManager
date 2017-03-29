@@ -9,32 +9,63 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class DBConnection : Inventory, Product, Customer
+public class Customer
 {
-	public virtual string connString
+	private string company
 	{
 		get;
 		set;
 	}
 
-	public virtual void add()
+	private string laseName
+	{
+		get;
+		set;
+	}
+
+	private string firstName
+	{
+		get;
+		set;
+	}
+
+	private string jobTilte
+	{
+		get;
+		set;
+	}
+
+	private string address
+	{
+		get;
+		set;
+	}
+
+	private string city
+	{
+		get;
+		set;
+	}
+
+	private string state
+	{
+		get;
+		set;
+	}
+
+	private object zip/PostalCode
+	{
+		get;
+		set;
+	}
+
+	public virtual void ToString()
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void delete()
+	public Customer()
 	{
-		throw new System.NotImplementedException();
-	}
-
-	public virtual void search()
-	{
-		throw new System.NotImplementedException();
-	}
-
-	public virtual void save()
-	{
-		throw new System.NotImplementedException();
 	}
 
 }
