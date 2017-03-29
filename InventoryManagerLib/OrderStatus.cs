@@ -9,21 +9,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class Category : DBConnection
+public class OrderStatus
 {
-	private string Category
+	public virtual object StatusText
 	{
 		get;
 		set;
 	}
 
-	private int Category_Id
+	public virtual DBConnection DBConnection
 	{
 		get;
 		set;
 	}
 
-	public virtual void ToString()
+	public virtual void Operation1()
 	{
 		throw new System.NotImplementedException();
 	}

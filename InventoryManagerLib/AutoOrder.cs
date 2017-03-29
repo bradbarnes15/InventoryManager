@@ -9,21 +9,39 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class Category : DBConnection
+public class AutoOrder
 {
-	private string Category
+	private int MinStockAllowed
 	{
 		get;
 		set;
 	}
 
-	private int Category_Id
+	private int maxStockAllowed
 	{
 		get;
 		set;
 	}
 
-	public virtual void ToString()
+	private int critical
+	{
+		get;
+		set;
+	}
+
+	private int currentStock
+	{
+		get;
+		set;
+	}
+
+	private int productCode
+	{
+		get;
+		set;
+	}
+
+	public virtual void CreateOrder()
 	{
 		throw new System.NotImplementedException();
 	}

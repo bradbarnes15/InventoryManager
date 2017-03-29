@@ -9,7 +9,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class Login
+public class Category : DBConnection
 {
+	private string Category
+	{
+		get;
+		set;
+	}
+
+	private int Category_Id
+	{
+		get;
+		set;
+	}
+
+	public virtual void ToString()
+	{
+		throw new System.NotImplementedException();
+	}
+
 }
 

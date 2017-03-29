@@ -9,15 +9,63 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class Category : DBConnection
+public class Orders : DBConnection
 {
-	private string Category
+	private int orderId
 	{
 		get;
 		set;
 	}
 
-	private int Category_Id
+	private string orderDate
+	{
+		get;
+		set;
+	}
+
+	private string employee
+	{
+		get;
+		set;
+	}
+
+	private string shippingAddress
+	{
+		get;
+		set;
+	}
+
+	private string shipCity
+	{
+		get;
+		set;
+	}
+
+	private string shipState
+	{
+		get;
+		set;
+	}
+
+	private int zip
+	{
+		get;
+		set;
+	}
+
+	private Double orderTota
+	{
+		get;
+		set;
+	}
+
+	private string status
+	{
+		get;
+		set;
+	}
+
+	private string closedDate
 	{
 		get;
 		set;

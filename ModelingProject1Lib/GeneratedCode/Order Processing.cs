@@ -9,18 +9,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class Category : DBConnection
+public class Order Processing
 {
-	private string Category
+	private string fileName
 	{
 		get;
 		set;
 	}
 
-	private int Category_Id
+	public virtual void getOrder(string file)
 	{
-		get;
-		set;
+		throw new System.NotImplementedException();
+	}
+
+	public virtual void applyFiltersToOrder()
+	{
+		throw new System.NotImplementedException();
+	}
+
+	public virtual void createOrder()
+	{
+		throw new System.NotImplementedException();
 	}
 
 	public virtual void ToString()

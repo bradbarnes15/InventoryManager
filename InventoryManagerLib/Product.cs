@@ -9,15 +9,45 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class Category : DBConnection
+public class Product : DBConnection
 {
-	private string Category
+	private string productName
 	{
 		get;
 		set;
 	}
 
-	private int Category_Id
+	private string productCode
+	{
+		get;
+		set;
+	}
+
+	private bool discontine
+	{
+		get;
+		set;
+	}
+
+	private string category
+	{
+		get;
+		set;
+	}
+
+	private int productId
+	{
+		get;
+		set;
+	}
+
+	private Double listPrice
+	{
+		get;
+		set;
+	}
+
+	private Double unitCost
 	{
 		get;
 		set;
@@ -26,6 +56,10 @@ public class Category : DBConnection
 	public virtual void ToString()
 	{
 		throw new System.NotImplementedException();
+	}
+
+	public Product()
+	{
 	}
 
 }

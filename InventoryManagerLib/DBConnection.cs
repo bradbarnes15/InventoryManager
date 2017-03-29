@@ -11,5 +11,31 @@ using System.Text;
 
 public class DBConnection
 {
+	public virtual string connString
+	{
+		get;
+		set;
+	}
+
+	public virtual void add()
+	{
+		throw new System.NotImplementedException();
+	}
+
+	public virtual void delete()
+	{
+		throw new System.NotImplementedException();
+	}
+
+	public virtual void search()
+	{
+		throw new System.NotImplementedException();
+	}
+
+	public virtual void save()
+	{
+		throw new System.NotImplementedException();
+	}
+
 }
 

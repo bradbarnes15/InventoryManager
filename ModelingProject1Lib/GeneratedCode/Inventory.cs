@@ -9,46 +9,42 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class Employee : DBConnection
+public class Inventory : DBConnection
 {
-	private string firstName
+	private int onHand
 	{
 		get;
 		set;
 	}
 
-	private string lastName
+	private int inventory_id
 	{
 		get;
 		set;
 	}
 
-	private int employeeId
+	private string product
 	{
 		get;
 		set;
 	}
 
-	private string passWord
+	private int reorderLevel
 	{
 		get;
 		set;
 	}
 
-	private string userName
+	private int reorderQuantity
 	{
 		get;
 		set;
 	}
 
-	public virtual Login Login
+	private int onOrder
 	{
 		get;
 		set;
-	}
-
-	private Employee(string fn, string ln, int id, int employeeCode)
-	{
 	}
 
 	public virtual void ToString()
@@ -56,7 +52,27 @@ public class Employee : DBConnection
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void verifyPassword(string passWd)
+	public virtual void AddNewItem()
+	{
+		throw new System.NotImplementedException();
+	}
+
+	public virtual void ModifyItemDetails()
+	{
+		throw new System.NotImplementedException();
+	}
+
+	public virtual void ModifyItemStock()
+	{
+		throw new System.NotImplementedException();
+	}
+
+	public virtual void RemoveItem()
+	{
+		throw new System.NotImplementedException();
+	}
+
+	public virtual void setFiltersToOrder()
 	{
 		throw new System.NotImplementedException();
 	}

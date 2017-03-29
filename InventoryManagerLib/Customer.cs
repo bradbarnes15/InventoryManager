@@ -9,15 +9,57 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class Category : DBConnection
+public class Customer : DBConnection
 {
-	private string Category
+	private string company
 	{
 		get;
 		set;
 	}
 
-	private int Category_Id
+	private string lastName
+	{
+		get;
+		set;
+	}
+
+	private string firstName
+	{
+		get;
+		set;
+	}
+
+	private string jobTilte
+	{
+		get;
+		set;
+	}
+
+	private string address
+	{
+		get;
+		set;
+	}
+
+	private string city
+	{
+		get;
+		set;
+	}
+
+	private string state
+	{
+		get;
+		set;
+	}
+
+	private object zip/PostalCode
+	{
+		get;
+		set;
+	}
+
+	private string phoneNumber
 	{
 		get;
 		set;
@@ -26,6 +68,10 @@ public class Category : DBConnection
 	public virtual void ToString()
 	{
 		throw new System.NotImplementedException();
+	}
+
+	public Customer()
+	{
 	}
 
 }
