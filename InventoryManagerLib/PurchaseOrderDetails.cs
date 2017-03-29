@@ -9,15 +9,51 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class Category : DBConnection
+public class PurchaseOrderDetails : DBConnection
 {
-	private string Category
+	private int purchaseOrderDetailId
 	{
 		get;
 		set;
 	}
 
-	private int Category_Id
+	private int purchaseOrderNumber
+	{
+		get;
+		set;
+	}
+
+	private string product
+	{
+		get;
+		set;
+	}
+
+	private int quanity
+	{
+		get;
+		set;
+	}
+
+	private Double unitPrice
+	{
+		get;
+		set;
+	}
+
+	private Double extendedPrice
+	{
+		get;
+		set;
+	}
+
+	private string dateReceived
+	{
+		get;
+		set;
+	}
+
+	private string status
 	{
 		get;
 		set;

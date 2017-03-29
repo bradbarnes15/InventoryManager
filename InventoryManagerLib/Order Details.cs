@@ -9,32 +9,51 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class Login
+public class Order Details : DBConnection
 {
-	private string userName
+	private int orderDetailsId
 	{
 		get;
 		set;
 	}
 
-	private string passWord
+	private int orderID
 	{
 		get;
 		set;
 	}
 
-	private int employeeCODE
+	private string Product
 	{
 		get;
 		set;
 	}
 
-	private void VerifyPassword(string fn, string ln, int id, int employeeCode)
+	private int quantity
 	{
-		throw new System.NotImplementedException();
+		get;
+		set;
 	}
 
-	private void CreatePassword()
+	private Double unitPrice
+	{
+		get;
+		set;
+	}
+
+	private Double extendedPrice
+	{
+		get;
+		set;
+	}
+
+	private string statue
+	{
+		get;
+		set;
+	}
+
+	public virtual void ToString()
 	{
 		throw new System.NotImplementedException();
 	}

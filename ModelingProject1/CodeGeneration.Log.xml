@@ -6,28 +6,59 @@
   <MessageClass Name="Error" Label="Error" Option="Show errors" />
   <MessageClass Name="Property" Label="Property" Option="Show metadata" />
   <MessageClass Name="Diagnostic" Label="Message" Option="Show diagnostic messages" />
-  <Message Timestamp="2017-03-16T13:11:50" Importance="High" Text="Code generation or text transformation started." />
-  <Message Timestamp="2017-03-16T13:11:50" Importance="Diagnostic" Text="Name = ClassTemplate" />
-  <Message Timestamp="2017-03-16T13:11:50" Importance="Diagnostic" Text="Overwrite = True" />
-  <Message Timestamp="2017-03-16T13:11:50" Importance="Diagnostic" Text="ProjectPath = ..\ModelingProject1Lib\ModelingProject1Lib.csproj" />
-  <Message Timestamp="2017-03-16T13:11:50" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
-  <Message Timestamp="2017-03-16T13:11:50" Importance="Diagnostic" Text="TargetName = {Name}" />
-  <Message Timestamp="2017-03-16T13:11:50" Importance="Diagnostic" Text="TemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4" />
-  <Message Timestamp="2017-03-16T13:11:50" Importance="Diagnostic" Text="ResolvedTemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4" />
-  <Message Timestamp="2017-03-16T13:11:50" Importance="Medium" Text="ModelingProject1's Text Template Binding: 'ClassTemplate' will apply ClassTemplate.t4 to: 'ModelingProject1::Login' -  (Class), 'ModelingProject1::DBConnection' -  (Class), 'ModelingProject1::Employee' -  (Class) " />
-  <Message Timestamp="2017-03-16T13:11:51" Importance="Medium" Text="'ModelingProject1::Login' -  (Class) : success (file replaced) - C:\Users\brad\Source\Repos\InventoryManager\ModelingProject1Lib\GeneratedCode\Login.cs" />
-  <Message Timestamp="2017-03-16T13:11:51" Importance="Medium" Text="'ModelingProject1::DBConnection' -  (Class) : success (file replaced) - C:\Users\brad\Source\Repos\InventoryManager\ModelingProject1Lib\GeneratedCode\DBConnection.cs" />
-  <Message Timestamp="2017-03-16T13:11:51" Importance="Medium" Text="'ModelingProject1::Employee' -  (Class) : success (file replaced) - C:\Users\brad\Source\Repos\InventoryManager\ModelingProject1Lib\GeneratedCode\Employee.cs" />
-  <Message Timestamp="2017-03-16T13:11:51" Importance="Diagnostic" Text="Name = StructTemplate" />
-  <Message Timestamp="2017-03-16T13:11:51" Importance="Diagnostic" Text="Overwrite = True" />
-  <Message Timestamp="2017-03-16T13:11:51" Importance="Diagnostic" Text="ProjectPath = ..\ModelingProject1Lib\ModelingProject1Lib.csproj" />
-  <Message Timestamp="2017-03-16T13:11:51" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
-  <Message Timestamp="2017-03-16T13:11:51" Importance="Diagnostic" Text="TargetName = {Name}" />
-  <Message Timestamp="2017-03-16T13:11:51" Importance="Diagnostic" Text="TemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4" />
-  <Message Timestamp="2017-03-16T13:11:51" Importance="Diagnostic" Text="ResolvedTemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4" />
-  <Message Timestamp="2017-03-16T13:11:51" Importance="Medium" Text="ModelingProject1's Text Template Binding: 'StructTemplate' will apply StructTemplate.t4 to: 'ModelingProject1::Login' -  (Class), 'ModelingProject1::DBConnection' -  (Class), 'ModelingProject1::Employee' -  (Class) " />
-  <Message Timestamp="2017-03-16T13:11:51" Importance="Diagnostic" Text="'ModelingProject1::Login' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
-  <Message Timestamp="2017-03-16T13:11:51" Importance="Diagnostic" Text="'ModelingProject1::DBConnection' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
-  <Message Timestamp="2017-03-16T13:11:51" Importance="Diagnostic" Text="'ModelingProject1::Employee' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
-  <Message Timestamp="2017-03-16T13:11:51" Importance="High" Text="Code generation complete. Errors: 0. Warnings: 0." />
+  <Message Timestamp="2017-03-29T11:13:21" Importance="High" Text="Code generation or text transformation started." />
+  <Message Timestamp="2017-03-29T11:13:21" Importance="Diagnostic" Text="Name = ClassTemplate" />
+  <Message Timestamp="2017-03-29T11:13:21" Importance="Diagnostic" Text="Overwrite = True" />
+  <Message Timestamp="2017-03-29T11:13:21" Importance="Diagnostic" Text="ProjectPath = ..\ModelingProject1Lib\ModelingProject1Lib.csproj" />
+  <Message Timestamp="2017-03-29T11:13:21" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
+  <Message Timestamp="2017-03-29T11:13:21" Importance="Diagnostic" Text="TargetName = {Name}" />
+  <Message Timestamp="2017-03-29T11:13:21" Importance="Diagnostic" Text="TemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4" />
+  <Message Timestamp="2017-03-29T11:13:21" Importance="Diagnostic" Text="ResolvedTemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4" />
+  <Message Timestamp="2017-03-29T11:13:21" Importance="Medium" Text="ModelingProject1's Text Template Binding: 'ClassTemplate' will apply ClassTemplate.t4 to: 'ModelingProject1::DBConnection' -  (Class), 'ModelingProject1::Employee' -  (Class), 'ModelingProject1::Manager' -  (Class), 'ModelingProject1::Product' -  (Class), 'ModelingProject1::PurchaseOrderDetails' -  (Class), 'ModelingProject1::Auto Order' -  (Class), 'ModelingProject1::Inventory' -  (Class), 'ModelingProject1::Customer' -  (Class), 'ModelingProject1::Order Details' -  (Class), 'ModelingProject1::Category' -  (Class), 'ModelingProject1::Order Processing' -  (Class), 'ModelingProject1::Orders' -  (Class), 'ModelingProject1::Purchase Order' -  (Class) " />
+  <Message Timestamp="2017-03-29T11:13:45" Importance="Medium" Text="'ModelingProject1::DBConnection' -  (Class) : success (file created) - C:\Users\Bob\documents\visual studio 2015\Projects\InventoryManager\ModelingProject1Lib\GeneratedCode\DBConnection.cs" />
+  <Message Timestamp="2017-03-29T11:13:45" Importance="Medium" Text="'ModelingProject1::Employee' -  (Class) : success (file created) - C:\Users\Bob\documents\visual studio 2015\Projects\InventoryManager\ModelingProject1Lib\GeneratedCode\Employee.cs" />
+  <Message Timestamp="2017-03-29T11:13:46" Importance="Medium" Text="'ModelingProject1::Manager' -  (Class) : success (file created) - C:\Users\Bob\documents\visual studio 2015\Projects\InventoryManager\ModelingProject1Lib\GeneratedCode\Manager.cs" />
+  <Message Timestamp="2017-03-29T11:13:46" Importance="Medium" Text="'ModelingProject1::Product' -  (Class) : success (file created) - C:\Users\Bob\documents\visual studio 2015\Projects\InventoryManager\ModelingProject1Lib\GeneratedCode\Product.cs" />
+  <Message Timestamp="2017-03-29T11:13:46" Importance="Medium" Text="'ModelingProject1::PurchaseOrderDetails' -  (Class) : success (file created) - C:\Users\Bob\documents\visual studio 2015\Projects\InventoryManager\ModelingProject1Lib\GeneratedCode\PurchaseOrderDetails.cs" />
+  <Message Timestamp="2017-03-29T11:13:46" Importance="Medium" Text="'ModelingProject1::Auto Order' -  (Class) : success (file created) - C:\Users\Bob\documents\visual studio 2015\Projects\InventoryManager\ModelingProject1Lib\GeneratedCode\Auto Order.cs" />
+  <Message Timestamp="2017-03-29T11:13:47" Importance="Medium" Text="'ModelingProject1::Inventory' -  (Class) : success (file created) - C:\Users\Bob\documents\visual studio 2015\Projects\InventoryManager\ModelingProject1Lib\GeneratedCode\Inventory.cs" />
+  <Message Timestamp="2017-03-29T11:13:47" Importance="Medium" Text="'ModelingProject1::Customer' -  (Class) : success (file created) - C:\Users\Bob\documents\visual studio 2015\Projects\InventoryManager\ModelingProject1Lib\GeneratedCode\Customer.cs" />
+  <Message Timestamp="2017-03-29T11:13:47" Importance="Medium" Text="'ModelingProject1::Order Details' -  (Class) : success (file created) - C:\Users\Bob\documents\visual studio 2015\Projects\InventoryManager\ModelingProject1Lib\GeneratedCode\Order Details.cs" />
+  <Message Timestamp="2017-03-29T11:13:47" Importance="Medium" Text="'ModelingProject1::Category' -  (Class) : success (file created) - C:\Users\Bob\documents\visual studio 2015\Projects\InventoryManager\ModelingProject1Lib\GeneratedCode\Category.cs" />
+  <Message Timestamp="2017-03-29T11:13:48" Importance="Medium" Text="'ModelingProject1::Order Processing' -  (Class) : success (file created) - C:\Users\Bob\documents\visual studio 2015\Projects\InventoryManager\ModelingProject1Lib\GeneratedCode\Order Processing.cs" />
+  <Message Timestamp="2017-03-29T11:13:48" Importance="Medium" Text="'ModelingProject1::Orders' -  (Class) : success (file created) - C:\Users\Bob\documents\visual studio 2015\Projects\InventoryManager\ModelingProject1Lib\GeneratedCode\Orders.cs" />
+  <Message Timestamp="2017-03-29T11:13:48" Importance="Medium" Text="'ModelingProject1::Purchase Order' -  (Class) : success (file created) - C:\Users\Bob\documents\visual studio 2015\Projects\InventoryManager\ModelingProject1Lib\GeneratedCode\Purchase Order.cs" />
+  <Message Timestamp="2017-03-29T11:13:48" Importance="Diagnostic" Text="Name = StructTemplate" />
+  <Message Timestamp="2017-03-29T11:13:48" Importance="Diagnostic" Text="Overwrite = True" />
+  <Message Timestamp="2017-03-29T11:13:48" Importance="Diagnostic" Text="ProjectPath = ..\ModelingProject1Lib\ModelingProject1Lib.csproj" />
+  <Message Timestamp="2017-03-29T11:13:48" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
+  <Message Timestamp="2017-03-29T11:13:48" Importance="Diagnostic" Text="TargetName = {Name}" />
+  <Message Timestamp="2017-03-29T11:13:48" Importance="Diagnostic" Text="TemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4" />
+  <Message Timestamp="2017-03-29T11:13:48" Importance="Diagnostic" Text="ResolvedTemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4" />
+  <Message Timestamp="2017-03-29T11:13:48" Importance="Medium" Text="ModelingProject1's Text Template Binding: 'StructTemplate' will apply StructTemplate.t4 to: 'ModelingProject1::DBConnection' -  (Class), 'ModelingProject1::Employee' -  (Class), 'ModelingProject1::Manager' -  (Class), 'ModelingProject1::Product' -  (Class), 'ModelingProject1::PurchaseOrderDetails' -  (Class), 'ModelingProject1::Auto Order' -  (Class), 'ModelingProject1::Inventory' -  (Class), 'ModelingProject1::Customer' -  (Class), 'ModelingProject1::Order Details' -  (Class), 'ModelingProject1::Category' -  (Class), 'ModelingProject1::Order Processing' -  (Class), 'ModelingProject1::Orders' -  (Class), 'ModelingProject1::Purchase Order' -  (Class) " />
+  <Message Timestamp="2017-03-29T11:13:48" Importance="Diagnostic" Text="'ModelingProject1::DBConnection' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2017-03-29T11:13:48" Importance="Diagnostic" Text="'ModelingProject1::Employee' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2017-03-29T11:13:48" Importance="Diagnostic" Text="'ModelingProject1::Manager' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2017-03-29T11:13:48" Importance="Diagnostic" Text="'ModelingProject1::Product' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2017-03-29T11:13:48" Importance="Diagnostic" Text="'ModelingProject1::PurchaseOrderDetails' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2017-03-29T11:13:48" Importance="Diagnostic" Text="'ModelingProject1::Auto Order' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2017-03-29T11:13:49" Importance="Diagnostic" Text="'ModelingProject1::Inventory' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2017-03-29T11:13:49" Importance="Diagnostic" Text="'ModelingProject1::Customer' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2017-03-29T11:13:49" Importance="Diagnostic" Text="'ModelingProject1::Order Details' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2017-03-29T11:13:49" Importance="Diagnostic" Text="'ModelingProject1::Category' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2017-03-29T11:13:49" Importance="Diagnostic" Text="'ModelingProject1::Order Processing' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2017-03-29T11:13:49" Importance="Diagnostic" Text="'ModelingProject1::Orders' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2017-03-29T11:13:49" Importance="Diagnostic" Text="'ModelingProject1::Purchase Order' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2017-03-29T11:13:49" Importance="Diagnostic" Text="The selection included 10 elements which were not bound to a template." />
+  <Message Timestamp="2017-03-29T11:13:49" Importance="Diagnostic" Text="'5432dd0d-bcbd-4418-98cd-4be6bb20b4a2' -  (Generalization): no bound template." />
+  <Message Timestamp="2017-03-29T11:13:49" Importance="Diagnostic" Text="'2cec6584-d5fe-469c-bd6e-f553e67cb9ce' -  (Generalization): no bound template." />
+  <Message Timestamp="2017-03-29T11:13:49" Importance="Diagnostic" Text="'0264547e-03b0-4ff2-96be-847dc6d7e2d4' -  (Generalization): no bound template." />
+  <Message Timestamp="2017-03-29T11:13:49" Importance="Diagnostic" Text="'dcab415d-f76e-4305-ab7c-7735d9c128f7' -  (Generalization): no bound template." />
+  <Message Timestamp="2017-03-29T11:13:49" Importance="Diagnostic" Text="'513bb81b-f04a-494d-9fa8-3762f9802648' -  (Generalization): no bound template." />
+  <Message Timestamp="2017-03-29T11:13:49" Importance="Diagnostic" Text="'53de9f8f-4777-4448-a81c-f5fa4214e2dd' -  (Generalization): no bound template." />
+  <Message Timestamp="2017-03-29T11:13:49" Importance="Diagnostic" Text="'e9588d49-8b51-4138-9c42-5c7c9e59bbf0' -  (Generalization): no bound template." />
+  <Message Timestamp="2017-03-29T11:13:49" Importance="Diagnostic" Text="'2f8a058c-322a-4919-85f2-e6bfd6c2f8d4' -  (Generalization): no bound template." />
+  <Message Timestamp="2017-03-29T11:13:49" Importance="Diagnostic" Text="'2eda053b-2a86-4c11-9d8e-aecbf1e2f2a5' -  (Generalization): no bound template." />
+  <Message Timestamp="2017-03-29T11:13:49" Importance="Diagnostic" Text="'2028381c-429f-4e23-9948-cc99c72b96a0' -  (Generalization): no bound template." />
+  <Message Timestamp="2017-03-29T11:13:49" Importance="High" Text="Code generation complete. Errors: 0. Warnings: 0." />
 </Log>

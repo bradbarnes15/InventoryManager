@@ -9,21 +9,51 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class OrderStatus
+public class Order Details : DBConnection
 {
-	public virtual object StatusText
+	private int orderDetailsId
 	{
 		get;
 		set;
 	}
 
-	public virtual DBConnection DBConnection
+	private int orderID
 	{
 		get;
 		set;
 	}
 
-	public virtual void Operation1()
+	private string Product
+	{
+		get;
+		set;
+	}
+
+	private int quantity
+	{
+		get;
+		set;
+	}
+
+	private Double unitPrice
+	{
+		get;
+		set;
+	}
+
+	private Double extendedPrice
+	{
+		get;
+		set;
+	}
+
+	private string statue
+	{
+		get;
+		set;
+	}
+
+	public virtual void ToString()
 	{
 		throw new System.NotImplementedException();
 	}

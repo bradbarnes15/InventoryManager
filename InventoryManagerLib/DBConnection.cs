@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class DBConnection : Inventory, Product, Customer
+public class DBConnection
 {
 	public virtual string connString
 	{

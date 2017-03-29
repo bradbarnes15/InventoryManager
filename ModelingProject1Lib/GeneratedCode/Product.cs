@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class Product
+public class Product : DBConnection
 {
 	private string productName
 	{
@@ -17,19 +17,7 @@ public class Product
 		set;
 	}
 
-	private Double standardCost
-	{
-		get;
-		set;
-	}
-
-	private int productCode
-	{
-		get;
-		set;
-	}
-
-	private int itemStock
+	private string productCode
 	{
 		get;
 		set;
@@ -41,13 +29,25 @@ public class Product
 		set;
 	}
 
-	private string supplier
+	private string category
 	{
 		get;
 		set;
 	}
 
-	private string foodCatorgory
+	private int productId
+	{
+		get;
+		set;
+	}
+
+	private Double listPrice
+	{
+		get;
+		set;
+	}
+
+	private Double unitCost
 	{
 		get;
 		set;

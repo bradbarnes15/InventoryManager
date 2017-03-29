@@ -9,32 +9,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class Login
+public class Category : DBConnection
 {
-	private string userName
+	private string Category
 	{
 		get;
 		set;
 	}
 
-	private string passWord
+	private int Category_Id
 	{
 		get;
 		set;
 	}
 
-	private int employeeCODE
-	{
-		get;
-		set;
-	}
-
-	private void VerifyPassword(string fn, string ln, int id, int employeeCode)
-	{
-		throw new System.NotImplementedException();
-	}
-
-	private void CreatePassword()
+	public virtual void ToString()
 	{
 		throw new System.NotImplementedException();
 	}

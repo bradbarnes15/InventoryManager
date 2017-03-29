@@ -9,57 +9,39 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class Inventory
+public class Inventory : DBConnection
 {
-	private int reorderLevel
-	{
-		get;
-		set;
-	}
-
-	private string productName
-	{
-		get;
-		set;
-	}
-
-	private int shipped
-	{
-		get;
-		set;
-	}
-
-	private int minReorderQuanity
-	{
-		get;
-		set;
-	}
-
-	private int received
-	{
-		get;
-		set;
-	}
-
-	private int onOrder
-	{
-		get;
-		set;
-	}
-
 	private int onHand
 	{
 		get;
 		set;
 	}
 
-	private int reorderQuanity
+	private int inventory_id
 	{
 		get;
 		set;
 	}
 
-	private string location
+	private string product
+	{
+		get;
+		set;
+	}
+
+	private int reorderLevel
+	{
+		get;
+		set;
+	}
+
+	private int reorderQuantity
+	{
+		get;
+		set;
+	}
+
+	private int onOrder
 	{
 		get;
 		set;

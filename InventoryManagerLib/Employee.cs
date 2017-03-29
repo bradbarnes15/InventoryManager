@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class Employee
+public class Employee : DBConnection
 {
 	private string firstName
 	{
@@ -29,7 +29,13 @@ public class Employee
 		set;
 	}
 
-	private int employeeCode
+	private string passWord
+	{
+		get;
+		set;
+	}
+
+	private string userName
 	{
 		get;
 		set;
@@ -46,6 +52,11 @@ public class Employee
 	}
 
 	public virtual void ToString()
+	{
+		throw new System.NotImplementedException();
+	}
+
+	public virtual void verifyPassword(string passWd)
 	{
 		throw new System.NotImplementedException();
 	}

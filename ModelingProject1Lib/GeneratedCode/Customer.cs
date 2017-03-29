@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class Customer
+public class Customer : DBConnection
 {
 	private string company
 	{
@@ -17,7 +17,7 @@ public class Customer
 		set;
 	}
 
-	private string laseName
+	private string lastName
 	{
 		get;
 		set;
@@ -54,6 +54,12 @@ public class Customer
 	}
 
 	private object zip/PostalCode
+	{
+		get;
+		set;
+	}
+
+	private string phoneNumber
 	{
 		get;
 		set;
