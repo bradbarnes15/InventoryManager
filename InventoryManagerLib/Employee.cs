@@ -35,19 +35,8 @@ public class Employee
 		set;
 	}
 
-	public virtual Login Login
+	public Employee(string fn, string ln, int id, int employeeCode)
 	{
-		get;
-		set;
-	}
-
-	private Employee(string fn, string ln, int id, int employeeCode)
-	{
-	}
-
-	public virtual void ToString()
-	{
-		throw new System.NotImplementedException();
 	}
 
 }
