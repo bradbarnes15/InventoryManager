@@ -24,5 +24,11 @@ namespace InventoryManager
         {
             InitializeComponent();
         }
+
+        private void AddOrderStatus_Click(object sender, RoutedEventArgs e)
+        {
+            OrderStatus os = new OrderStatus("New");
+            os.Operation1();
+        }
     }
 }

@@ -11,7 +11,7 @@ using System.Text;
 
 public class DBConnection
 {
-    public const string CONNECTION_STRING = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=c:\\database\\Inventory.mdf;Integrated Security = True; Connect Timeout = 30";
+    public const string CONNECTION_STRING = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=c:\\database\\Inventory.mdf;Integrated Security=True;Connect Timeout=30";
 
 
     public virtual string connString

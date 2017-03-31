@@ -12,17 +12,18 @@ using System.Text;
 
 public class OrderStatus 
 {
-	public virtual object StatusText
-	{
-		get;
-		set;
-	}
+	public virtual string StatusText { get; set; }
+	
+    public virtual int OrderStatus_Id { get; set; }
 
-	public virtual DBConnection DBConnection
-	{
-		get;
-		set;
-	}
+	public virtual DBConnection DBConnection { get; set; }
+
+    public OrderStatus(string statusText)
+    {
+        this.OrderStatus_Id = -1;
+        this.StatusText = statusText;
+    }
+
 
 	public virtual void Operation1()
 	{
@@ -32,10 +33,14 @@ public class OrderStatus
             conn.Open();
 
             string sql;
-            sql = "INSERT INTO [OrderStatus] (Status_Text) "
-                + "VALUES(New)";
+            
+            sql = "INSERT INTO OrderStatus(Status_Text) VALUES(@Status_Text)";
+            
 
             SqlCommand command = new SqlCommand(sql, conn);
+            command.Parameters.AddWithValue("Status_Text", StatusText);
+
+            OrderStatus_Id = (int)command.ExecuteScalar();
         }
 	}
 

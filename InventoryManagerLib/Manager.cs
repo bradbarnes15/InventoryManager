@@ -11,5 +11,10 @@ using System.Text;
 
 public class Manager : Employee
 {
+    public Manager()
+    {
+
+    }
+
 }
 
