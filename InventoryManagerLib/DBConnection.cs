@@ -6,6 +6,7 @@
 //------------------------------------------------------------------------------
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 
@@ -25,12 +26,24 @@ public class DBConnection
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void delete()
-	{
+    public void Delete(string tableName, string fieldName, int pkValue)
+    {
+        using (SqlConnection conn = new SqlConnection())
+        {
+            conn.ConnectionString = DBConnection.CONNECTION_STRING;
+            conn.Open();
 
-	}
+            String sql;
+            sql = "delete from [" + tableName + "] where [" + fieldName + "] = @id";
 
-	public virtual void search()
+            SqlCommand command = new SqlCommand(sql, conn);
+            command.Parameters.AddWithValue("id", pkValue);
+
+            command.ExecuteNonQuery();
+        }
+    }
+
+    public virtual void search()
 	{
 		throw new System.NotImplementedException();
 	}
