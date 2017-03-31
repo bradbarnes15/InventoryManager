@@ -33,14 +33,26 @@ public class OrderStatus
             conn.Open();
 
             string sql;
-            
-            sql = "INSERT INTO OrderStatus(Status_Text) VALUES(@Status_Text)";
-            
+
+            if (OrderStatus_Id == -1)
+            {
+                sql = "INSERT INTO OrderStatus(Status_Text) VALUES(@Status_Text)"
+                    + "SELECT CAST (scope_identity() as int)";
+            }
+            else
+            {
+                sql = "UPDATE OrderStatus set Status_Text = @Status_Text where OrderStatus_Id = @OrderStatus_Id";
+            }
 
             SqlCommand command = new SqlCommand(sql, conn);
             command.Parameters.AddWithValue("Status_Text", StatusText);
 
-            OrderStatus_Id = (int)command.ExecuteScalar();
+            if (OrderStatus_Id == -1)
+            {
+                OrderStatus_Id = (int)command.ExecuteScalar();
+            }
+
+
         }
 	}
 

@@ -27,7 +27,7 @@ public class DBConnection
 
 	public virtual void delete()
 	{
-		throw new System.NotImplementedException();
+
 	}
 
 	public virtual void search()
