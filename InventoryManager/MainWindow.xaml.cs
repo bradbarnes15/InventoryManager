@@ -28,7 +28,8 @@ namespace InventoryManager
         private void AddOrderStatus_Click(object sender, RoutedEventArgs e)
         {
             OrderStatus os = new OrderStatus("Invoiced");
-            os.Operation1();
+            os.Save();
         }
+        
     }
 }

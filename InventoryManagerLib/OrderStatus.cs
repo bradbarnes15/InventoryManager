@@ -25,7 +25,7 @@ public class OrderStatus
     }
 
 
-	public virtual void Operation1()
+	public virtual void Save()
 	{
         using(SqlConnection conn = new SqlConnection())
         {
