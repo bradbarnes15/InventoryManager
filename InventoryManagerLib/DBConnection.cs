@@ -6,12 +6,16 @@
 //------------------------------------------------------------------------------
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 
 public class DBConnection
 {
-	public virtual string connString
+    public const string CONNECTION_STRING = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=c:\\database\\Inventory.mdf;Integrated Security=True;Connect Timeout=30";
+
+
+    public virtual string connString
 	{
 		get;
 		set;
@@ -22,12 +26,24 @@ public class DBConnection
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void delete()
-	{
-		throw new System.NotImplementedException();
-	}
+    public void Delete(string tableName, string fieldName, int pkValue)
+    {
+        using (SqlConnection conn = new SqlConnection())
+        {
+            conn.ConnectionString = DBConnection.CONNECTION_STRING;
+            conn.Open();
 
-	public virtual void search()
+            String sql;
+            sql = "delete from [" + tableName + "] where [" + fieldName + "] = @id";
+
+            SqlCommand command = new SqlCommand(sql, conn);
+            command.Parameters.AddWithValue("id", pkValue);
+
+            command.ExecuteNonQuery();
+        }
+    }
+
+    public virtual void search()
 	{
 		throw new System.NotImplementedException();
 	}

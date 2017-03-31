@@ -11,7 +11,7 @@ using System.Text;
 
 public class Category : DBConnection
 {
-	private string Category
+	private string Category_Text
 	{
 		get;
 		set;

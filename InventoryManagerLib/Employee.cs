@@ -41,11 +41,17 @@ public class Employee : DBConnection
 		set;
 	}
 
+    /*
 	public virtual Login Login
 	{
 		get;
 		set;
-	}
+	}*/
+
+    public Employee()
+    {
+
+    }
 
 	private Employee(string fn, string ln, int id, int employeeCode)
 	{

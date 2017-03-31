@@ -53,7 +53,7 @@ public class Customer : DBConnection
 		set;
 	}
 
-	private object zip/PostalCode
+	private object zip_PostalCode
 	{
 		get;
 		set;
