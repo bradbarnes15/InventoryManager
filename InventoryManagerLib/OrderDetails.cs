@@ -53,8 +53,8 @@ public class OrderDetails : DBConnection
 		set;
 	}
 
-	public virtual void ToString()
-	{
+    public override string ToString()
+    {
 		throw new System.NotImplementedException();
 	}
 

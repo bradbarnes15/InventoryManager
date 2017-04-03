@@ -32,8 +32,8 @@ public class OrderProcessing
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void ToString()
-	{
+    public override string ToString()
+    {
 		throw new System.NotImplementedException();
 	}
 

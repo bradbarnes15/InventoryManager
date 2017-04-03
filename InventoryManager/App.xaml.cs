@@ -13,5 +13,13 @@ namespace InventoryManager
     /// </summary>
     public partial class App : Application
     {
+        void App_Startup(object sender, StartupEventArgs e)
+        {
+            SecondWindow mainWindow = new SecondWindow();
+            mainWindow.Top = 100;
+            mainWindow.Left = 400;
+            mainWindow.Show();
+        }
+
     }
 }

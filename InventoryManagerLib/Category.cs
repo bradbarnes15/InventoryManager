@@ -23,8 +23,8 @@ public class Category : DBConnection
 		set;
 	}
 
-	public virtual void ToString()
-	{
+    public override string ToString()
+    {
 		throw new System.NotImplementedException();
 	}
 

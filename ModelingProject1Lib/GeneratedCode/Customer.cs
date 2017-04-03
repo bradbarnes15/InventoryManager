@@ -53,7 +53,7 @@ public class Customer : DBConnection
 		set;
 	}
 
-	private object zip/PostalCode
+	private object zip_PostalCode
 	{
 		get;
 		set;
@@ -65,8 +65,8 @@ public class Customer : DBConnection
 		set;
 	}
 
-	public virtual void ToString()
-	{
+    public override string ToString()
+    {
 		throw new System.NotImplementedException();
 	}
 

@@ -1,0 +1,21 @@
+﻿<Window x:Class="InventoryManager.SecondWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InventoryManager"
+        mc:Ignorable="d"
+        Title="SecondWindow" Height="400" Width="701">
+    <Grid Margin="0,3,0,-3">
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="340,80,0,0" TextWrapping="Wrap" Text="First Name" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.525,-0.652"/>
+        <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="23" Margin="340,119,0,0" TextWrapping="Wrap" Text="Last Name" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="textBox3" HorizontalAlignment="Left" Height="23" Margin="340,160,0,0" TextWrapping="Wrap" Text="User Name" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="textBox4" HorizontalAlignment="Left" Height="23" Margin="340,200,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label" Content="First Name" HorizontalAlignment="Left" Margin="240,80,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.711,-7.115"/>
+        <Label x:Name="label1" Content="Last Name" HorizontalAlignment="Left" Margin="240,120,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1_Copy1" Content="User Name" HorizontalAlignment="Left" Margin="240,160,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1_Copy2" Content="Password" HorizontalAlignment="Left" Margin="240,200,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="button" Content="Submit Info" HorizontalAlignment="Left" Margin="242,250,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+
+    </Grid>
+</Window>
