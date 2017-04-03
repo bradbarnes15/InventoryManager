@@ -13,9 +13,7 @@ using System.Text;
 public class OrderStatus 
 {
 	public virtual string StatusText { get; set; }
-	
     public virtual int OrderStatus_Id { get; set; }
-
 	public virtual DBConnection DBConnection { get; set; }
 
     public OrderStatus(string statusText)
@@ -36,6 +34,7 @@ public class OrderStatus
 
             if (OrderStatus_Id == -1)
             {
+                                 //tablename  (column name)        value to add
                 sql = "INSERT INTO OrderStatus(Status_Text) VALUES(@Status_Text)"
                     + "SELECT CAST (scope_identity() as int)";
             }
