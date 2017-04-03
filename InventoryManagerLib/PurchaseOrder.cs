@@ -65,8 +65,8 @@ public class PurchaseOrder : DBConnection
 		set;
 	}
 
-	public virtual void ToString()
-	{
+    public override string ToString()
+    {
 		throw new System.NotImplementedException();
 	}
 

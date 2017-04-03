@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class Purchase Order : DBConnection
+public class PurchaseOrder : DBConnection
 {
 	private int purchaseOrderDetailId
 	{
@@ -65,8 +65,8 @@ public class Purchase Order : DBConnection
 		set;
 	}
 
-	public virtual void ToString()
-	{
+    public override string ToString()
+    {
 		throw new System.NotImplementedException();
 	}
 

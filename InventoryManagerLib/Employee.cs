@@ -6,6 +6,7 @@
 //------------------------------------------------------------------------------
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 
@@ -53,19 +54,70 @@ public class Employee : DBConnection
 
     }
 
-	private Employee(string fn, string ln, int id, int employeeCode)
+	public Employee(string fn, string ln, string employeeCode, string pasword)
 	{
+        this.firstName = fn;
+        this.lastName = ln;
+        this.employeeId = -1;
+        this.userName = employeeCode;
+        passWord = pasword;
 	}
 
-	public virtual void ToString()
+	public void Print()
+	{
+        Console.WriteLine(firstName);
+        Console.WriteLine(lastName);
+        Console.WriteLine(employeeId);
+        Console.WriteLine(userName);
+        Console.WriteLine(passWord);
+    }
+    public override string ToString()
+    {
+        string printString;
+        printString = "" + firstName + " " + lastName + " " + employeeId + " " + userName + " " + passWord;
+        return printString; 
+    }
+
+    public virtual void verifyPassword(string passWd)
 	{
 		throw new System.NotImplementedException();
 	}
+    public virtual void addEmployeeToDB()
+    {
+        using (SqlConnection conn = new SqlConnection())
+        {
+            conn.ConnectionString = DBConnection.CONNECTION_STRING;
+            conn.Open();
 
-	public virtual void verifyPassword(string passWd)
-	{
-		throw new System.NotImplementedException();
-	}
+            string sql;
+
+            if (employeeId == -1)
+            {
+                //Employee (names in DB  )      Values(names in DB) 
+                sql = "INSERT INTO Employee(first_name,last_name,username,encrypted_password) VALUES(@first_name,@last_name,@username,@encrypted_password)"
+                    + "SELECT CAST (scope_identity() as int)";
+            }
+            else
+            {
+                // sql = "UPDATE Employee set Status_Text = @Status_Text where OrderStatus_Id = @OrderStatus_Id";
+                 sql = "UPDATE Employee set first_name = @first_name where employee_id = @employeeId";
+
+            }
+
+            SqlCommand command = new SqlCommand(sql, conn);
+            command.Parameters.AddWithValue("first_name", firstName);
+            command.Parameters.AddWithValue("last_name", lastName);
+            command.Parameters.AddWithValue("username", userName);
+            command.Parameters.AddWithValue("encrypted_password", passWord);
+
+            if (employeeId == -1)
+            {
+                employeeId = (int)command.ExecuteScalar();
+            }
+
+
+        }
+    }
 
 }
 
