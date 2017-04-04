@@ -35,6 +35,8 @@ namespace InventoryManager
             Console.WriteLine(a);
 
             a.addEmployeeToDB();
+        
+
         }
     }
 }
