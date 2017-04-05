@@ -13,12 +13,24 @@ namespace InventoryManager
     /// </summary>
     public partial class App : Application
     {
+        /* add windows to startup to test code
+        *  secondwindow is to create employee and add to database
+        *  employee login is to test the log in system which will let employee / manager into the system
+        * 
+        */
         void App_Startup(object sender, StartupEventArgs e)
         {
-            SecondWindow mainWindow = new SecondWindow();
+           /* SecondWindow mainWindow = new SecondWindow();
             mainWindow.Top = 100;
             mainWindow.Left = 400;
             mainWindow.Show();
+           */
+            EmployeeLogIn window = new EmployeeLogIn();
+            window.Top = 100;
+            window.Left = 400;
+            window.Show();
+
+
         }
 
     }

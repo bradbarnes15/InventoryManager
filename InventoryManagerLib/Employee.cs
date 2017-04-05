@@ -57,8 +57,18 @@ public class Employee : DBConnection
     {
 
     }
+    public Employee(int employeeid ,string fn, string ln, string employeeCode, string pasword)
+    {
 
-	public Employee(string fn, string ln, string employeeCode, string pasword)
+
+        this.firstName = fn;
+        this.lastName = ln;
+        this.employeeId = employeeid;
+        this.userName = employeeCode;
+        passWord = Encrypt(pasword);
+     }
+
+    public Employee(string fn, string ln, string employeeCode, string pasword)
 	{
  
 
@@ -73,6 +83,10 @@ public class Employee : DBConnection
         Console.WriteLine("This is the unencrypted password after encryption");
         Console.WriteLine(Decrypt(passWord));
 	}
+    public static string getPass(Employee x)
+    {
+        return x.passWord;
+    }
     // This functions encrypts the password
     public static string Encrypt(string clearText)
     {
