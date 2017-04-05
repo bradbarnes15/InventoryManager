@@ -11,41 +11,14 @@ using System.Text;
 
 public class Inventory : DBConnection
 {
-	private int onHand
-	{
-		get;
-		set;
-	}
+    private string Product { get; set; }
+    private int On_Hand { get; set; } 
+	private int Inventory_Id { get; set; }
+	private int Reorder_Level { get; set; }
+	private int Reorder_Quantity { get; set; }
+    private int On_Order { get; set; }
 
-	private int inventory_id
-	{
-		get;
-		set;
-	}
 
-	private string product
-	{
-		get;
-		set;
-	}
-
-	private int reorderLevel
-	{
-		get;
-		set;
-	}
-
-	private int reorderQuantity
-	{
-		get;
-		set;
-	}
-
-	private int onOrder
-	{
-		get;
-		set;
-	}
 
 	public override string ToString()
 	{
