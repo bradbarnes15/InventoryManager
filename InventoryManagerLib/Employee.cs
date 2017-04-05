@@ -7,12 +7,16 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 
 public class Employee : DBConnection
 {
-	private string firstName
+    public List<Employee> employeeList; 
+
+    private string firstName
 	{
 		get;
 		set;
@@ -53,17 +57,85 @@ public class Employee : DBConnection
     {
 
     }
+    public Employee(int employeeid ,string fn, string ln, string employeeCode, string pasword)
+    {
 
-	public Employee(string fn, string ln, string employeeCode, string pasword)
+
+        this.firstName = fn;
+        this.lastName = ln;
+        this.employeeId = employeeid;
+        this.userName = employeeCode;
+        passWord = Encrypt(pasword);
+     }
+
+    public Employee(string fn, string ln, string employeeCode, string pasword)
 	{
+ 
+
         this.firstName = fn;
         this.lastName = ln;
         this.employeeId = -1;
         this.userName = employeeCode;
-        passWord = pasword;
-	}
+        passWord = Encrypt(pasword);
 
-	public void Print()
+        Console.WriteLine("This is the encrypted password");
+        Console.WriteLine(""+ passWord + "");
+        Console.WriteLine("This is the unencrypted password after encryption");
+        Console.WriteLine(Decrypt(passWord));
+	}
+    public static string getPass(Employee x)
+    {
+        return x.passWord;
+    }
+    // This functions encrypts the password
+    public static string Encrypt(string clearText)
+    {
+        string EncryptionKey = "abc123";
+        byte[] clearBytes = Encoding.Unicode.GetBytes(clearText);
+        using (Aes encryptor = Aes.Create())
+        {
+            Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] { 0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76 });
+            encryptor.Key = pdb.GetBytes(32);
+            encryptor.IV = pdb.GetBytes(16);
+            using (MemoryStream ms = new MemoryStream())
+            {
+                using (CryptoStream cs = new CryptoStream(ms, encryptor.CreateEncryptor(), CryptoStreamMode.Write))
+                {
+                    cs.Write(clearBytes, 0, clearBytes.Length);
+                    cs.Close();
+                }
+                clearText = Convert.ToBase64String(ms.ToArray());
+            }
+        }
+        return clearText;
+    }
+    // This function takes the encrypted passwords and converts them to a string
+    // Use this to test the encryption function
+    public static string Decrypt(string cipherText)
+    {
+        string EncryptionKey = "abc123";
+        cipherText = cipherText.Replace(" ", "+");
+        byte[] cipherBytes = Convert.FromBase64String(cipherText);
+        using (Aes encryptor = Aes.Create())
+        {
+            Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] { 0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76 });
+            encryptor.Key = pdb.GetBytes(32);
+            encryptor.IV = pdb.GetBytes(16);
+            using (MemoryStream ms = new MemoryStream())
+            {
+                using (CryptoStream cs = new CryptoStream(ms, encryptor.CreateDecryptor(), CryptoStreamMode.Write))
+                {
+                    cs.Write(cipherBytes, 0, cipherBytes.Length);
+                    cs.Close();
+                }
+                cipherText = Encoding.Unicode.GetString(ms.ToArray());
+            }
+        }
+        return cipherText;
+    }
+
+    // just use to check data
+    public void Print()
 	{
         Console.WriteLine(firstName);
         Console.WriteLine(lastName);
@@ -71,6 +143,7 @@ public class Employee : DBConnection
         Console.WriteLine(userName);
         Console.WriteLine(passWord);
     }
+    // toString to print out objects fields
     public override string ToString()
     {
         string printString;
@@ -82,6 +155,7 @@ public class Employee : DBConnection
 	{
 		throw new System.NotImplementedException();
 	}
+    // add employee to data base
     public virtual void addEmployeeToDB()
     {
         using (SqlConnection conn = new SqlConnection())

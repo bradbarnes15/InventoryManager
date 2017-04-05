@@ -42,6 +42,45 @@ public class DBConnection
             command.ExecuteNonQuery();
         }
     }
+    public static Employee get(string userName,string passwd)
+    {
+        using (SqlConnection conn = new SqlConnection())
+        {
+            conn.ConnectionString = CONNECTION_STRING;
+            conn.Open();
+
+            String sql;
+            sql = "select employee_id, first_name, last_name, username , encrypted_password from Employee where username = @id";
+
+            SqlCommand command = new SqlCommand(sql, conn);
+            command.Parameters.AddWithValue("id", userName);
+
+            using (SqlDataReader read = command.ExecuteReader())
+            {
+                if (read.HasRows)
+                {
+                    read.Read();
+                    Employee a = new Employee(
+                        read.GetInt32(0),
+                        read.GetString(1),
+                         read.GetString(2),
+                          read.GetString(3),
+                           read.GetString(4)
+                         );
+                    a.Print();
+                    Console.WriteLine("Decrypt password");
+                    Console.WriteLine(Employee.Decrypt(Employee.getPass(a)));
+                    return a;
+                }
+                else
+                {
+                    return null;
+                }
+           
+            }
+        }
+    }
+
 
     public virtual void search()
 	{
