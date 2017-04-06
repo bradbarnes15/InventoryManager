@@ -83,9 +83,30 @@ public class Employee : DBConnection
         Console.WriteLine("This is the unencrypted password after encryption");
         Console.WriteLine(Decrypt(passWord));
 	}
+    public Employee(int x, string fn, string ln, string employeeCode)
+    {
+        this.firstName = fn;
+        this.lastName = ln;
+        this.employeeId = x;
+        this.userName = employeeCode;
+        passWord = "";
+    }
+    public Employee(string fn, string ln)
+    {
+        firstName = fn;
+        lastName = ln;
+        employeeId = 0;
+        userName = "";
+        passWord = "";
+    }
     public static string getPass(Employee x)
     {
         return x.passWord;
+    }
+    public static string getFnLn(Employee x)
+    {
+        string name = x.firstName + " " + x.lastName;
+        return name;
     }
     // This functions encrypts the password
     public static string Encrypt(string clearText)

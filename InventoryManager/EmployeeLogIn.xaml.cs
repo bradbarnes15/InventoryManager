@@ -24,55 +24,32 @@ namespace InventoryManager
         public EmployeeLogIn()
         {
             InitializeComponent();
+
         }
+
         // password verification on user input verses server info
         private void button_Click(object sender, RoutedEventArgs e)
         {
             string userEnteredName = textBox.Text;
             string userEnteredPassword = Employee.Encrypt(textBox1.Text);
-            string userEnteredPassword1 = Employee.Encrypt(textBox1.Text);
 
-            Employee b = new Employee();
-            b = DBConnection.get(userEnteredName, userEnteredPassword);
-            b.ToString();
-            if (b != null)
+            Employee user = new Employee();
+            user = DBConnection.VerifyEmployeeLogin(userEnteredName, userEnteredPassword);
+
+            //user.Print();
+            if (user != null)
             {
-                b.Print();
+                this.Close();
+                EmployeeInterface employee = new EmployeeInterface();
+                employee.Top = 100;
+                employee.Left = 400;
+                employee.Show();
             }
-            if (Employee.Decrypt(Employee.getPass(b)) == userEnteredPassword1)
+            else
             {
-                Console.WriteLine("YES");
-            }
-        }
-        /*
-        private void button_Click(object sender, RoutedEventArgs e)
-        {
-            Employee a = new Employee(textBox.Text,
-                                        textBox1.Text,
-                                        textBox3.Text,
-                                        textBox4.Text);
-            a.Print();
-            Console.WriteLine(a);
-            a.addEmployeeToDB();
-        }
-        
-        public void delete(String tableName, String fieldName, int pkValue)
-        {
-            using (SqlConnection conn = new SqlConnection())
-            {
-                conn.ConnectionString = DBTable.CONNECTION_STR;
-                conn.Open();
-
-                String sql;
-                sql = "delete from [" + tableName + "] where [" + fieldName + "] = @id";
-
-                SqlCommand command = new SqlCommand(sql, conn);
-                command.Parameters.AddWithValue("id", pkValue);
-
-                command.ExecuteNonQuery();
-
+                textBox.Text = "Try again";
+                textBox1.Text = "invalid password";
             }
         }
-        */
     }
 }

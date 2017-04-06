@@ -42,7 +42,7 @@ public class DBConnection
             command.ExecuteNonQuery();
         }
     }
-    public static Employee get(string userName,string passwd)
+    public static Employee VerifyEmployeeLogin(string userName,string passwd)
     {
         using (SqlConnection conn = new SqlConnection())
         {
@@ -60,17 +60,27 @@ public class DBConnection
                 if (read.HasRows)
                 {
                     read.Read();
-                    Employee a = new Employee(
-                        read.GetInt32(0),
-                        read.GetString(1),
-                         read.GetString(2),
-                          read.GetString(3),
-                           read.GetString(4)
-                         );
-                    a.Print();
-                    Console.WriteLine("Decrypt password");
-                    Console.WriteLine(Employee.Decrypt(Employee.getPass(a)));
-                    return a;
+                  //  Employee a = new Employee(read.GetInt32(0),
+                 //       read.GetString(1), read.GetString(2),read.GetString(3),read.GetString(4));
+                    int eID = read.GetInt32(0);
+                    string b = read.GetString(1);
+                    string c = read.GetString(2);
+                    string d = read.GetString(3);
+                    string e = read.GetString(4);
+                    Console.WriteLine(e);
+                    Console.WriteLine(userName);
+                    if (e == passwd)
+                    {
+                        Console.WriteLine("YES THE PASSWORD MATCHED");
+                        Employee a = new Employee(read.GetInt32(0),read.GetString(1),read.GetString(2),read.GetString(3));
+
+                        return a;
+                    }
+                    else
+                    //a.Print();
+                    //Console.WriteLine("Decrypt password");
+                    //Console.WriteLine(Employee.Decrypt(Employee.getPass(a)));
+                    return null;
                 }
                 else
                 {
