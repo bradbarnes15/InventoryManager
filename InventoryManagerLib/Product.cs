@@ -47,7 +47,6 @@ public class Product : DBConnection
         this.List_Price   = listPrice;
         this.Unit_Cost    = unitCost;
         this.Discontinue  = false;
-        this.Product_Id   = -1;
     }
 
 
@@ -62,13 +61,13 @@ public class Product : DBConnection
 
             if (Product_Id == -1)
             {
-                sql = "INSERT INTO Product(Product_Code, Product_Name, Unit_Cost, List_Price, Discontinue, Category) VALUES(@Product_Code, @Product_Name, @Unit_Cost, @List_Price, @Discontinue, @Category)"
+                sql = "INSERT INTO Product(Product_Code, Product_Name, Unit_Cost, List_Price, Discontinue, Category) VALUES(@Product_Code, @Product_Name, @Unit_Cost, @List_Price, @Discontinue, @Category) "
                     + "SELECT CAST (scope_identity() as int)";
             }
             else
             {
                 sql = "UPDATE Product set "
-                    + "Product_code = @Product_Code, Product_Name = @Product_Name, Unit_Cost = @Unit_Cost, List_Price = @List_Price, Discontinue = @Discontinue, Category = @Category"
+                    + "Product_code = @Product_Code, Product_Name = @Product_Name, Unit_Cost = @Unit_Cost, List_Price = @List_Price, Discontinue = @Discontinue, Category = @Category "
                     + "WHERE Product_Id = @Product_Id";
             }
 
@@ -100,7 +99,8 @@ public class Product : DBConnection
             conn.ConnectionString = DBConnection.CONNECTION_STRING;
             conn.Open();
 
-            string sql = "SELECT Product_Id, Product_Code, Product_Name, Unit_Cost, List_Price, Discontinue, Category"
+            string sql = "SELECT Product_Id, Product_Code, Product_Name, Unit_Cost, List_Price, Discontinue, Category "
+                       + "FROM Product "
                        + "WHERE Product_Id = @Product_Id";
 
             SqlCommand command = new SqlCommand(sql, conn);
@@ -111,14 +111,15 @@ public class Product : DBConnection
                 if (read.HasRows)
                 {
                     read.Read();
-                    Product product = new Product(
-                        read.GetInt32(0),
-                        read.GetString(2),
-                        read.GetString(1),
-                        read.GetString(6),
-                        read.GetDouble(4),
-                        read.GetDouble(3)
-                        );
+
+                    int productId = read.GetInt32(0);
+                    string productName = read.GetString(2);
+                    string productCode = read.GetString(1);
+                    string category = read.GetString(6);
+                    double listPrice = read.GetDouble(4);
+                    double unitCost = read.GetDouble(3);
+
+                    Product product = new Product(productId, productName, productCode, category, listPrice, unitCost);
                     return product;
                 }
                 else
