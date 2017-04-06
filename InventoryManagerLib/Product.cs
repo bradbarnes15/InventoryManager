@@ -19,13 +19,7 @@ public class Product : DBConnection
 	public string Category { get; set; }
 	public Double List_Price { get; set; }
 	public Double Unit_Cost { get; set; }
-
-
-
-	public override string ToString()
-	{
-		throw new System.NotImplementedException();
-	}
+    
 
 	public Product(string productName, string productCode, string category, double listPrice, double unitCost)
 	{
@@ -129,6 +123,55 @@ public class Product : DBConnection
             }
         }
     }
+
+
+    public static LinkedList<Product> GetAll()
+    {
+        using (SqlConnection conn = new SqlConnection())
+        {
+            conn.ConnectionString = DBConnection.CONNECTION_STRING;
+            conn.Open();
+
+            string sql;
+
+            sql = "SELECT Product_Id, Product_Code, Product_Name, Unit_Cost, List_Price, Discontinue, Category "
+                + "FROM Product";
+
+            SqlCommand command = new SqlCommand(sql, conn);
+            using (SqlDataReader reader = command.ExecuteReader())
+            {
+                LinkedList<Product> productList = new LinkedList<Product>();
+
+                while (reader.Read())
+                {
+                    Product p = new Product(reader.GetInt32(0), 
+                                            reader.GetString(2), 
+                                            reader.GetString(1), 
+                                            reader.GetString(6),
+                                            reader.GetDouble(4),
+                                            reader.GetDouble(3)
+                                            );
+
+                    productList.AddLast(p);
+                }
+
+                return productList;
+            }
+        }
+    }
+
+
+    public override string ToString()
+    {
+        string str = "Id: " + Product_Id + ", Code: " + Product_Code + ", Name: " + Product_Name + ", Price:" + List_Price;
+        if (Discontinue)
+        {
+            str += "Discontinued";
+        }
+
+        return str;
+    }
+
 
 }
 
