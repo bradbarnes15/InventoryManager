@@ -7,10 +7,12 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid HorizontalAlignment="Left" Height="324" Margin="-3,0,-3.6,-3.2" VerticalAlignment="Top" Width="525">
-        <TextBox x:Name="Product_Code_textBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Product_Code" VerticalAlignment="Top" Width="120" Margin="10,10,0,0"/>
-        <TextBox x:Name="Product_Name_textBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Product_Name" VerticalAlignment="Top" Width="120" Margin="10,38,0,0"/>
-        <TextBox x:Name="List_Price_textBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap"   Text="List_Price" VerticalAlignment="Top" Width="120" Margin="10,66,0,0"/>
-        <Button x:Name="Add_Product_button" Content="Add Product" HorizontalAlignment="Left" Margin="31,94,0,0" VerticalAlignment="Top" Width="75" Click="Add_Product_button_Click"/>
+        <TextBox x:Name="Product_Code_textBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Product_Code" VerticalAlignment="Top" Width="120" Margin="26,38,0,0"/>
+        <TextBox x:Name="Product_Name_textBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Product_Name" VerticalAlignment="Top" Width="120" Margin="26,66,0,0"/>
+        <TextBox x:Name="List_Price_textBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap"   Text="List_Price" VerticalAlignment="Top" Width="120" Margin="26,94,0,0"/>
+        <Button x:Name="Add_Product_button" Content="Add Product" HorizontalAlignment="Left" Margin="10,122,0,0" VerticalAlignment="Top" Width="75" Click="Add_Product_button_Click"/>
+        <Button x:Name="Update_Product_button" Content="Update product" HorizontalAlignment="Left" VerticalAlignment="Top" Width="95" Margin="90,122,0,0" Click="Update_Product_button_Click"/>
+        <TextBox x:Name="Product_Id_Textbox" HorizontalAlignment="Left" Height="23" Margin="26,10,0,0" TextWrapping="Wrap" Text="Product ID" VerticalAlignment="Top" Width="120"/>
     </Grid>
 
 

@@ -12,13 +12,13 @@ using System.Text;
 
 public class Product : DBConnection
 {
-	private string Product_Name { get; set; }
-	private string Product_Code { get; set; }
-	private bool Discontine { get; set; }
-	private string Category { get; set; }
-	private int Product_Id { get; set; }
-	private Double List_Price { get; set; }
-	private Double Unit_Cost { get; set; }
+    private int Product_Id { get; set; }
+    public string Product_Name { get; set; }
+	public string Product_Code { get; set; }
+	public bool Discontinue { get; set; }
+	public string Category { get; set; }
+	public Double List_Price { get; set; }
+	public Double Unit_Cost { get; set; }
 
 
 
@@ -31,12 +31,24 @@ public class Product : DBConnection
 	{
         this.Product_Name = productName;
         this.Product_Code = productCode;
-        this.Category = category;
-        this.List_Price = listPrice;
-        this.Unit_Cost = unitCost;
-        this.Discontine = false;
-        this.Product_Id = -1;
+        this.Category     = category;
+        this.List_Price   = listPrice;
+        this.Unit_Cost    = unitCost;
+        this.Discontinue  = false;
+        this.Product_Id   = -1;
 	}
+
+    private Product(int Product_Id, string productName, string productCode, string category, double listPrice, double unitCost)
+    {
+        this.Product_Id   = Product_Id;
+        this.Product_Name = productName;
+        this.Product_Code = productCode;
+        this.Category     = category;
+        this.List_Price   = listPrice;
+        this.Unit_Cost    = unitCost;
+        this.Discontinue  = false;
+        this.Product_Id   = -1;
+    }
 
 
     public void Save()
@@ -65,7 +77,7 @@ public class Product : DBConnection
             command.Parameters.AddWithValue("Product_Name", Product_Name);
             command.Parameters.AddWithValue("Unit_Cost", Unit_Cost);
             command.Parameters.AddWithValue("List_Price", List_Price);
-            //command.Parameters.AddWithValue("Discontinue", Discontinue);
+            command.Parameters.AddWithValue("Discontinue", Discontinue);
             command.Parameters.AddWithValue("Category", Category);
 
             if(Product_Id == -1)
@@ -100,6 +112,7 @@ public class Product : DBConnection
                 {
                     read.Read();
                     Product product = new Product(
+                        read.GetInt32(0),
                         read.GetString(2),
                         read.GetString(1),
                         read.GetString(6),

@@ -35,5 +35,18 @@ namespace InventoryManager
 
             product.Save();
         }
+
+        private void Update_Product_button_Click(object sender, RoutedEventArgs e)
+        {
+            //double listPrice = (double)Convert.ToDouble(List_Price_textBox.Text);
+            int productID = (int)Convert.ToInt32(Product_Id_Textbox.Text);
+
+            Product product = Product.Get(productID);
+
+            product.Product_Name = Product_Name_textBox.Text;
+
+            product.Save();
+            
+        }
     }
 }
