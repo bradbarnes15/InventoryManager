@@ -11,55 +11,26 @@ using System.Text;
 
 public class Product : DBConnection
 {
-	private string productName
-	{
-		get;
-		set;
-	}
+	private string Product_Name { get; set; }
+	private string Product_Code { get; set; }
+	private bool Discontine { get; set; }
+	private string Category { get; set; }
+	private int Product_Id { get; set; }
+	private Double List_Price { get; set; }
+	private Double Unit_Cost { get; set; }
 
-	private string productCode
-	{
-		get;
-		set;
-	}
 
-	private bool discontine
-	{
-		get;
-		set;
-	}
-
-	private string category
-	{
-		get;
-		set;
-	}
-
-	private int productId
-	{
-		get;
-		set;
-	}
-
-	private Double listPrice
-	{
-		get;
-		set;
-	}
-
-	private Double unitCost
-	{
-		get;
-		set;
-	}
 
 	public override string ToString()
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public Product()
+	public Product(string productName, string productCode, string category, double listPrice, double unitCost)
 	{
+        this.Product_Name = productName;
+        this.Product_Code = productCode;
+
 	}
 
 }
