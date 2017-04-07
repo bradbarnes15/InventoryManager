@@ -25,10 +25,28 @@ namespace InventoryManager
             InitializeComponent();
         }
 
-        private void AddOrderStatus_Click(object sender, RoutedEventArgs e)
+        private void Add_Product_button_Click(object sender, RoutedEventArgs e)
         {
-            OrderStatus os = new OrderStatus("Invoiced");
-            os.Operation1();
+            double listPrice;
+
+            listPrice = (double)Convert.ToDouble(List_Price_textBox.Text);
+
+            Product product = new Product(Product_Name_textBox.Text, Product_Code_textBox.Text, "blank",listPrice, 5.0);
+
+            product.Save();
+        }
+
+        private void Update_Product_button_Click(object sender, RoutedEventArgs e)
+        {
+            //double listPrice = (double)Convert.ToDouble(List_Price_textBox.Text);
+            int productID = (int)Convert.ToInt32(Product_Id_Textbox.Text);
+
+            Product product = Product.Get(productID);
+
+            product.Product_Name = Product_Name_textBox.Text;
+
+            product.Save();
+            
         }
     }
 }
