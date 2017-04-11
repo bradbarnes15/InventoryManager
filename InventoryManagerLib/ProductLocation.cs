@@ -119,6 +119,35 @@ public class ProductLocation : DBConnection
     }
 
 
+    public static List<ProductLocation> GetAll()
+    {
+        using (SqlConnection conn = new SqlConnection())
+        {
+            conn.ConnectionString = DBConnection.CONNECTION_STRING;
+            conn.Open();
+
+            string sql;
+
+            sql = "SELECT Locations_Id, Product_Location, Product_Quantity "
+                + "FROM Product_Locations";
+
+            SqlCommand command = new SqlCommand(sql, conn);
+            using (SqlDataReader reader = command.ExecuteReader())
+            {
+                List<ProductLocation> locationList = new List<ProductLocation>();
+
+                while (reader.Read())
+                {
+                    ProductLocation pl = new ProductLocation(reader.GetInt32(0),
+                                                             reader.GetString(1),
+                                                             reader.GetInt32(2));
+                    locationList.Add(pl);
+                }
+
+                return locationList;
+            }
+        }
+    }
 
 
 
