@@ -119,7 +119,8 @@ public class Product : DBConnection
     }
 
 
-    public static LinkedList<Product> GetAll()
+    //Not yet tested
+    public static List<Product> GetAll()
     {
         using (SqlConnection conn = new SqlConnection())
         {
@@ -134,7 +135,7 @@ public class Product : DBConnection
             SqlCommand command = new SqlCommand(sql, conn);
             using (SqlDataReader reader = command.ExecuteReader())
             {
-                LinkedList<Product> productList = new LinkedList<Product>();
+                List<Product> productList = new List<Product>();
 
                 while (reader.Read())
                 {
@@ -146,7 +147,7 @@ public class Product : DBConnection
                                             reader.GetDouble(3)
                                             );
 
-                    productList.AddLast(p);
+                    productList.Add(p);
                 }
 
                 return productList;
