@@ -26,27 +26,14 @@ public class Inventory : DBConnection
     
 
 
+
+
 	public override string ToString()
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void AddNewItem()
-	{
-		throw new System.NotImplementedException();
-	}
-
-	public virtual void ModifyItemDetails()
-	{
-		throw new System.NotImplementedException();
-	}
-
 	public virtual void ModifyItemStock()
-	{
-		throw new System.NotImplementedException();
-	}
-
-	public virtual void RemoveItem()
 	{
 		throw new System.NotImplementedException();
 	}
