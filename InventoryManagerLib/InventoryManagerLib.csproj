@@ -55,6 +55,7 @@
     <Compile Include="Orders.cs" />
     <Compile Include="OrderStatus.cs" />
     <Compile Include="Product.cs" />
+    <Compile Include="ProductLocation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PurchaseOrder.cs" />
     <Compile Include="PurchaseOrderDetails.cs" />

@@ -48,5 +48,16 @@ namespace InventoryManager
             product.Save();
             
         }
+
+        private void AddProductLocationbutton_Click(object sender, RoutedEventArgs e)
+        {
+            //ProductLocation location = new ProductLocation("A100");
+            int locationId = 1;
+            ProductLocation location = ProductLocation.Get(locationId);
+
+            location.Product_Quantity = 5;
+
+            location.Save();
+        }
     }
 }

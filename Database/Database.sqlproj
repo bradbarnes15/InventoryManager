@@ -160,6 +160,10 @@
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
     <Build Include="dbo\Tables\OrderStatus.sql" />
+    <Build Include="dbo\Tables\Product_Locations.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="Database.refactorlog" />
