@@ -99,16 +99,6 @@ public class ProductLocation : DBConnection
                                                read.GetString(1),
                                                read.GetInt32(2));
                     return location;
-
-                    //int productId = read.GetInt32(0);
-                    //string productName = read.GetString(2);
-                    //string productCode = read.GetString(1);
-                    //string category = read.GetString(6);
-                    //double listPrice = read.GetDouble(4);
-                    //double unitCost = read.GetDouble(3);
-
-                    //Product product = new Product(productId, productName, productCode, category, listPrice, unitCost);
-                    //return product;
                 }
                 else
                 {

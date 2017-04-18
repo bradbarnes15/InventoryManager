@@ -6,14 +6,14 @@ using System.Text;
 
 public class Inventory : DBConnection
 {
-    private int Inventory_Id { get; set; }
-    private string Product { get; set; }
-    private int Product_Id { get; set; }
+    private int    Inventory_Id     { get; set; }
+    private string Product          { get; set; }
+    private int    Product_Id       { get; set; }
     private string Product_Location { get; set; }
-    private int On_Hand { get; set; } 
-	private int Reorder_Level { get; set; }
-	private int Reorder_Quantity { get; set; }
-    private int On_Order { get; set; }
+    private int    On_Hand          { get; set; } 
+	private int    Reorder_Level    { get; set; }
+	private int    Reorder_Quantity { get; set; }
+    private int    On_Order         { get; set; }
 
 
     public Inventory(string Product, string Product_Location, int Product_Id, int On_Hand, int Reorder_Level, int Reorder_Quantity)

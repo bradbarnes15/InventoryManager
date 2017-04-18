@@ -6,70 +6,178 @@
 //------------------------------------------------------------------------------
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 
 public class Orders : DBConnection
 {
-	private int orderId
-	{
-		get;
-		set;
-	}
+	private int      Order_Id         { get; set; }
+	private DateTime Order_Date       { get; set; }
+	private string   Employee         { get; set; }
+	private string   Shipping_Address { get; set; }
+	private string   Ship_City        { get; set; }
+	private string   Ship_State       { get; set; }
+	private int      Zip              { get; set; }
+	private double   Order_Total      { get; set; }
+    private double   Tax              { get; set; }
+	private string   Status           { get; set; }
+	private DateTime Closed_Date      { get; set; }
+    
+    public Orders(DateTime Order_Date, string Employee, string Shipping_Address, string Ship_City, string Ship_State, int Zip, double Order_Total, double Tax, string Status, DateTime Closed_Date)
+    {
+        this.Order_Date       = Order_Date;
+        this.Employee         = Employee;
+        this.Shipping_Address = Shipping_Address;
+        this.Ship_City        = Ship_City;
+        this.Ship_State       = Ship_State;
+        this.Zip              = Zip;
+        this.Order_Total      = Order_Total;
+        this.Tax              = Tax;
+        this.Status           = Status;
+        this.Closed_Date      = Closed_Date;
+    }
 
-	private string orderDate
-	{
-		get;
-		set;
-	}
+    private Orders(int Order_Id, DateTime Order_Date, string Employee, string Shipping_Address, string Ship_City, string Ship_State, int Zip, double Order_Total, double Tax, string Status, DateTime Closed_Date)
+    {
+        this.Order_Id         = Order_Id;
+        this.Order_Date       = Order_Date;
+        this.Employee         = Employee;
+        this.Shipping_Address = Shipping_Address;
+        this.Ship_City        = Ship_City;
+        this.Ship_State       = Ship_State;
+        this.Zip              = Zip;
+        this.Order_Total      = Order_Total;
+        this.Tax              = Tax;
+        this.Status           = Status;
+        this.Closed_Date      = Closed_Date;
+    }
 
-	private string employee
-	{
-		get;
-		set;
-	}
+    public void Save()
+    {
+        using (SqlConnection conn = new SqlConnection())
+        {
+            conn.ConnectionString = DBConnection.CONNECTION_STRING;
+            conn.Open();
 
-	private string shippingAddress
-	{
-		get;
-		set;
-	}
+            string sql;
 
-	private string shipCity
-	{
-		get;
-		set;
-	}
+            if (Order_Id == -1)
+            {
+                sql = "INSERT INTO Orders(Order_Date, Employee, Shipping_Address, Ship_City, Ship_State, Zip, Order_Total, Tax, Status, Closed_Date) "
+                    + "VALUES(@Order_Date, @Employee, @Shipping_Address, @Ship_City, @Ship_State, @Zip, @Order_Total, @Tax, @Status, @Closed_Date) "
+                    + "SELECT CAST (scope_identity() as int)";
+            }
+            else
+            {
+                sql = "UPDATE Orders SET "
+                    + "Order_Date = @Order_Date, Employee = @Employee, Shipping_Address = @Shipping_Address, Ship_City = @Ship_City, Ship_State = @Ship_State, Zip = @Zip, Order_Total = @Order_Total, Tax = @Tax, Status = @Status, Closed_Date = @Closed_Date "
+                    + "WHERE Order_Id = @Order_Id";
+            }
 
-	private string shipState
-	{
-		get;
-		set;
-	}
+            SqlCommand command = new SqlCommand(sql, conn);
 
-	private int zip
-	{
-		get;
-		set;
-	}
+            command.Parameters.AddWithValue("Order_Date", Order_Date);
+            command.Parameters.AddWithValue("Employee", Employee);
+            command.Parameters.AddWithValue("Shipping_Address", Shipping_Address);
+            command.Parameters.AddWithValue("Ship_City", Ship_City);
+            command.Parameters.AddWithValue("Ship_State", Ship_State);
+            command.Parameters.AddWithValue("Zip", Zip);
+            command.Parameters.AddWithValue("Order_Total", Order_Total);
+            command.Parameters.AddWithValue("Tax", Tax);
+            command.Parameters.AddWithValue("Status", Status);
+            command.Parameters.AddWithValue("Closed_Date", Closed_Date);
 
-	private Double orderTota
-	{
-		get;
-		set;
-	}
+            
+            if (Order_Id == -1)
+            {
+                Order_Id = (int)command.ExecuteScalar();
+            }
+            else
+            {
+                command.Parameters.AddWithValue("Order_Id", Order_Id);
+                command.ExecuteNonQuery();
+            }
+        }
+    }
 
-	private string status
-	{
-		get;
-		set;
-	}
+    public static Orders Get(int Order_Id)
+    {
+        using (SqlConnection conn = new SqlConnection())
+        {
+            conn.ConnectionString = DBConnection.CONNECTION_STRING;
+            conn.Open();
 
-	private string closedDate
-	{
-		get;
-		set;
-	}
+            string sql = "SELECT Order_Id, Order_Date, Employee, Shipping_Address, Ship_City, Ship_State, Zip, Order_Total, Tax, Status, Closed_Date "
+                       + "FROM Orders "
+                       + "WHERE Order_Id = @Order_Id";
+
+            SqlCommand command = new SqlCommand(sql, conn);
+            command.Parameters.AddWithValue("Order_Id", Order_Id);
+
+            using (SqlDataReader reader = command.ExecuteReader())
+            {
+                if (reader.HasRows)
+                {
+                    reader.Read();
+
+                    Orders order = new Orders(reader.GetInt32(0),
+                                              reader.GetDateTime(1),
+                                              reader.GetString(2),
+                                              reader.GetString(3),
+                                              reader.GetString(4),
+                                              reader.GetString(5),
+                                              reader.GetInt32(6),
+                                              reader.GetDouble(7),
+                                              reader.GetDouble(8),
+                                              reader.GetString(9),
+                                              reader.GetDateTime(10));
+                    return order;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
+    }
+
+    public static List<Orders> GetAll()
+    {
+        using (SqlConnection conn = new SqlConnection())
+        {
+            conn.ConnectionString = DBConnection.CONNECTION_STRING;
+            conn.Open();
+
+            string sql = "SELECT Order_Id, Order_Date, Employee, Shipping_Address, Ship_City, Ship_State, Zip, Order_Total, Tax, Status, Closed_Date "
+                       + "FROM Orders ";
+
+            SqlCommand command = new SqlCommand(sql, conn);
+            using (SqlDataReader reader = command.ExecuteReader())
+            {
+                List<Orders> OrderList = new List<Orders>();
+
+                while (reader.Read())
+                {
+                    Orders order = new Orders(reader.GetInt32(0),
+                                              reader.GetDateTime(1),
+                                              reader.GetString(2),
+                                              reader.GetString(3),
+                                              reader.GetString(4),
+                                              reader.GetString(5),
+                                              reader.GetInt32(6),
+                                              reader.GetDouble(7),
+                                              reader.GetDouble(8),
+                                              reader.GetString(9),
+                                              reader.GetDateTime(10));
+
+                    OrderList.Add(order);
+                }
+
+                return OrderList;
+            }
+        }
+    }
 
 	public override string ToString()
 	{
