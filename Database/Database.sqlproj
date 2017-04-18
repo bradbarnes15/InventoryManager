@@ -171,5 +171,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="dbo\Scripts\dbo.Category.data.sql" />
+    <None Include="dbo\Scripts\dbo.Employee.data.sql" />
   </ItemGroup>
 </Project>
