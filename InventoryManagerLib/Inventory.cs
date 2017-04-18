@@ -54,8 +54,6 @@ public class Inventory : DBConnection
                 sql = "INSERT INTO Inventory(Product_Id, Product, Product_Location, On_Hand, Reorder_Level, Reorder_Quantity, On_Order)"
                     + "VALUES(@Product_Id, @Product, @Product_Location, @On_Hand, @Reorder_Level, @Reorder_Quantity, @On_Order)"
                     + "SELECT CAST (scope_identity() as int)";
-                //sql = "INSERT INTO Product(Product_Code, Product_Name, Unit_Cost, List_Price, Discontinue, Category) VALUES(@Product_Code, @Product_Name, @Unit_Cost, @List_Price, @Discontinue, @Category) "
-                //    + "SELECT CAST (scope_identity() as int)";
             }
             else
             {
