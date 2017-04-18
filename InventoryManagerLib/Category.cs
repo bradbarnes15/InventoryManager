@@ -6,22 +6,128 @@
 //------------------------------------------------------------------------------
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 
 public class Category : DBConnection
 {
-	private string Category_Text
-	{
-		get;
-		set;
-	}
+	private string Category_Text { get; set; }
+	private int Category_Id { get; set; }
 
-	private int Category_Id
-	{
-		get;
-		set;
-	}
+
+    public Category(string Category_Text)
+    {
+        this.Category_Text = Category_Text;
+        Category_Id = -1;
+    }
+
+    private Category(int id, string Category_Text)
+    {
+        this.Category_Text = Category_Text;
+        Category_Id = id;
+    }
+
+
+    public void Save()
+    {
+        using (SqlConnection conn = new SqlConnection())
+        {
+            conn.ConnectionString = DBConnection.CONNECTION_STRING;
+            conn.Open();
+
+            string sql;
+
+            if(Category_Id == -1)
+            {
+                sql = "INSERT INTO Category(Category_Text) VALUES(@Category_Text) "
+                    + "SELECT CAST (scope_identity() as int)";
+            }
+            else
+            {
+                sql = "UPDATE Category SET"
+                    + "Category_Text = @Category_Text"
+                    + "WHERE Category_Id = @Category_Id";
+            }
+
+            SqlCommand command = new SqlCommand(sql, conn);
+            command.Parameters.AddWithValue("Category_Text", Category_Text);
+
+            if(Category_Id == -1)
+            {
+                Category_Id = (int)command.ExecuteScalar();
+            }
+            else
+            {
+                command.Parameters.AddWithValue("Category_Id", Category_Id);
+                command.ExecuteNonQuery();
+            }
+        }
+    }
+
+
+    public static Category Get(int Category_Id)
+    {
+        using (SqlConnection conn = new SqlConnection())
+        {
+            conn.ConnectionString = DBConnection.CONNECTION_STRING;
+            conn.Open();
+
+            string sql = "SELECT Category_Id, Category_Text"
+                       + "FROM Category"
+                       + "WHERE Category_Id = @Category_Id";
+
+            SqlCommand command = new SqlCommand(sql, conn);
+            command.Parameters.AddWithValue("Category_Id", Category_Id);
+
+            using (SqlDataReader reader = command.ExecuteReader())
+            {
+                if (reader.HasRows)
+                {
+                    reader.Read();
+
+                    Category c = new Category(reader.GetInt32(0),
+                                              reader.GetString(1));
+
+                    return c;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
+    }
+
+
+    public static List<Category> GetAll()
+    {
+        using (SqlConnection conn = new SqlConnection())
+        {
+            conn.ConnectionString = DBConnection.CONNECTION_STRING;
+            conn.Open();
+
+            string sql = "SELECT Category_Id, Category_Text "
+                       + "FROM Category";
+
+            SqlCommand command = new SqlCommand(sql, conn);
+
+            using (SqlDataReader reader = command.ExecuteReader())
+            {
+                List<Category> categoryList = new List<Category>();
+
+                while (reader.Read())
+                {
+                    Category c = new Category(reader.GetInt32(0),
+                                              reader.GetString(1));
+
+                    categoryList.Add(c);
+                }
+                return categoryList;
+            }
+        }
+    }
+
 
     public override string ToString()
     {

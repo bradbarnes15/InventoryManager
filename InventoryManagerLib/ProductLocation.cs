@@ -8,29 +8,33 @@ using System.Threading.Tasks;
 
 public class ProductLocation : DBConnection
 {
-    private int Locations_Id { get; set; }
+    private int   Locations_Id     { get; set; }
     public string Product_Location { get; set; }
-    public int Product_Quantity { get; set; }
+    public int    Product_Quantity { get; set; }
+    public string Product_Code     { get; set; }
 
 
-    public ProductLocation(string Product_Location)
+    public ProductLocation(string Product_Location, string Product_Code)
     {
         this.Product_Location = Product_Location;
+        this.Product_Code     = Product_Code;
         Product_Quantity = 0;
         Locations_Id = -1;
     }
 
-    public ProductLocation(string Product_Location, int Product_Quantity)
+    public ProductLocation(string Product_Location, string Product_Code, int Product_Quantity)
     {
         this.Product_Location = Product_Location;
         this.Product_Quantity = Product_Quantity;
+        this.Product_Code     = Product_Code;
         Locations_Id = -1;
     }
 
-    private ProductLocation(int Locations_Id, string Product_Location, int Product_Quantity)
+    private ProductLocation(int Locations_Id, string Product_Location, string Product_Code, int Product_Quantity)
     {
         this.Product_Location = Product_Location;
         this.Product_Quantity = Product_Quantity;
+        this.Product_Code     = Product_Code;
         this.Locations_Id = Locations_Id;
     }
 
@@ -46,20 +50,21 @@ public class ProductLocation : DBConnection
 
             if (Locations_Id == -1)
             {
-                sql = "INSERT INTO Product_Locations(Product_Location, Product_Quantity) "
-                    + "VALUES(@Product_Location, @Product_Quantity) "
+                sql = "INSERT INTO Product_Locations(Product_Location, Product_Quantity, Product_Code) "
+                    + "VALUES(@Product_Location, @Product_Quantity, @Product_Code) "
                     + "SELECT CAST (scope_identity() as int)";
             }
             else
             {
                 sql = "UPDATE Product_Locations "
-                    + "set Product_Location = @Product_Location, Product_Quantity = @Product_Quantity "
+                    + "set Product_Location = @Product_Location, Product_Quantity = @Product_Quantity, Product_Code = @Product_Code "
                     + "WHERE Locations_Id = @Locations_Id";
             }
 
             SqlCommand command = new SqlCommand(sql, conn);
             command.Parameters.AddWithValue("Product_Location", Product_Location);
             command.Parameters.AddWithValue("Product_Quantity", Product_Quantity);
+            command.Parameters.AddWithValue("Product_Code", Product_Code);
 
             if (Locations_Id == -1)
             {
@@ -81,7 +86,7 @@ public class ProductLocation : DBConnection
             conn.ConnectionString = DBConnection.CONNECTION_STRING;
             conn.Open();
 
-            string sql = "SELECT Locations_Id, Product_Location, Product_Quantity "
+            string sql = "SELECT Locations_Id, Product_Location, Product_Quantity, Product_Code "
                        + "FROM Product_Locations "
                        + "WHERE Locations_Id = @Locations_Id";
 
@@ -97,18 +102,9 @@ public class ProductLocation : DBConnection
                     ProductLocation location = new ProductLocation(
                                                read.GetInt32(0),
                                                read.GetString(1),
+                                               read.GetString(3),
                                                read.GetInt32(2));
                     return location;
-
-                    //int productId = read.GetInt32(0);
-                    //string productName = read.GetString(2);
-                    //string productCode = read.GetString(1);
-                    //string category = read.GetString(6);
-                    //double listPrice = read.GetDouble(4);
-                    //double unitCost = read.GetDouble(3);
-
-                    //Product product = new Product(productId, productName, productCode, category, listPrice, unitCost);
-                    //return product;
                 }
                 else
                 {
@@ -138,9 +134,11 @@ public class ProductLocation : DBConnection
 
                 while (reader.Read())
                 {
-                    ProductLocation pl = new ProductLocation(reader.GetInt32(0),
-                                                             reader.GetString(1),
-                                                             reader.GetInt32(2));
+                    ProductLocation pl = new ProductLocation(
+                                               reader.GetInt32(0),
+                                               reader.GetString(1),
+                                               reader.GetString(3),
+                                               reader.GetInt32(2));
                     locationList.Add(pl);
                 }
 
