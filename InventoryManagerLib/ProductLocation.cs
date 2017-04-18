@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 public class ProductLocation : DBConnection
 {
-    private int Locations_Id { get; set; }
+    private int   Locations_Id     { get; set; }
     public string Product_Location { get; set; }
-    public int Product_Quantity { get; set; }
+    public int    Product_Quantity { get; set; }
 
 
     public ProductLocation(string Product_Location)

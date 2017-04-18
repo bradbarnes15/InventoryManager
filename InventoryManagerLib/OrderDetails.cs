@@ -12,13 +12,13 @@ using System.Text;
 
 public class OrderDetails : DBConnection
 {
-	private int OrderDetails_Id { get; set; }
-    private int Order_Id { get; set; }
-    private string Product { get; set; }
-    private int Quantity { get; set; }
-    private Double Unit_Price { get; set; }
-    private Double Extended_Price { get; set; }
-    private string Status { get; set; }
+	private int    OrderDetails_Id { get; set; }
+    private int    Order_Id        { get; set; }
+    private string Product         { get; set; }
+    private int    Quantity        { get; set; }
+    private Double Unit_Price      { get; set; }
+    private Double Extended_Price  { get; set; }
+    private string Status          { get; set; }
 
     public OrderDetails(int Order_Id, string Product, int Quantity, double Unit_Price, double Extended_Price, string Status)
     {
