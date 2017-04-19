@@ -13,7 +13,6 @@
         <Button x:Name="Add_Product_button" Content="Add Product" HorizontalAlignment="Left" Margin="10,122,0,0" VerticalAlignment="Top" Width="75" Click="Add_Product_button_Click"/>
         <Button x:Name="Update_Product_button" Content="Update product" HorizontalAlignment="Left" VerticalAlignment="Top" Width="95" Margin="90,122,0,0" Click="Update_Product_button_Click"/>
         <TextBox x:Name="Product_Id_Textbox" HorizontalAlignment="Left" Height="23" Margin="26,10,0,0" TextWrapping="Wrap" Text="Product ID" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="AddProductLocationbutton" Content="Product Location" HorizontalAlignment="Left" Margin="308,50,0,0" VerticalAlignment="Top" Width="105" Click="AddProductLocationbutton_Click"/>
     </Grid>
 
 

@@ -39,7 +39,7 @@ public class Product : DBConnection
     }
 
 
-    public void DiscontinueItem(int Product_Id, bool New_Value)
+    public static void DiscontinueItem(int Product_Id, bool New_Value)
     {
         Product item = Product.Get(Product_Id);
 
@@ -49,7 +49,7 @@ public class Product : DBConnection
 
     }
 
-    public void UpdateListPrice(int Product_Id, double New_List_Price)
+    public static void UpdateListPrice(int Product_Id, double New_List_Price)
     {
         Product item = Product.Get(Product_Id);
 
