@@ -100,7 +100,7 @@ public class PurchaseOrder : DBConnection
         }
     }
 
-    public PurchaseOrder Get(int Purchase)
+    public PurchaseOrder Get(int PurchaseOrders_Id)
     {
         using (SqlConnection conn = new SqlConnection())
         {

@@ -6,26 +6,89 @@
 //------------------------------------------------------------------------------
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 
 public class PurchaseOrderDetails : DBConnection
 {
 	private int    PurchaseOrderDetails_Id { get; set; }
-	private int    Purchase_Order_Number  { get; set; }
-	private string Product                { get; set; }
-	private int    Quantity               { get; set; } 
-	private Double Unit_Price             { get; set; }
-	private Double Extended_Price         { get; set; }
-	private string Date_Received          { get; set; }
-	private string Status                 { get; set; }
+	private int    Purchase_Order_Number   { get; set; }
+	private string Product                 { get; set; }
+	private int    Quantity                { get; set; } 
+	private Double Unit_Price              { get; set; }
+	private Double Extended_Price          { get; set; }
+	private string Date_Received           { get; set; }
+	private string Status                  { get; set; }
 
 
     public PurchaseOrderDetails(int Purchase_Order_Number, string Product, int Quantity, double Unit_Price, double Extended_Price, string Date_Received, string Status)
     {
         this.PurchaseOrderDetails_Id = -1;
-        this.Purchase_Order_Number = Purchase_Order_Number;
+        this.Purchase_Order_Number   = Purchase_Order_Number;
+        this.Product                 = Product;
+        this.Quantity                = Quantity;
+        this.Unit_Price              = Unit_Price;
+        this.Extended_Price          = Extended_Price;
+        this.Date_Received           = Date_Received;
+        this.Status                  = Status;
+    }
 
+    private PurchaseOrderDetails(int PurchaseOrderDetails_Id, int Purchase_Order_Number, string Product, int Quantity, double Unit_Price, double Extended_Price, string Date_Received, string Status)
+    {
+        this.PurchaseOrderDetails_Id = PurchaseOrderDetails_Id;
+        this.Purchase_Order_Number   = Purchase_Order_Number;
+        this.Product                 = Product;
+        this.Quantity                = Quantity;   
+        this.Unit_Price              = Unit_Price;
+        this.Extended_Price          = Extended_Price;
+        this.Date_Received           = Date_Received;
+        this.Status                  = Status;
+    }
+
+
+    public void Save()
+    {
+        using (SqlConnection conn = new SqlConnection())
+        {
+            conn.ConnectionString = DBConnection.CONNECTION_STRING;
+            conn.Open();
+
+            string sql;
+
+            if (PurchaseOrderDetails_Id == -1)
+            {
+                sql = "INSERT INTO PurchaseOrderDetails(Purchase_Order_Number, Product, Quantity, Unit_Price, Extended_Price, Date_Received, Status) "
+                    + "VALUES(@Purchase_Order_Number, @Product, @Quantity, @Unit_Price, @Extended_Price, @Date_Received, @Status) "
+                    + "SELECT CAST (scope_identity() as int)";
+            }
+            else
+            {
+                sql = "UPDATE PurchaseOrderDetails SET "
+                    + "Purchase_Order_Number = @Purchase_Order_Number, Product = @Product, Quantity = @Quantity, Unit_Price = @Unit_Price, Extended_Price = @Extended_Price, Date_Received = @Date_Received, Status = @Status "
+                    + "WHERE PurchaseOrderDetails_Id = @PurchaseOrderDetails_Id";
+            }
+
+            SqlCommand command = new SqlCommand(sql, conn);
+
+            command.Parameters.AddWithValue("Purchase_Order_Number", Purchase_Order_Number);
+            command.Parameters.AddWithValue("Product", Product);
+            command.Parameters.AddWithValue("Quantity", Quantity);
+            command.Parameters.AddWithValue("Unit_Price", Unit_Price);
+            command.Parameters.AddWithValue("Extended_Price", Extended_Price);
+            command.Parameters.AddWithValue("Date_Received", Date_Received);
+            command.Parameters.AddWithValue("Status", Status);
+
+            if (PurchaseOrderDetails_Id == -1)
+            {
+                PurchaseOrderDetails_Id = (int)command.ExecuteScalar();
+            }
+            else
+            {
+                command.Parameters.AddWithValue("PurchaseOrderDetails_Id", PurchaseOrderDetails_Id);
+                command.ExecuteNonQuery();
+            }
+        }
     }
 
 
