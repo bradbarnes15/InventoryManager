@@ -16,42 +16,15 @@ public class Employee : DBConnection
 {
     public List<Employee> employeeList; 
 
-    private string firstName
-	{
-		get;
-		set;
-	}
+    private string firstName { get; set;}
 
-	private string lastName
-	{
-		get;
-		set;
-	}
+	private string lastName {get; set;}
 
-	private int employeeId
-	{
-		get;
-		set;
-	}
+	private int employeeId { get; set; }
 
-	private string passWord
-	{
-		get;
-		set;
-	}
+	private string passWord { get; set;}
 
-	private string userName
-	{
-		get;
-		set;
-	}
-
-    /*
-	public virtual Login Login
-	{
-		get;
-		set;
-	}*/
+    private string userName { get; set; }
 
     public Employee()
     {
@@ -59,8 +32,6 @@ public class Employee : DBConnection
     }
     public Employee(int employeeid ,string fn, string ln, string employeeCode, string pasword)
     {
-
-
         this.firstName = fn;
         this.lastName = ln;
         this.employeeId = employeeid;
@@ -70,8 +41,6 @@ public class Employee : DBConnection
 
     public Employee(string fn, string ln, string employeeCode, string pasword)
 	{
- 
-
         this.firstName = fn;
         this.lastName = ln;
         this.employeeId = -1;
@@ -154,7 +123,6 @@ public class Employee : DBConnection
         }
         return cipherText;
     }
-
     // just use to check data
     public void Print()
 	{
@@ -171,7 +139,6 @@ public class Employee : DBConnection
         printString = "" + firstName + " " + lastName + " " + employeeId + " " + userName + " " + passWord;
         return printString; 
     }
-
     public virtual void verifyPassword(string passWd)
 	{
 		throw new System.NotImplementedException();
@@ -196,7 +163,6 @@ public class Employee : DBConnection
             {
                 // sql = "UPDATE Employee set Status_Text = @Status_Text where OrderStatus_Id = @OrderStatus_Id";
                  sql = "UPDATE Employee set first_name = @first_name where employee_id = @employeeId";
-
             }
 
             SqlCommand command = new SqlCommand(sql, conn);
@@ -209,10 +175,7 @@ public class Employee : DBConnection
             {
                 employeeId = (int)command.ExecuteScalar();
             }
-
-
         }
     }
-
 }
 

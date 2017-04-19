@@ -49,5 +49,14 @@ namespace InventoryManager
             display =  display+ " Logged in @: " + two;
             label.Content = display;
         }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            EmployeeLogIn window = new EmployeeLogIn();
+            this.Close();
+            window.Top = 100;
+            window.Left = 400;
+            window.Show();
+        }
     }
 }
