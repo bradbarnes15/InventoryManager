@@ -11,53 +11,23 @@ using System.Text;
 
 public class PurchaseOrderDetails : DBConnection
 {
-	private int purchaseOrderDetailId
-	{
-		get;
-		set;
-	}
+	private int    PurchaseOrderDetails_Id { get; set; }
+	private int    Purchase_Order_Number  { get; set; }
+	private string Product                { get; set; }
+	private int    Quantity               { get; set; } 
+	private Double Unit_Price             { get; set; }
+	private Double Extended_Price         { get; set; }
+	private string Date_Received          { get; set; }
+	private string Status                 { get; set; }
 
-	private int purchaseOrderNumber
-	{
-		get;
-		set;
-	}
 
-	private string product
-	{
-		get;
-		set;
-	}
+    public PurchaseOrderDetails(int Purchase_Order_Number, string Product, int Quantity, double Unit_Price, double Extended_Price, string Date_Received, string Status)
+    {
+        this.PurchaseOrderDetails_Id = -1;
+        this.Purchase_Order_Number = Purchase_Order_Number;
 
-	private int quanity
-	{
-		get;
-		set;
-	}
+    }
 
-	private Double unitPrice
-	{
-		get;
-		set;
-	}
-
-	private Double extendedPrice
-	{
-		get;
-		set;
-	}
-
-	private string dateReceived
-	{
-		get;
-		set;
-	}
-
-	private string status
-	{
-		get;
-		set;
-	}
 
     public override string ToString()
     {
