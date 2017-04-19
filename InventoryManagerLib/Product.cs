@@ -6,13 +6,13 @@ using System.Text;
 
 public class Product : DBConnection
 {
-    private int Product_Id { get; set; }
+    private int   Product_Id   { get; set; }
     public string Product_Name { get; set; }
 	public string Product_Code { get; set; }
-	public bool Discontinue { get; set; }
-	public string Category { get; set; }
-	public Double List_Price { get; set; }
-	public Double Unit_Cost { get; set; }
+	public bool   Discontinue  { get; set; }
+	public string Category     { get; set; }
+	public Double List_Price   { get; set; }
+	public Double Unit_Cost    { get; set; }
     
 
 	public Product(string productName, string productCode, string category, double listPrice, double unitCost)
@@ -100,12 +100,12 @@ public class Product : DBConnection
                 {
                     read.Read();
 
-                    int productId = read.GetInt32(0);
+                    int productId      = read.GetInt32(0);
                     string productName = read.GetString(2);
                     string productCode = read.GetString(1);
-                    string category = read.GetString(6);
-                    double listPrice = read.GetDouble(4);
-                    double unitCost = read.GetDouble(3);
+                    string category    = read.GetString(6);
+                    double listPrice   = read.GetDouble(4);
+                    double unitCost    = read.GetDouble(3);
 
                     Product product = new Product(productId, productName, productCode, category, listPrice, unitCost);
                     return product;
