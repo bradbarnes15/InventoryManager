@@ -102,7 +102,78 @@ public class PurchaseOrder : DBConnection
 
     public PurchaseOrder Get(int Purchase)
     {
+        using (SqlConnection conn = new SqlConnection())
+        {
+            conn.ConnectionString = DBConnection.CONNECTION_STRING;
+            conn.Open();
 
+            string sql = "SELECT PurchaseOrders_Id, Order_Date, Created_By, Created_Date, Shipping_Fee, Tax, Payment_Date, Payment_Amount, Order_Subtotal, Order_Total "
+                       + "FROM PurchaseOrders "
+                       + "WHERE PurchaseOrders_Id = @PurchaseOrders_Id";
+
+            SqlCommand command = new SqlCommand(sql, conn);
+            command.Parameters.AddWithValue("PurchaseOrders_Id", PurchaseOrders_Id);
+
+            using (SqlDataReader reader = command.ExecuteReader())
+            {
+                if (reader.HasRows)
+                {
+                    reader.Read();
+
+                    PurchaseOrder purchaseOrder = new PurchaseOrder(reader.GetInt32(0),
+                                                                    reader.GetDateTime(1),
+                                                                    reader.GetString(2),
+                                                                    reader.GetDateTime(3),
+                                                                    reader.GetDouble(4),
+                                                                    reader.GetDouble(5),
+                                                                    reader.GetDateTime(6),
+                                                                    reader.GetDouble(7),
+                                                                    reader.GetDouble(8),
+                                                                    reader.GetDouble(9));
+                    return purchaseOrder;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
+    }
+
+    public List<PurchaseOrder> GetAll()
+    {
+        using (SqlConnection conn = new SqlConnection())
+        {
+            conn.ConnectionString = DBConnection.CONNECTION_STRING;
+            conn.Open();
+
+            string sql = "SELECT PurchaseOrders_Id, Order_Date, Created_By, Created_Date, Shipping_Fee, Tax, Payment_Date, Payment_Amount, Order_Subtotal, Order_Total "
+                       + "FROM PurchaseOrders ";
+
+            SqlCommand command = new SqlCommand(sql, conn);
+            using (SqlDataReader reader = command.ExecuteReader())
+            {
+                List<PurchaseOrder> PurchaseOrderList = new List<PurchaseOrder>();
+
+                while (reader.Read())
+                {
+                    PurchaseOrder purchaseOrder = new PurchaseOrder(reader.GetInt32(0),
+                                                                    reader.GetDateTime(1),
+                                                                    reader.GetString(2),
+                                                                    reader.GetDateTime(3),
+                                                                    reader.GetDouble(4),
+                                                                    reader.GetDouble(5),
+                                                                    reader.GetDateTime(6),
+                                                                    reader.GetDouble(7),
+                                                                    reader.GetDouble(8),
+                                                                    reader.GetDouble(9));
+
+                    PurchaseOrderList.Add(purchaseOrder);
+                }
+
+                return PurchaseOrderList;
+            }
+        }
     }
 
     public override string ToString()
