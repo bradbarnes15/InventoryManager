@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 public class ProductLocation : DBConnection
 {
-    private int   Locations_Id     { get; set; }
-    public string Product_Location { get; set; }
-    public int    Product_Quantity { get; set; }
-    public string Product_Code     { get; set; }
+    public int    Locations_Id     { get; private set; }
+    public string Product_Location { get; private set; }
+    public int    Product_Quantity { get; private set; }
+    public string Product_Code     { get; private set; }
 
 
     public ProductLocation(string Product_Location, string Product_Code)
@@ -37,6 +37,11 @@ public class ProductLocation : DBConnection
         this.Product_Code     = Product_Code;
         this.Locations_Id = Locations_Id;
     }
+
+
+    public void UpdateQuantity(int Locations_Id, int Product_Quantity) { }
+
+    public void ChangeItemAtLocation(int Locations_Id, string Product_Code, int Product_Quantity) { }
 
 
     public void Save()

@@ -12,14 +12,14 @@ using System.Text;
 
 public class PurchaseOrderDetails : DBConnection
 {
-	private int    PurchaseOrderDetails_Id { get; set; }
-	private int    Purchase_Order_Number   { get; set; }
-	private string Product                 { get; set; }
-	private int    Quantity                { get; set; } 
-	private Double Unit_Price              { get; set; }
-	private Double Extended_Price          { get; set; }
-	private string Date_Received           { get; set; }
-	private string Status                  { get; set; }
+	public int    PurchaseOrderDetails_Id { get; private set; }
+    public int    Purchase_Order_Number   { get; private set; }
+    public string Product                 { get; private set; }
+    public int    Quantity                { get; private set; }
+    public Double Unit_Price              { get; private set; }
+    public Double Extended_Price          { get; private set; }
+    public string Date_Received           { get; private set; }
+    public string Status                  { get; private set; }
 
 
     public PurchaseOrderDetails(int Purchase_Order_Number, string Product, int Quantity, double Unit_Price, double Extended_Price, string Date_Received, string Status)

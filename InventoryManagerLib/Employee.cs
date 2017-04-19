@@ -14,17 +14,13 @@ using System.Text;
 
 public class Employee : DBConnection
 {
-    public List<Employee> employeeList; 
+    public List<Employee> employeeList;
 
-    private string firstName { get; set;}
-
-	private string lastName {get; set;}
-
-	private int employeeId { get; set; }
-
-	private string passWord { get; set;}
-
-    private string userName { get; set; }
+    public string firstName  { get; private set; }
+    public string lastName   { get; private set; }
+    public int    employeeId { get; private set; }
+	public string passWord   { get; private set; }
+    public string userName   { get; private set; }
 
     public Employee()
     {

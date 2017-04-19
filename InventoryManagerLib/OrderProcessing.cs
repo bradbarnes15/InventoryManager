@@ -11,11 +11,7 @@ using System.Text;
 
 public class OrderProcessing
 {
-	private string fileName
-	{
-		get;
-		set;
-	}
+    public string fileName { get; private set; }
 
 	public virtual void getOrder(string file)
 	{

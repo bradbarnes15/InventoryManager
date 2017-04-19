@@ -12,16 +12,16 @@ using System.Text;
 
 public class PurchaseOrder : DBConnection
 {
-	private int      PurchaseOrders_Id   { get; set; }
-    private DateTime Order_Date          { get; set; }
-	private string   Created_By          { get; set; }
-	private DateTime Created_Date        { get; set; }
-	private double   Shipping_Fee        { get; set; }
-	private double   Tax                 { get; set; }
-	private DateTime Payment_Date        { get; set; }
-	private double   Payment_Amount      { get; set; }
-    private double   Order_Subtotal      { get; set; }
-	private double   Order_Total         { get; set; }
+	public int      PurchaseOrders_Id   { get; private set; }
+    public DateTime Order_Date          { get; private set; }
+    public string   Created_By          { get; private set; }
+    public DateTime Created_Date        { get; private set; }
+    public double   Shipping_Fee        { get; private set; }
+    public double   Tax                 { get; private set; }
+    public DateTime Payment_Date        { get; private set; }
+    public double   Payment_Amount      { get; private set; }
+    public double   Order_Subtotal      { get; private set; }
+    public double   Order_Total         { get; private set; }
 
 
     public PurchaseOrder(DateTime Order_Date, string Created_By, DateTime Created_Date,double Shipping_Fee, double Tax, DateTime Payment_Date,double Payment_Amount, double Order_Subtotal, double Order_Total)
@@ -52,6 +52,7 @@ public class PurchaseOrder : DBConnection
         this.Order_Total = Order_Total;
     }
 
+    
 
 
     public void Save()

@@ -12,17 +12,17 @@ using System.Text;
 
 public class Orders : DBConnection
 {
-	private int      Order_Id         { get; set; }
-	private DateTime Order_Date       { get; set; }
-	private string   Employee         { get; set; }
-	private string   Shipping_Address { get; set; }
-	private string   Ship_City        { get; set; }
-	private string   Ship_State       { get; set; }
-	private int      Zip              { get; set; }
-	private double   Order_Total      { get; set; }
-    private double   Tax              { get; set; }
-	private string   Status           { get; set; }
-	private DateTime Closed_Date      { get; set; }
+    public int      Order_Id         { get; private set; }
+    public DateTime Order_Date       { get; private set; }
+    public string   Employee         { get; private set; }
+    public string   Shipping_Address { get; private set; }
+    public string   Ship_City        { get; private set; }
+    public string   Ship_State       { get; private set; }
+    public int      Zip              { get; private set; }
+    public double   Order_Total      { get; private set; }
+    public double   Tax              { get; private set; }
+    public string   Status           { get; private set; }
+    public DateTime Closed_Date      { get; private set; }
     
     public Orders(DateTime Order_Date, string Employee, string Shipping_Address, string Ship_City, string Ship_State, int Zip, double Order_Total, double Tax, string Status, DateTime Closed_Date)
     {

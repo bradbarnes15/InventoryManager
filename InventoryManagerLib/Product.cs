@@ -6,13 +6,13 @@ using System.Text;
 
 public class Product : DBConnection
 {
-    private int   Product_Id   { get; set; }
-    public string Product_Name { get; set; }
-	public string Product_Code { get; set; }
-	public bool   Discontinue  { get; set; }
-	public string Category     { get; set; }
-	public Double List_Price   { get; set; }
-	public Double Unit_Cost    { get; set; }
+    public int    Product_Id   { get; private set; }
+    public string Product_Name { get; private set; }
+	public string Product_Code { get; private set; }
+	public bool   Discontinue  { get; private set; }
+	public string Category     { get; private set; }
+	public Double List_Price   { get; private set; }
+	public Double Unit_Cost    { get; private set; }
     
 
 	public Product(string productName, string productCode, string category, double listPrice, double unitCost)
@@ -26,6 +26,7 @@ public class Product : DBConnection
         this.Product_Id   = -1;
 	}
 
+
     private Product(int Product_Id, string productName, string productCode, string category, double listPrice, double unitCost)
     {
         this.Product_Id   = Product_Id;
@@ -36,6 +37,11 @@ public class Product : DBConnection
         this.Unit_Cost    = unitCost;
         this.Discontinue  = false;
     }
+
+
+    public void DiscontinueItem(int Product_Id) { }
+
+    public void UpdateListPrice(int Product_Id, double List_Price) { }
 
 
     public void Save()

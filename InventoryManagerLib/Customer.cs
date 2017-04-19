@@ -12,16 +12,16 @@ using System.Text;
 
 public class Customer : DBConnection
 {
-    private int    Customer_Id { get; set; } 
-	private string Company { get; set; }
-    private string Last_Name { get; set; }
-    private string First_Name { get; set; }
-    private string Job_Title { get; set; }
-    private string Address { get; set; }
-    private string City { get; set; }
-    private string State_Province { get; set; }
-    private int    Zip { get; set; }
-    private string Phone_Number { get; set; }
+    public int    Customer_Id    { get; private set; }
+    public string Company        { get; private set; }
+    public string Last_Name      { get; private set; }
+    public string First_Name     { get; private set; }
+    public string Job_Title      { get; private set; }
+    public string Address        { get; private set; }
+    public string City           { get; private set; }
+    public string State_Province { get; private set; }
+    public int    Zip            { get; private set; }
+    public string Phone_Number   { get; private set; }
 
 
     public Customer(string Company, string Last_Name, string First_Name, string Job_Title, string Address, string City, string State_Province, int Zip, string Phone_Number)
@@ -179,7 +179,7 @@ public class Customer : DBConnection
 
     public override string ToString()
 	{
-		throw new System.NotImplementedException();
+        return this.First_Name + " " + this.Last_Name + ", " + this.Company;
 	}
 
 	
