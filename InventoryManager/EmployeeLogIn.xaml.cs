@@ -39,17 +39,25 @@ namespace InventoryManager
             //user.Print();
             if (user != null)
             {
-                this.Close();
                 EmployeeInterface employee = new EmployeeInterface();
                 employee.Top = 100;
                 employee.Left = 400;
                 employee.Show();
+                this.Close();
             }
             else
             {
                 textBox.Text = "Try again";
                 textBox1.Text = "invalid password";
             }
+        }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            SecondWindow mainWindow = new SecondWindow();
+            mainWindow.Top = 100;
+            mainWindow.Left = 400;
+            mainWindow.Show();
         }
     }
 }
