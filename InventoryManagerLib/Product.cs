@@ -39,9 +39,24 @@ public class Product : DBConnection
     }
 
 
-    public void DiscontinueItem(int Product_Id) { }
+    public void DiscontinueItem(int Product_Id, bool New_Value)
+    {
+        Product item = Product.Get(Product_Id);
 
-    public void UpdateListPrice(int Product_Id, double List_Price) { }
+        item.Discontinue = New_Value;
+
+        item.Save();
+
+    }
+
+    public void UpdateListPrice(int Product_Id, double New_List_Price)
+    {
+        Product item = Product.Get(Product_Id);
+
+        item.List_Price = New_List_Price;
+
+        item.Save();
+    }
 
 
     public void Save()
