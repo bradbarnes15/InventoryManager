@@ -38,10 +38,36 @@ public class ProductLocation : DBConnection
         this.Locations_Id = Locations_Id;
     }
 
+    /// <summary>
+    /// Function to update the quantity of the item at the location
+    /// </summary>
+    /// <param name="Locations_Id"></param>
+    /// <param name="Product_Quantity"></param>
+    public void UpdateQuantity(int Locations_Id, int Product_Quantity)
+    {
+        ProductLocation item = ProductLocation.Get(Locations_Id);
 
-    public void UpdateQuantity(int Locations_Id, int Product_Quantity) { }
+        item.Product_Quantity = Product_Quantity;
 
-    public void ChangeItemAtLocation(int Locations_Id, string Product_Code, int Product_Quantity) { }
+        item.Save();
+    }
+
+
+    /// <summary>
+    /// Function to update what item is at a specific location
+    /// </summary>
+    /// <param name="Locations_Id">value to find the location in the database</param>
+    /// <param name="Product_Code">new value for the item at the location</param>
+    /// <param name="Product_Quantity">Quantity of the new item at the location</param>
+    public void ChangeItemAtLocation(int Locations_Id, string Product_Code, int Product_Quantity)
+    {
+        ProductLocation item = ProductLocation.Get(Locations_Id);
+
+        item.Product_Code     = Product_Code;
+        item.Product_Quantity = Product_Quantity;
+
+        item.Save();
+    }
 
 
     public void Save()
