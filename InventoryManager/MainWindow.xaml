@@ -13,6 +13,12 @@
         <Button x:Name="Add_Product_button" Content="Add Product" HorizontalAlignment="Left" Margin="10,122,0,0" VerticalAlignment="Top" Width="75" Click="Add_Product_button_Click"/>
         <Button x:Name="Update_Product_button" Content="Update product" HorizontalAlignment="Left" VerticalAlignment="Top" Width="95" Margin="90,122,0,0" Click="Update_Product_button_Click"/>
         <TextBox x:Name="Product_Id_Textbox" HorizontalAlignment="Left" Height="23" Margin="26,10,0,0" TextWrapping="Wrap" Text="Product ID" VerticalAlignment="Top" Width="120"/>
+
+        <ListBox x:Name="listBox" 
+                 
+                 HorizontalAlignment="Left" Height="283" Margin="340,10,0,0" VerticalAlignment="Top" Width="175" SelectionChanged="listBox_SelectionChanged"
+        />
+        <ComboBox x:Name="comboBox" SelectedValuePath="Content" HorizontalAlignment="Left" Margin="64,179,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="comboBox_SelectionChanged"/>
     </Grid>
 
 

@@ -23,6 +23,9 @@ namespace InventoryManager
         public MainWindow()
         {
             InitializeComponent();
+
+            listBox.ItemsSource = Category.GetAll();
+            comboBox.ItemsSource = Category.GetAll();
         }
 
         private void Add_Product_button_Click(object sender, RoutedEventArgs e)
@@ -52,10 +55,18 @@ namespace InventoryManager
             double listPrice = (double)Convert.ToDouble(List_Price_textBox.Text);
 
             Product.UpdateListPrice(productID, listPrice);
+
+            Product.ChangeProductCategory(productID, comboBox.SelectedValue.ToString());
         }
 
+        private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
 
+        }
 
+        private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
 
+        }
     }
 }

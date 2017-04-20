@@ -58,6 +58,15 @@ public class Product : DBConnection
         item.Save();
     }
 
+    public static void ChangeProductCategory(int Product_Id, string Category)
+    {
+        Product item = Product.Get(Product_Id);
+
+        item.Category = Category;
+
+        item.Save();
+    }
+
 
     public void Save()
     {
@@ -179,13 +188,7 @@ public class Product : DBConnection
 
     public override string ToString()
     {
-        string str = "Id: " + Product_Id + ", Code: " + Product_Code + ", Name: " + Product_Name + ", Price:" + List_Price;
-        if (Discontinue)
-        {
-            str += "Discontinued";
-        }
-
-        return str;
+        return this.Product_Name;
     }
 
 
