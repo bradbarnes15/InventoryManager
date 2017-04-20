@@ -126,6 +126,7 @@ public class Inventory : DBConnection
     /// <param name="NewLocation"></param>
     public static void UpdateProductLocation(int Product_Id, int NewLocations_Id, string NewLocation)
     {
+        /*Still need to determine how to remove product from old location*/
         Inventory item = Inventory.Get(Product_Id);
         ProductLocation location = ProductLocation.Get(NewLocations_Id);
 
