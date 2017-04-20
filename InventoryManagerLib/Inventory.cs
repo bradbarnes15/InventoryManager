@@ -40,6 +40,87 @@ public class Inventory : DBConnection
     }
 
 
+    /// <summary>
+    /// Update the amount of stock shown as on_hand
+    /// </summary>
+    /// <param name="Product_Id">Value used to look up the item in the database</param>
+    /// <param name="newStockLevel"></param>
+    public static void ModifyItemStock(int Product_Id, int newStockLevel)
+    {
+        Inventory item = Inventory.Get(Product_Id);
+
+        item.On_Hand = newStockLevel;
+
+        item.Save();
+    }
+
+
+    /// <summary>
+    /// Function to Update the minimum amount before an automatic order is created for the item
+    /// and how much it will add to that order
+    /// </summary>
+    /// <param name="Product_Id">Value used to look up the item in the database</param>
+    /// <param name="MinimumAmount">New value to be used for Reorder_Level</param>
+    /// <param name="ReorderQuantity">New value to be used for Reorder_Quantity</param>
+    public static void setFiltersToOrder(int Product_Id, int MinimumAmount, int ReorderQuantity)
+    {
+        Inventory item = Inventory.Get(Product_Id);
+
+        item.Reorder_Level    = MinimumAmount;
+        item.Reorder_Quantity = ReorderQuantity;
+
+        item.Save();
+    }
+
+
+    /// <summary>
+    /// Function to update the quantity that will be ordered by the auto order
+    /// </summary>
+    /// <param name="Product_Id">Value to look up the item in database</param>
+    /// <param name="ReorderQuantity">New amount for the Reorder_Quantity</param>
+    public static void UpdateReorderQuantity(int Product_Id, int ReorderQuantity)
+    {
+        Inventory item = Inventory.Get(Product_Id);
+
+        item.Reorder_Quantity = ReorderQuantity;
+
+        item.Save();
+    }
+
+
+    /// <summary>
+    /// Function to update the Reorder_Level of an item
+    /// -the minimum amount allowed before an auto order is created
+    /// </summary>
+    /// <param name="Product_Id"></param>
+    /// <param name="ReorderLevel"></param>
+    public static void UpdateReorderLevel(int Product_Id, int ReorderLevel)
+    {
+        Inventory item = Inventory.Get(Product_Id);
+
+        item.Reorder_Level = ReorderLevel;
+
+        item.Save();
+    }
+
+
+    /// <summary>
+    /// Function to update how many items are currently On_Order
+    /// </summary>
+    /// <param name="Product_Id"></param>
+    /// <param name="On_Order"></param>
+    public static void UpdateOnOrderQuantity(int Product_Id, int On_Order)
+    {
+        Inventory item = Inventory.Get(Product_Id);
+
+        item.On_Order = On_Order;
+
+        item.Save();
+    }
+
+
+
+
     public void Save()
     {
         using (SqlConnection conn = new SqlConnection())
@@ -166,15 +247,6 @@ public class Inventory : DBConnection
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void ModifyItemStock()
-	{
-		throw new System.NotImplementedException();
-	}
-
-	public virtual void setFiltersToOrder()
-	{
-		throw new System.NotImplementedException();
-	}
-
+   
 }
 
