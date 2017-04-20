@@ -118,7 +118,22 @@ public class Inventory : DBConnection
         item.Save();
     }
 
+    /// <summary>
+    /// Function to update the location of the product
+    /// </summary>
+    /// <param name="Product_Id"></param>
+    /// <param name="NewLocations_Id"></param>
+    /// <param name="NewLocation"></param>
+    public static void UpdateProductLocation(int Product_Id, int NewLocations_Id, string NewLocation)
+    {
+        Inventory item = Inventory.Get(Product_Id);
+        ProductLocation location = ProductLocation.Get(NewLocations_Id);
 
+        item.Product_Location = NewLocation;
+        location.ChangeItemAtLocation(NewLocations_Id, NewLocation, item.On_Hand);
+
+        item.Save();
+    }
 
 
     public void Save()
