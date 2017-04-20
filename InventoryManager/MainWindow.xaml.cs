@@ -56,7 +56,7 @@ namespace InventoryManager
 
             Product.UpdateListPrice(productID, listPrice);
 
-            Product.ChangeProductCategory(productID, comboBox.SelectedValue.ToString());
+            Product.ChangeProductCategory(productID, comboBox.SelectedValue.ToString()); // comboBox xaml must have SelectedValuePath = "Content" in order to work
         }
 
         private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

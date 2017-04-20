@@ -36,7 +36,7 @@ public class Inventory : DBConnection
         this.On_Hand          = On_Hand;
         this.Reorder_Level    = Reorder_Level;
         this.Reorder_Quantity = Reorder_Quantity;
-        this.On_Order = On_Order;
+        this.On_Order         = On_Order;
     }
 
 
