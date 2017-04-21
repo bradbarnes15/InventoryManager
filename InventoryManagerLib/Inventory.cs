@@ -259,7 +259,7 @@ public class Inventory : DBConnection
 
     public override string ToString()
 	{
-		throw new System.NotImplementedException();
+        return this.Product;
 	}
 
    
