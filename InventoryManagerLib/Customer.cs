@@ -110,7 +110,7 @@ public class Customer : DBConnection
                        + "FROM Customers "
                        + "WHERE Customer_Id = @Customer_Id";
 
-            SqlCommand command = new SqlCommand();
+            SqlCommand command = new SqlCommand(sql, conn);
             command.Parameters.AddWithValue("Customer_Id", Customer_Id);
 
             using (SqlDataReader reader = command.ExecuteReader())
