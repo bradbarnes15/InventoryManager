@@ -6,6 +6,7 @@
 //------------------------------------------------------------------------------
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -89,6 +90,57 @@ public class DBConnection
            
             }
         }
+    }
+    public static ProductLocation getlocation(string location)
+    {
+        using (SqlConnection conn = new SqlConnection())
+        {
+            conn.ConnectionString = CONNECTION_STRING;
+            conn.Open();
+
+            String sql;
+         //   sql = "select employee_id, first_name, last_name, username , encrypted_password from Employee where username = @id";
+            sql = "select Locations_Id, Product_Location, Product_Quantity , Product_Code from Product_Locations where Product_Location = @col";
+            SqlCommand command = new SqlCommand(sql, conn);
+            //command.Parameters.AddWithValue("id", userName);
+            command.Parameters.AddWithValue("col", location);
+
+            using (SqlDataReader read = command.ExecuteReader())
+            {
+                if (read.HasRows)
+                {
+                    read.Read();
+                    //  Employee a = new Employee(read.GetInt32(0),
+                    //       read.GetString(1), read.GetString(2),read.GetString(3),read.GetString(4));
+                    int eID = read.GetInt32(0);
+                    string b = read.GetString(1);
+
+                    int c = read.GetInt32(2);
+                
+                    string d = read.GetString(3);
+                    //   Console.WriteLine(e);
+                    //  Console.WriteLine(userName);
+                    if (b == location)
+                    {
+                        Console.WriteLine("YES Location found");
+                        ProductLocation a = new ProductLocation(eID, b,c,d);
+                        return a;
+                    }
+                    
+                    else
+                        //a.Print();
+                        //Console.WriteLine("Decrypt password");
+                        //Console.WriteLine(Employee.Decrypt(Employee.getPass(a)));
+                        return null;
+                }
+                else
+                {
+                    return null;
+                }
+
+            }
+        }
+
     }
 
 
