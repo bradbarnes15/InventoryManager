@@ -25,8 +25,9 @@ namespace InventoryManager
         public inventoryInterface()
         {
       
-            comboBox.ItemsSource = ProductLocation.GetAll();
+          
             InitializeComponent();
+            comboBox.ItemsSource = ProductLocation.GetAll();
         }
 
         private void dataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -37,17 +38,17 @@ namespace InventoryManager
         private void button_Click(object sender, RoutedEventArgs e)
         {
           
-            ProductLocation x = new ProductLocation();
-            x = DBConnection.getlocation(textBox.Text);
-
+     //       ProductLocation x = new ProductLocation();
+     //       x = DBConnection.getlocation(textBox.Text);
+//
        //     string dis = "";
-            listBox.Items.Clear();
+     //       listBox.Items.Clear();
 
         //    dis += x.Product_Location + x.Product_Code + x.Product_Quantity;
         //    listBox.Items.Add(dis);
-            listBox.Items.Add(x.Product_Location);
-            listBox.Items.Add(x.Product_Code);
-            listBox.Items.Add(x.Product_Quantity);
+        //    listBox.Items.Add(x.Product_Location);
+       //     listBox.Items.Add(x.Product_Code);
+      //      listBox.Items.Add(x.Product_Quantity);
 
            
           
@@ -65,6 +66,41 @@ namespace InventoryManager
 
         private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            string value = comboBox.SelectedItem.ToString();
+            ProductLocation x = ProductLocation.Get(value);
+          //  x = DBConnection.getlocation(comboBox.SelectionBoxItem.ToString());
+
+            //     string dis = "";
+            listBox.Items.Clear();
+
+            //    dis += x.Product_Location + x.Product_Code + x.Product_Quantity;
+            //    listBox.Items.Add(dis);
+            listBox.Items.Add("Product location : " + x.Product_Location);
+            listBox.Items.Add("Product Code     : " + x.Product_Code);
+            listBox.Items.Add("Product Quantity : " + x.Product_Quantity);
+
+        }
+
+        private void textBox_TextChanged_1(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+
+            string value = comboBox.SelectedItem.ToString();
+            ProductLocation x = ProductLocation.Get(value);
+            //  x = DBConnection.getlocation(comboBox.SelectionBoxItem.ToString());
+
+            //     string dis = "";
+            listBox.Items.Clear();
+
+            //    dis += x.Product_Location + x.Product_Code + x.Product_Quantity;
+            //    listBox.Items.Add(dis);
+            listBox.Items.Add("Product location : " + x.Product_Location);
+            listBox.Items.Add("Product Code     : " + x.Product_Code);
+            listBox.Items.Add("Product Quantity : " + (x.Product_Quantity + textBox.Text));
 
         }
     }
