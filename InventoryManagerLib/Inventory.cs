@@ -223,7 +223,11 @@ public class Inventory : DBConnection
     }
 
 
-
+    /// <summary>
+    /// Get an inventory item based off of the Products locations
+    /// </summary>
+    /// <param name="Product_Location"></param>
+    /// <returns></returns>
     public static Inventory Get(string Product_Location)
     {
         using (SqlConnection conn = new SqlConnection())
