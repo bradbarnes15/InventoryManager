@@ -24,7 +24,7 @@ namespace InventoryManager
         {
             InitializeComponent();
 
-            listBox.ItemsSource = Category.GetAll();
+            //listBox.ItemsSource = Category.GetAll();
             comboBox.ItemsSource = ProductLocation.GetAll();
         }
 
@@ -57,7 +57,15 @@ namespace InventoryManager
 
         private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            listBox.Items.Clear();
 
+            string value = comboBox.SelectedItem.ToString();
+
+            ProductLocation location = ProductLocation.Get(value);
+
+            string str = "Product: " + location.Product_Code;
+
+            listBox.Items.Add(str);
         }
 
         private void button_Click(object sender, RoutedEventArgs e)

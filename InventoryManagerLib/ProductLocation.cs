@@ -57,7 +57,7 @@ public class ProductLocation : DBConnection
     /// </summary>
     /// <param name="Locations_Id"></param>
     /// <param name="Product_Quantity"></param>
-    public static void UpdateQuantity(int Locations_Id, int Product_Quantity)
+    public static void UpdateQuantity(string Locations_Id, int Product_Quantity)
     {
         ProductLocation item = ProductLocation.Get(Locations_Id);
 
@@ -73,7 +73,7 @@ public class ProductLocation : DBConnection
     /// <param name="Locations_Id">value to find the location in the database</param>
     /// <param name="Product_Code">new value for the item at the location</param>
     /// <param name="Product_Quantity">Quantity of the new item at the location</param>
-    public static void ChangeItemAtLocation(int Locations_Id, string Product_Code, int Product_Quantity)
+    public static void ChangeItemAtLocation(string Locations_Id, string Product_Code, int Product_Quantity)
     {
         ProductLocation item = ProductLocation.Get(Locations_Id);
 
@@ -84,7 +84,7 @@ public class ProductLocation : DBConnection
     }
 
 
-    public static void RemoveItemAtLocation(int Locations_Id)
+    public static void RemoveItemAtLocation(string Locations_Id)
     {
         ProductLocation item = ProductLocation.Get(Locations_Id);
 
