@@ -74,7 +74,7 @@ public class ProductLocation : DBConnection
     {
         ProductLocation item = ProductLocation.Get(Locations_Id);
 
-        item.Product_Code = "EMPTY";
+        item.Product_Code = "Empty";
 
         item.Save();
     }

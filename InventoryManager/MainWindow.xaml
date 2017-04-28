@@ -18,7 +18,7 @@
                  
                  HorizontalAlignment="Left" Height="283" Margin="340,10,0,0" VerticalAlignment="Top" Width="175" SelectionChanged="listBox_SelectionChanged"
         />
-        <ComboBox x:Name="comboBox" SelectedValuePath="Content" HorizontalAlignment="Left" Margin="64,179,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="comboBox_SelectionChanged"/>
+        <ComboBox x:Name="comboBox" SelectedValuePath="Content" HorizontalAlignment="Left" Margin="203,11,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="comboBox_SelectionChanged"/>
     </Grid>
 
 
