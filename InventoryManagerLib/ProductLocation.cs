@@ -166,7 +166,7 @@ public class ProductLocation : DBConnection
 
             string sql;
 
-            sql = "SELECT Locations_Id, Product_Location, Product_Quantity "
+            sql = "SELECT Locations_Id, Product_Location, Product_Quantity, Product_Code "
                 + "FROM Product_Locations";
 
             SqlCommand command = new SqlCommand(sql, conn);

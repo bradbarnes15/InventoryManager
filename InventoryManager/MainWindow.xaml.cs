@@ -25,7 +25,7 @@ namespace InventoryManager
             InitializeComponent();
 
             listBox.ItemsSource = Category.GetAll();
-            comboBox.ItemsSource = Product.GetAll();
+            comboBox.ItemsSource = ProductLocation.GetAll();
         }
 
         private void Add_Product_button_Click(object sender, RoutedEventArgs e)
