@@ -28,7 +28,7 @@ public class Inventory : DBConnection
         On_Order = 0;
     }
     
-    private Inventory(int Inventory_Id, string Product, string Product_Code, string Product_Location, int On_Hand, int Reorder_Level, int Reorder_quantity, int On_Order)
+    private Inventory(int Inventory_Id, string Product, string Product_Code, string Product_Location, int On_Hand, int Reorder_Level, int Reorder_Quantity, int On_Order)
     {
         this.Inventory_Id     = Inventory_Id;
         this.Product          = Product;
