@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 
 public class ProductLocation : DBConnection
 {
-    private int   Locations_Id     { get; set; }
-    public string Product_Location { get; set; }
-    public int    Product_Quantity { get; set; }
-    public string Product_Code     { get; set; }
+    public int    Locations_Id     { get; private set; }
+    public string Product_Location { get; private set; }
+    public int    Product_Quantity { get; private set; }
+    public string Product_Code     { get; private set; }
 
     ObservableCollection<ProductLocation> tmp = new ObservableCollection<ProductLocation>();
 
@@ -51,6 +51,48 @@ public class ProductLocation : DBConnection
         this.Product_Code     = Product_Code;
         this.Locations_Id = Locations_Id;
     }
+
+    /// <summary>
+    /// Function to update the quantity of the item at the location
+    /// </summary>
+    /// <param name="Locations_Id"></param>
+    /// <param name="Product_Quantity"></param>
+    public static void UpdateQuantity(int Locations_Id, int Product_Quantity)
+    {
+        ProductLocation item = ProductLocation.Get(Locations_Id);
+
+        item.Product_Quantity = Product_Quantity;
+
+        item.Save();
+    }
+
+
+    /// <summary>
+    /// Function to update what item is at a specific location
+    /// </summary>
+    /// <param name="Locations_Id">value to find the location in the database</param>
+    /// <param name="Product_Code">new value for the item at the location</param>
+    /// <param name="Product_Quantity">Quantity of the new item at the location</param>
+    public static void ChangeItemAtLocation(int Locations_Id, string Product_Code, int Product_Quantity)
+    {
+        ProductLocation item = ProductLocation.Get(Locations_Id);
+
+        item.Product_Code     = Product_Code;
+        item.Product_Quantity = Product_Quantity;
+
+        item.Save();
+    }
+
+
+    public static void RemoveItemAtLocation(int Locations_Id)
+    {
+        ProductLocation item = ProductLocation.Get(Locations_Id);
+
+        item.Product_Code = "Empty";
+
+        item.Save();
+    }
+    
 
 
     public void Save()
@@ -138,7 +180,7 @@ public class ProductLocation : DBConnection
 
             string sql;
 
-            sql = "SELECT Locations_Id, Product_Location, Product_Quantity "
+            sql = "SELECT Locations_Id, Product_Location, Product_Quantity, Product_Code "
                 + "FROM Product_Locations";
 
             SqlCommand command = new SqlCommand(sql, conn);
@@ -162,6 +204,10 @@ public class ProductLocation : DBConnection
     }
 
 
+    public override string ToString()
+    {
+        return this.Product_Location;
+    }
 
 }
 

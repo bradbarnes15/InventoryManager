@@ -6,13 +6,13 @@ using System.Text;
 
 public class Product : DBConnection
 {
-    private int Product_Id { get; set; }
-    public string Product_Name { get; set; }
-	public string Product_Code { get; set; }
-	public bool Discontinue { get; set; }
-	public string Category { get; set; }
-	public Double List_Price { get; set; }
-	public Double Unit_Cost { get; set; }
+    public int    Product_Id   { get; private set; }
+    public string Product_Name { get; private set; }
+	public string Product_Code { get; private set; }
+	public bool   Discontinue  { get; private set; }
+	public string Category     { get; private set; }
+	public Double List_Price   { get; private set; }
+	public Double Unit_Cost    { get; private set; }
     
 
 	public Product(string productName, string productCode, string category, double listPrice, double unitCost)
@@ -26,7 +26,8 @@ public class Product : DBConnection
         this.Product_Id   = -1;
 	}
 
-    private Product(int Product_Id, string productName, string productCode, string category, double listPrice, double unitCost)
+
+    private Product(int Product_Id, string productName, string productCode, string category, double listPrice, double unitCost, bool Discontinue)
     {
         this.Product_Id   = Product_Id;
         this.Product_Name = productName;
@@ -34,7 +35,36 @@ public class Product : DBConnection
         this.Category     = category;
         this.List_Price   = listPrice;
         this.Unit_Cost    = unitCost;
-        this.Discontinue  = false;
+        this.Discontinue  = Discontinue;
+    }
+
+
+    public static void DiscontinueItem(int Product_Id, bool New_Value)
+    {
+        Product item = Product.Get(Product_Id);
+
+        item.Discontinue = New_Value;
+
+        item.Save();
+
+    }
+
+    public static void UpdateListPrice(int Product_Id, double New_List_Price)
+    {
+        Product item = Product.Get(Product_Id);
+
+        item.List_Price = New_List_Price;
+
+        item.Save();
+    }
+
+    public static void ChangeProductCategory(int Product_Id, string Category)
+    {
+        Product item = Product.Get(Product_Id);
+
+        item.Category = Category;
+
+        item.Save();
     }
 
 
@@ -100,14 +130,15 @@ public class Product : DBConnection
                 {
                     read.Read();
 
-                    int productId = read.GetInt32(0);
+                    int productId      = read.GetInt32(0);
                     string productName = read.GetString(2);
                     string productCode = read.GetString(1);
-                    string category = read.GetString(6);
-                    double listPrice = read.GetDouble(4);
-                    double unitCost = read.GetDouble(3);
+                    string category    = read.GetString(6);
+                    double listPrice   = read.GetDouble(4);
+                    double unitCost    = read.GetDouble(3);
+                    bool discontinued = read.GetBoolean(5);
 
-                    Product product = new Product(productId, productName, productCode, category, listPrice, unitCost);
+                    Product product = new Product(productId, productName, productCode, category, listPrice, unitCost, discontinued);
                     return product;
                 }
                 else
@@ -118,8 +149,7 @@ public class Product : DBConnection
         }
     }
 
-
-    //Not yet tested
+    
     public static List<Product> GetAll()
     {
         using (SqlConnection conn = new SqlConnection())
@@ -144,7 +174,8 @@ public class Product : DBConnection
                                             reader.GetString(1), 
                                             reader.GetString(6),
                                             reader.GetDouble(4),
-                                            reader.GetDouble(3)
+                                            reader.GetDouble(3),
+                                            reader.GetBoolean(5)
                                             );
 
                     productList.Add(p);
@@ -156,15 +187,52 @@ public class Product : DBConnection
     }
 
 
+    /// <summary>
+    /// Function to return a list of items that are not discontinued
+    /// </summary>
+    /// <returns></returns>
+    public static List<Product> GetAllActiveItems()
+    {
+        using (SqlConnection conn = new SqlConnection())
+        {
+            conn.ConnectionString = DBConnection.CONNECTION_STRING;
+            conn.Open();
+
+            string sql;
+
+            sql = "SELECT Product_Id, Product_Code, Product_Name, Unit_Cost, List_Price, Discontinue, Category "
+                + "FROM Product "
+                + "WHERE Discontinue = 0 ";
+
+            SqlCommand command = new SqlCommand(sql, conn);
+            using (SqlDataReader reader = command.ExecuteReader())
+            {
+                List<Product> productList = new List<Product>();
+
+                while (reader.Read())
+                {
+                    Product p = new Product(reader.GetInt32(0),
+                                            reader.GetString(2),
+                                            reader.GetString(1),
+                                            reader.GetString(6),
+                                            reader.GetDouble(4),
+                                            reader.GetDouble(3),
+                                            reader.GetBoolean(5)
+                                            );
+
+                    productList.Add(p);
+                }
+
+                return productList;
+            }
+        }
+    }
+    
+
+
     public override string ToString()
     {
-        string str = "Id: " + Product_Id + ", Code: " + Product_Code + ", Name: " + Product_Name + ", Price:" + List_Price;
-        if (Discontinue)
-        {
-            str += "Discontinued";
-        }
-
-        return str;
+        return this.Product_Name;
     }
 
 

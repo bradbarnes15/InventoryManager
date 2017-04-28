@@ -23,6 +23,9 @@ namespace InventoryManager
         public MainWindow()
         {
             InitializeComponent();
+
+            listBox.ItemsSource = Category.GetAll();
+            comboBox.ItemsSource = ProductLocation.GetAll();
         }
 
         private void Add_Product_button_Click(object sender, RoutedEventArgs e)
@@ -38,26 +41,23 @@ namespace InventoryManager
 
         private void Update_Product_button_Click(object sender, RoutedEventArgs e)
         {
-            //double listPrice = (double)Convert.ToDouble(List_Price_textBox.Text);
             int productID = (int)Convert.ToInt32(Product_Id_Textbox.Text);
 
-            Product product = Product.Get(productID);
+            double listPrice = (double)Convert.ToDouble(List_Price_textBox.Text);
 
-            product.Product_Name = Product_Name_textBox.Text;
+            Product.UpdateListPrice(productID, listPrice);
 
-            product.Save();
-            
+            Product.ChangeProductCategory(productID, comboBox.SelectedValue.ToString()); // comboBox xaml must have SelectedValuePath = "Content" in order to work
         }
 
-        private void AddProductLocationbutton_Click(object sender, RoutedEventArgs e)
+        private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //ProductLocation location = new ProductLocation("A100");
-            int locationId = 1;
-            ProductLocation location = ProductLocation.Get(locationId);
 
-            location.Product_Quantity = 5;
+        }
 
-            location.Save();
+        private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
 
         private void button_Click(object sender, RoutedEventArgs e)

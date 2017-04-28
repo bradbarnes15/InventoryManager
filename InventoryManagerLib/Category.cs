@@ -12,8 +12,8 @@ using System.Text;
 
 public class Category : DBConnection
 {
-	private string Category_Text { get; set; }
-	private int Category_Id { get; set; }
+    public string Category_Text { get; private set; }
+    public int    Category_Id   { get; private set; }
 
 
     public Category(string Category_Text)
@@ -131,7 +131,7 @@ public class Category : DBConnection
 
     public override string ToString()
     {
-		throw new System.NotImplementedException();
+        return this.Category_Text;
 	}
 
 }

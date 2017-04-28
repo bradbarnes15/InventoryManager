@@ -12,48 +12,53 @@ using System.Text;
 
 public class OrderStatus 
 {
-	public virtual string StatusText { get; set; }
-    public virtual int OrderStatus_Id { get; set; }
-	public virtual DBConnection DBConnection { get; set; }
+	public string Status_Text    { get; private set; }
+    public int    OrderStatus_Id { get; private set; }
 
     public OrderStatus(string statusText)
     {
         this.OrderStatus_Id = -1;
-        this.StatusText = statusText;
+        this.Status_Text = statusText;
+    }
+
+    private OrderStatus(int OrderStatus_Id, string Status_Text)
+    {
+        this.OrderStatus_Id = OrderStatus_Id;
+        this.Status_Text = Status_Text;
     }
 
 
-	public virtual void Save()
-	{
-        using(SqlConnection conn = new SqlConnection())
+	public static List<OrderStatus> GetAll()
+    {
+        using (SqlConnection conn = new SqlConnection())
         {
             conn.ConnectionString = DBConnection.CONNECTION_STRING;
             conn.Open();
 
-            string sql;
-
-            if (OrderStatus_Id == -1)
-            {
-                                 //tablename  (column name)        value to add
-                sql = "INSERT INTO OrderStatus(Status_Text) VALUES(@Status_Text)"
-                    + "SELECT CAST (scope_identity() as int)";
-            }
-            else
-            {
-                sql = "UPDATE OrderStatus set Status_Text = @Status_Text where OrderStatus_Id = @OrderStatus_Id";
-            }
+            string sql = "SELECT OrderStatus_Id, Status_Text "
+                       + "FROM OrderStatus ";
 
             SqlCommand command = new SqlCommand(sql, conn);
-            command.Parameters.AddWithValue("Status_Text", StatusText);
-
-            if (OrderStatus_Id == -1)
+            using (SqlDataReader reader = command.ExecuteReader())
             {
-                OrderStatus_Id = (int)command.ExecuteScalar();
+                List<OrderStatus> statusList = new List<OrderStatus>();
+
+                while (reader.Read())
+                {
+                    OrderStatus status = new OrderStatus(reader.GetInt32(0),
+                                                         reader.GetString(1));
+                    statusList.Add(status);
+                }
+
+                return statusList;
             }
-
-
         }
-	}
+    }
+
+    public override string ToString()
+    {
+        return this.Status_Text;
+    }
 
 }
 
