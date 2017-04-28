@@ -68,16 +68,34 @@ namespace InventoryManager
         {
             string value = comboBox.SelectedItem.ToString();
             ProductLocation x = ProductLocation.Get(value);
-          //  x = DBConnection.getlocation(comboBox.SelectionBoxItem.ToString());
 
-            //     string dis = "";
-            listBox.Items.Clear();
+            Console.WriteLine(x.Product_Quantity);
 
-            //    dis += x.Product_Location + x.Product_Code + x.Product_Quantity;
-            //    listBox.Items.Add(dis);
-            listBox.Items.Add("Product location : " + x.Product_Location);
-            listBox.Items.Add("Product Code     : " + x.Product_Code);
-            listBox.Items.Add("Product Quantity : " + x.Product_Quantity);
+            if (x.Product_Quantity <= 0)
+            {
+                listBox.Items.Clear();
+                listBox.Items.Add("Product location : " + x.Product_Location);
+                listBox.Items.Add("Product Code     : " + x.Product_Code);
+                listBox.Items.Add("Product Quantity : " + (x.Product_Quantity));
+
+                textBox.IsEnabled = false;
+                button2.IsEnabled = false;
+            }
+            else
+            {
+                Inventory item = Inventory.Get(value);
+
+                listBox.Items.Clear();
+                listBox.Items.Add("Product : " + item.Product);
+                listBox.Items.Add("Product Code : " + item.Product_Code);
+                listBox.Items.Add("On Hand : " + item.On_Hand);
+                listBox.Items.Add("On Order : " + item.On_Order);
+                listBox.Items.Add("Reorder Level : " + item.Reorder_Level);
+                listBox.Items.Add("Reorder Quantity : " + item.Reorder_Quantity);
+
+                textBox.IsEnabled = true;
+                button2.IsEnabled = true;
+            }
 
         }
 
@@ -88,20 +106,28 @@ namespace InventoryManager
 
         private void button2_Click(object sender, RoutedEventArgs e)
         {
-
+            //Get the selected item
             string value = comboBox.SelectedItem.ToString();
-            ProductLocation x = ProductLocation.Get(value);
-            //  x = DBConnection.getlocation(comboBox.SelectionBoxItem.ToString());
+            Inventory item = Inventory.Get(value);
 
-            //     string dis = "";
+            //update the item quantity
+            int newValue;
+            if(Int32.TryParse(textBox.Text, out newValue))
+            {
+                item.ModifyItemStock(newValue);
+            }
+
+            //update the listbox
             listBox.Items.Clear();
-
-            //    dis += x.Product_Location + x.Product_Code + x.Product_Quantity;
-            //    listBox.Items.Add(dis);
-            listBox.Items.Add("Product location : " + x.Product_Location);
-            listBox.Items.Add("Product Code     : " + x.Product_Code);
-            listBox.Items.Add("Product Quantity : " + (x.Product_Quantity + textBox.Text));
-
+            listBox.Items.Add("Product : " + item.Product);
+            listBox.Items.Add("Product Code : " + item.Product_Code);
+            listBox.Items.Add("On Hand : " + item.On_Hand);
+            listBox.Items.Add("On Order : " + item.On_Order);
+            listBox.Items.Add("Reorder Level : " + item.Reorder_Level);
+            listBox.Items.Add("Reorder Quantity : " + item.Reorder_Quantity);
         }
+
+
+
     }
 }

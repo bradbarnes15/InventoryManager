@@ -9,7 +9,7 @@ public class Inventory : DBConnection
 {
     public int    Inventory_Id     { get; private set; }
     public string Product          { get; private set; }
-    public string Product_Code       { get; private set; }
+    public string Product_Code     { get; private set; }
     public string Product_Location { get; private set; }
     public int    On_Hand          { get; private set; }
     public int    Reorder_Level    { get; private set; }
@@ -46,14 +46,13 @@ public class Inventory : DBConnection
     /// </summary>
     /// <param name="Product_Code">Value used to look up the item in the database</param>
     /// <param name="newStockLevel"></param>
-    public static void ModifyItemStock(string Product_Code, int newStockLevel)
+    public void ModifyItemStock(int newStockLevel)
     {
-        Inventory item = Inventory.Get(Product_Code);
 
-        item.On_Hand = newStockLevel;
-        ProductLocation.UpdateQuantity(item.Product_Location, newStockLevel);
+        this.On_Hand = newStockLevel;
+        ProductLocation.UpdateQuantity(this.Product_Location, newStockLevel);
 
-        item.Save();
+        this.Save();
     }
 
 
@@ -149,14 +148,14 @@ public class Inventory : DBConnection
 
             if (Inventory_Id == -1)
             {
-                sql = "INSERT INTO Inventory(Product_Code, Product, Product_Location, On_Hand, Reorder_Level, Reorder_Quantity, On_Order)"
-                    + "VALUES(@Product_Code, @Product, @Product_Location, @On_Hand, @Reorder_Level, @Reorder_Quantity, @On_Order)"
+                sql = "INSERT INTO Inventory(Product_Code, Product, Product_Location, On_Hand, Reorder_Level, Reorder_Quantity, On_Order) "
+                    + "VALUES(@Product_Code, @Product, @Product_Location, @On_Hand, @Reorder_Level, @Reorder_Quantity, @On_Order) "
                     + "SELECT CAST (scope_identity() as int)";
             }
             else
             {
-                sql = "UPDATE Inventory"
-                    + "SET Product_Code = @Product_Code, Product = @Product, Product_Location = @Product_Location, On_Hand = @On_Hand, Reorder_Level = @Reorder_Level, Reorder_Quantity = @Reorder_Quantity, On_Order = @On_Order"
+                sql = "UPDATE Inventory "
+                    + "SET Product_Code = @Product_Code, Product = @Product, Product_Location = @Product_Location, On_Hand = @On_Hand, Reorder_Level = @Reorder_Level, Reorder_Quantity = @Reorder_Quantity, On_Order = @On_Order "
                     + "WHERE Inventory_Id = @Inventory_Id";
             }
 
@@ -191,9 +190,9 @@ public class Inventory : DBConnection
             conn.ConnectionString = DBConnection.CONNECTION_STRING;
             conn.Open();
 
-            string sql = "SELECT Inventory_Id, Product, Product_Codes, Product_Location, On_Hand, Reorder_Level, Reorder_Quantity, On_Order"
-                       + "FROM Inventory"
-                       + "WHERE Inventory_Id = Inventory_Id";
+            string sql = "SELECT Inventory_Id, Product, Product_Code, Product_Location, On_Hand, Reorder_Level, Reorder_Quantity, On_Order "
+                       + "FROM Inventory "
+                       + "WHERE Inventory_Id = @Inventory_Id";
 
             SqlCommand command = new SqlCommand(sql, conn);
             command.Parameters.AddWithValue("Inventory_Id", IdValue);
@@ -235,9 +234,9 @@ public class Inventory : DBConnection
             conn.ConnectionString = DBConnection.CONNECTION_STRING;
             conn.Open();
 
-            string sql = "SELECT Inventory_Id, Product, Product_Code, Product_Location, On_Hand, Reorder_Level, Reorder_Quantity, On_Order"
-                       + "FROM Inventory"
-                       + "WHERE Product_Location = Product_Location";
+            string sql = "SELECT Inventory_Id, Product_Code, Product, Product_Location, On_Hand, Reorder_Level, Reorder_Quantity, On_Order "
+                       + "FROM Inventory "
+                       + "WHERE Product_Location = @Product_Location";
 
             SqlCommand command = new SqlCommand(sql, conn);
             command.Parameters.AddWithValue("Product_Location", Product_Location);
