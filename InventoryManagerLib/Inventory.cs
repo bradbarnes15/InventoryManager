@@ -273,7 +273,7 @@ public class Inventory : DBConnection
             conn.ConnectionString = DBConnection.CONNECTION_STRING;
             conn.Open();
 
-            string sql = "SELECT Inventory_Id, Product, Product_Code, Product_Location, On_Hand, Reorder_Level, Reorder_Quantity, On_Order"
+            string sql = "SELECT Inventory_Id, Product, Product_Code, Product_Location, On_Hand, Reorder_Level, Reorder_Quantity, On_Order "
                        + "FROM Inventory";
 
             SqlCommand command = new SqlCommand(sql, conn);

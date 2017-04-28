@@ -70,7 +70,7 @@ public class Customer : DBConnection
             }
             else
             {
-                sql = "UPDATE Customers SET"
+                sql = "UPDATE Customers SET "
                     + "Company = @Company, Last_Name = @Last_Name, First_Name = @First_Name, Job_Title = @Job_Title, Address = @Address, City = @City, State_Province = @State_Province, Zip = @Zip, Phone_Number = @Phone_Number "
                     + "WHERE Customer_Id = @Customer_Id";
             }

@@ -152,7 +152,7 @@ public class Employee : DBConnection
             if (employeeId == -1)
             {
                 //Employee (names in DB  )      Values(names in DB) 
-                sql = "INSERT INTO Employee(first_name,last_name,username,encrypted_password) VALUES(@first_name,@last_name,@username,@encrypted_password)"
+                sql = "INSERT INTO Employee(first_name,last_name,username,encrypted_password) VALUES(@first_name,@last_name,@username,@encrypted_password) "
                     + "SELECT CAST (scope_identity() as int)";
             }
             else

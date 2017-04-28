@@ -24,8 +24,6 @@ namespace InventoryManager
     
         public inventoryInterface()
         {
-      
-          
             InitializeComponent();
             comboBox.ItemsSource = ProductLocation.GetAll();
         }
@@ -37,20 +35,6 @@ namespace InventoryManager
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-          
-     //       ProductLocation x = new ProductLocation();
-     //       x = DBConnection.getlocation(textBox.Text);
-//
-       //     string dis = "";
-     //       listBox.Items.Clear();
-
-        //    dis += x.Product_Location + x.Product_Code + x.Product_Quantity;
-        //    listBox.Items.Add(dis);
-        //    listBox.Items.Add(x.Product_Location);
-       //     listBox.Items.Add(x.Product_Code);
-      //      listBox.Items.Add(x.Product_Quantity);
-
-           
           
         }
 
@@ -71,7 +55,7 @@ namespace InventoryManager
 
             Console.WriteLine(x.Product_Quantity);
 
-            if (x.Product_Quantity <= 0)
+            if (x.Product_Code == "Empty" )
             {
                 listBox.Items.Clear();
                 listBox.Items.Add("Product location : " + x.Product_Location);

@@ -60,8 +60,8 @@ public class OrderDetails : DBConnection
             }
             else
             {
-                sql = "UPDATE OrderDetails SET"
-                    + "Order_Id = @Order_Id, Product = @Product, Quantity = @Quantity, Unit_Price = @Unit_Price, Extended_Price = @Extended_Price, Status = @Status"
+                sql = "UPDATE OrderDetails SET "
+                    + "Order_Id = @Order_Id, Product = @Product, Quantity = @Quantity, Unit_Price = @Unit_Price, Extended_Price = @Extended_Price, Status = @Status "
                     + "WHERE OrderDetails_Id = @OrderDetails_Id";
             }
 
