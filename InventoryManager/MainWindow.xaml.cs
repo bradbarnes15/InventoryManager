@@ -26,10 +26,7 @@ namespace InventoryManager
 
             //listBox.ItemsSource = Category.GetAll();
             comboBox.ItemsSource = ProductLocation.GetAll();
-
-            Inventory item = Inventory.Get("A101");
-
-            textBox.Text = Convert.ToString( item.Reorder_Quantity);
+            
         }
 
         private void Add_Product_button_Click(object sender, RoutedEventArgs e)
