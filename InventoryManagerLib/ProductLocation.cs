@@ -170,6 +170,40 @@ public class ProductLocation : DBConnection
         }
     }
 
+    public static ProductLocation Get(string Product_Location)
+    {
+        using (SqlConnection conn = new SqlConnection())
+        {
+            conn.ConnectionString = DBConnection.CONNECTION_STRING;
+            conn.Open();
+
+            string sql = "SELECT Locations_Id, Product_Location, Product_Quantity, Product_Code "
+                       + "FROM Product_Locations "
+                       + "WHERE Product_Location = @Product_Location";
+
+            SqlCommand command = new SqlCommand(sql, conn);
+            command.Parameters.AddWithValue("Product_Location", Product_Location);
+
+            using (SqlDataReader read = command.ExecuteReader())
+            {
+                if (read.HasRows)
+                {
+                    read.Read();
+
+                    ProductLocation location = new ProductLocation(
+                                               read.GetInt32(0),
+                                               read.GetString(1),
+                                               read.GetString(3),
+                                               read.GetInt32(2));
+                    return location;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
+    }
 
     public static List<ProductLocation> GetAll()
     {
