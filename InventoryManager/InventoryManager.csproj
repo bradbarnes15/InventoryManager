@@ -61,6 +61,9 @@
     <Compile Include="EmployeeLogIn.xaml.cs">
       <DependentUpon>EmployeeLogIn.xaml</DependentUpon>
     </Compile>
+    <Compile Include="inventoryInterface.xaml.cs">
+      <DependentUpon>inventoryInterface.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SecondWindow.xaml.cs">
       <DependentUpon>SecondWindow.xaml</DependentUpon>
     </Compile>
@@ -69,6 +72,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="EmployeeLogIn.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="inventoryInterface.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

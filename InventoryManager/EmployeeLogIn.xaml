@@ -10,8 +10,8 @@
         <Button x:Name="button" Content="Login" HorizontalAlignment="Left" Margin="54,210,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
         <Label x:Name="label" Content="Username" HorizontalAlignment="Left" Margin="54,120,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label1" Content="Password" HorizontalAlignment="Left" Margin="54,160,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="130,120,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="23" Margin="130,160,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="130,120,0,0" TextWrapping="Wrap" Text="@test_User" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="23" Margin="130,160,0,0" TextWrapping="Wrap" Text="1234" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="button1" Content="Create Account" HorizontalAlignment="Left" Margin="216,277,0,0" VerticalAlignment="Top" Width="121" RenderTransformOrigin="1.613,0.35" Click="button1_Click"/>
         <Label x:Name="label2" Content="Account not created?" HorizontalAlignment="Left" Margin="17,273,0,0" VerticalAlignment="Top" Height="32" Width="179"/>
 

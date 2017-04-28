@@ -36,6 +36,7 @@ namespace InventoryManager
 
         private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+           // String s = comboBox1.Text;
 
         }
         private void displayTime()
@@ -57,6 +58,19 @@ namespace InventoryManager
             window.Top = 100;
             window.Left = 400;
             window.Show();
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            String s = comboBox.Text;
+            if( s == "Inventory")
+            {
+                inventoryInterface windowINV = new inventoryInterface();
+                this.Close();
+                windowINV.Top = 100;
+                windowINV.Left = 400;
+                windowINV.Show();
+             }
         }
     }
 }

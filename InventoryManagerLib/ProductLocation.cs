@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,9 @@ public class ProductLocation : DBConnection
     public int    Product_Quantity { get; set; }
     public string Product_Code     { get; set; }
 
+    ObservableCollection<ProductLocation> tmp = new ObservableCollection<ProductLocation>();
+
+   
 
     public ProductLocation(string Product_Location, string Product_Code)
     {
@@ -20,6 +24,16 @@ public class ProductLocation : DBConnection
         this.Product_Code     = Product_Code;
         Product_Quantity = 0;
         Locations_Id = -1;
+    }
+    public ProductLocation(int id,string Product_Location,int prodQuanity, string Product_Code)
+    {
+        this.Product_Location = Product_Location;
+        this.Product_Code = Product_Code;
+        Product_Quantity = prodQuanity;
+        Locations_Id = id;
+    }
+    public ProductLocation()
+    {
     }
 
     public ProductLocation(string Product_Location, string Product_Code, int Product_Quantity)

@@ -59,5 +59,21 @@ namespace InventoryManager
 
             location.Save();
         }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            int x = 101;
+            for (int y = 0; y < 100; y++)
+            {
+
+                string a = "A";
+               // string g = x.ToString();
+                string b = a + x.ToString();
+                Console.WriteLine(b);
+               ProductLocation t = new ProductLocation(b,"Empty",0);
+             //   t.Save();
+                x = x+1;
+            }
+        }
     }
 }
