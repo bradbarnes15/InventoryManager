@@ -5,9 +5,10 @@
     [Quantity]                INT          NOT NULL,
     [Unit_Price]              FLOAT (53)   NOT NULL,
     [Extended_Price]          FLOAT (53)   NOT NULL,
-    PRIMARY KEY CLUSTERED ([PurchaseOrderDetails_Id] ASC),
-    CONSTRAINT [FK_PurchaseOrderDetails_ToTable] FOREIGN KEY ([Purchase_Order_Number]) REFERENCES [dbo].[PurchaseOrders] ([PurchaseOrders_Id])
+    PRIMARY KEY CLUSTERED ([PurchaseOrderDetails_Id] ASC)
 );
+
+
 
 
 
