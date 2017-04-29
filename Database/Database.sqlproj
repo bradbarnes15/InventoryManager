@@ -175,5 +175,6 @@
     <None Include="dbo\Scripts\dbo.Product.data.sql" />
     <None Include="dbo\Scripts\dbo.Inventory.data.sql" />
     <None Include="dbo\Scripts\dbo.Product_Locations.data.sql" />
+    <None Include="dbo\Scripts\dbo.OrderStatus.data.sql" />
   </ItemGroup>
 </Project>
