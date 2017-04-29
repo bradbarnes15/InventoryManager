@@ -19,14 +19,16 @@ namespace InventoryManager
     /// </summary>
     public partial class Receiving : Window
     {
-        public Receiving()
+        Employee k;
+        public Receiving(Employee x)
         {
             InitializeComponent();
+            k = x;
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            EmployeeInterface window = new EmployeeInterface();
+            EmployeeInterface window = new EmployeeInterface(k);
             this.Close();
             window.Top = 100;
             window.Left = 400;

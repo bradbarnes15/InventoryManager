@@ -125,5 +125,14 @@ namespace InventoryManager
             window.Left = 400;
             window.Show();
         }
+
+        private void button_Click_1(object sender, RoutedEventArgs e)
+        {
+            MainWindow x = new MainWindow(k);
+            x.Top = 100;
+            x.Left = 400;
+            x.Show();
+            this.Close();
+        }
     }
 }

@@ -26,10 +26,15 @@ namespace InventoryManager
         // creates and add users to database
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            //    Employee a = new Employee(textBox.Text,textBox1.Text,textBox3.Text, textBox4.Text);
+                Employee a = new Employee(textBox.Text,textBox1.Text,textBox3.Text, textBox4.Text);
             // a.Print();
             // Console.WriteLine(a);
-            //  a.addEmployeeToDB();
+              a.addEmployeeToDB();
+            this.Close();
+        }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
             this.Close();
         }
     }
