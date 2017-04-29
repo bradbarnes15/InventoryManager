@@ -22,9 +22,11 @@ public class PurchaseOrder : DBConnection
     public double   Payment_Amount      { get; private set; }
     public double   Order_Subtotal      { get; private set; }
     public double   Order_Total         { get; private set; }
+    public DateTime Date_Received       { get; private set; }
+    public string   Status              { get; private set; }
 
 
-    public PurchaseOrder(DateTime Order_Date, string Created_By, DateTime Created_Date,double Shipping_Fee, double Tax, DateTime Payment_Date,double Payment_Amount, double Order_Subtotal, double Order_Total)
+    public PurchaseOrder(DateTime Order_Date, string Created_By, DateTime Created_Date,double Shipping_Fee, double Tax, DateTime Payment_Date,double Payment_Amount, double Order_Subtotal, double Order_Total, DateTime Date_Received, string Status )
     {
         this.PurchaseOrders_Id = -1;
         this.Order_Date     = Order_Date;
@@ -36,9 +38,11 @@ public class PurchaseOrder : DBConnection
         this.Payment_Amount = Payment_Amount;
         this.Order_Subtotal = Order_Subtotal;
         this.Order_Total    = Order_Total;
+        this.Date_Received  = Date_Received;
+        this.Status         = Status;
     }
 
-    private PurchaseOrder(int PurchaseOrders_Id, DateTime Order_Date, string Created_By, DateTime Created_Date, double Shipping_Fee, double Tax, DateTime Payment_Date, double Payment_Amount, double Order_Subtotal, double Order_Total)
+    private PurchaseOrder(int PurchaseOrders_Id, DateTime Order_Date, string Created_By, DateTime Created_Date, double Shipping_Fee, double Tax, DateTime Payment_Date, double Payment_Amount, double Order_Subtotal, double Order_Total, DateTime Date_Received, string Status)
     {
         this.PurchaseOrders_Id = PurchaseOrders_Id;
         this.Order_Date = Order_Date;
@@ -50,6 +54,8 @@ public class PurchaseOrder : DBConnection
         this.Payment_Amount = Payment_Amount;
         this.Order_Subtotal = Order_Subtotal;
         this.Order_Total = Order_Total;
+        this.Date_Received = Date_Received;
+        this.Status = Status;
     }
 
     
@@ -66,14 +72,14 @@ public class PurchaseOrder : DBConnection
 
             if (PurchaseOrders_Id == -1)
             {
-                sql = "INSERT INTO PurchaseOrders(Order_Date, Created_By, Created_Date, Shipping_Fee, Tax, Payment_Date, Payment_Amount, Order_Subtotal, Order_Total) "
-                    + "Values(@Order_Date, @Created_By, @Created_Date, @Shipping_Fee, @Tax, @Payment_Date, @Payment_Amount, @Order_Subtotal, @Order_Total) "
+                sql = "INSERT INTO PurchaseOrders(Order_Date, Created_By, Created_Date, Shipping_Fee, Tax, Payment_Date, Payment_Amount, Order_Subtotal, Order_Total, Date_Received, Status) "
+                    + "Values(@Order_Date, @Created_By, @Created_Date, @Shipping_Fee, @Tax, @Payment_Date, @Payment_Amount, @Order_Subtotal, @Order_Total, @Date_Received, @Status) "
                     + "SELECT CAST (scope_identity() as int)";
             }
             else
             {
                 sql = "UPDATE PurchaseOrders SET "
-                    + "Order_Date = @Order_Date, Created_By = @Created_By, Created_Date = @Created_Date, Shipping_Fee = @Shipping_Fee, Tax = @Tax, Payment_Date = @Payment_Date, Payment_Amount = @Payment_Amount, Order_Subtotal = @Order_Subtotal, Order_Total = @Order_Total "
+                    + "Order_Date = @Order_Date, Created_By = @Created_By, Created_Date = @Created_Date, Shipping_Fee = @Shipping_Fee, Tax = @Tax, Payment_Date = @Payment_Date, Payment_Amount = @Payment_Amount, Order_Subtotal = @Order_Subtotal, Order_Total = @Order_Total, Date_Received = @Date_Received, Status = @Status "
                     + "WHERE PurchaseOrder_Id = @PurchaseOrder_Id ";
             }
 
@@ -88,6 +94,8 @@ public class PurchaseOrder : DBConnection
             command.Parameters.AddWithValue("Payment_Amount", Payment_Amount);
             command.Parameters.AddWithValue("Order_Subtotal", Order_Subtotal);
             command.Parameters.AddWithValue("Order_Total", Order_Total);
+            command.Parameters.AddWithValue("Date_Received", Date_Received);
+            command.Parameters.AddWithValue("Status", Status);
 
             if (PurchaseOrders_Id == -1)
             {
@@ -108,7 +116,7 @@ public class PurchaseOrder : DBConnection
             conn.ConnectionString = DBConnection.CONNECTION_STRING;
             conn.Open();
 
-            string sql = "SELECT PurchaseOrders_Id, Order_Date, Created_By, Created_Date, Shipping_Fee, Tax, Payment_Date, Payment_Amount, Order_Subtotal, Order_Total "
+            string sql = "SELECT PurchaseOrders_Id, Order_Date, Created_By, Created_Date, Shipping_Fee, Tax, Payment_Date, Payment_Amount, Order_Subtotal, Order_Total, Date_Received, Status "
                        + "FROM PurchaseOrders "
                        + "WHERE PurchaseOrders_Id = @PurchaseOrders_Id";
 
@@ -130,7 +138,9 @@ public class PurchaseOrder : DBConnection
                                                                     reader.GetDateTime(6),
                                                                     reader.GetDouble(7),
                                                                     reader.GetDouble(8),
-                                                                    reader.GetDouble(9));
+                                                                    reader.GetDouble(9),
+                                                                    reader.GetDateTime(11),
+                                                                    reader.GetString(10));
                     return purchaseOrder;
                 }
                 else
@@ -148,7 +158,7 @@ public class PurchaseOrder : DBConnection
             conn.ConnectionString = DBConnection.CONNECTION_STRING;
             conn.Open();
 
-            string sql = "SELECT PurchaseOrders_Id, Order_Date, Created_By, Created_Date, Shipping_Fee, Tax, Payment_Date, Payment_Amount, Order_Subtotal, Order_Total "
+            string sql = "SELECT PurchaseOrders_Id, Order_Date, Created_By, Created_Date, Shipping_Fee, Tax, Payment_Date, Payment_Amount, Order_Subtotal, Order_Total, Status, Date_Received "
                        + "FROM PurchaseOrders ";
 
             SqlCommand command = new SqlCommand(sql, conn);
@@ -167,7 +177,9 @@ public class PurchaseOrder : DBConnection
                                                                     reader.GetDateTime(6),
                                                                     reader.GetDouble(7),
                                                                     reader.GetDouble(8),
-                                                                    reader.GetDouble(9));
+                                                                    reader.GetDouble(9),
+                                                                    reader.GetDateTime(11),
+                                                                    reader.GetString(10));
 
                     PurchaseOrderList.Add(purchaseOrder);
                 }
