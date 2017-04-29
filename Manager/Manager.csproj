@@ -55,7 +55,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainWindow.xaml">
+    <Page Include="EmployeeInterface.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="EmployeeLogIn.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="inventoryInterface.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainProductWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -63,8 +75,17 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="EmployeeInterface.xaml.cs">
+      <DependentUpon>EmployeeInterface.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeLogIn.xaml.cs">
+      <DependentUpon>EmployeeLogIn.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="inventoryInterface.xaml.cs">
+      <DependentUpon>inventoryInterface.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainProductWindow.xaml.cs">
+      <DependentUpon>MainProductWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

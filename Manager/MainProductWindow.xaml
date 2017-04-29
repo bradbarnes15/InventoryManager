@@ -1,0 +1,28 @@
+﻿<Window x:Class="InventoryManager.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InventoryManager"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid HorizontalAlignment="Left" Height="324" Margin="-3,0,-3.6,-3.2" VerticalAlignment="Top" Width="525">
+        <TextBox x:Name="Product_Code_textBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Product_Code" VerticalAlignment="Top" Width="120" Margin="26,38,0,0"/>
+        <TextBox x:Name="Product_Name_textBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Product_Name" VerticalAlignment="Top" Width="120" Margin="26,66,0,0"/>
+        <TextBox x:Name="List_Price_textBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap"   Text="List_Price" VerticalAlignment="Top" Width="120" Margin="26,94,0,0"/>
+        <Button x:Name="Add_Product_button" Content="Add Product" HorizontalAlignment="Left" Margin="10,122,0,0" VerticalAlignment="Top" Width="75" Click="Add_Product_button_Click"/>
+        <Button x:Name="Update_Product_button" Content="Update product" HorizontalAlignment="Left" VerticalAlignment="Top" Width="95" Margin="90,122,0,0" Click="Update_Product_button_Click"/>
+        <TextBox x:Name="Product_Id_Textbox" HorizontalAlignment="Left" Height="23" Margin="26,10,0,0" TextWrapping="Wrap" Text="Product ID" VerticalAlignment="Top" Width="120"/>
+
+
+        <ListBox x:Name="listBox" 
+                 
+                 HorizontalAlignment="Left" Height="283" Margin="340,10,0,0" VerticalAlignment="Top" Width="175" SelectionChanged="listBox_SelectionChanged"
+        />
+        <ComboBox x:Name="comboBox" SelectedValuePath="Content" HorizontalAlignment="Left" Margin="203,11,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="comboBox_SelectionChanged"/>
+        <Button x:Name="button" Content="back" HorizontalAlignment="Left" Margin="59,242,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+
+    </Grid>
+
+
+</Window>
