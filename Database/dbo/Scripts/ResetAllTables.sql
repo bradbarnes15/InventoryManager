@@ -1,4 +1,14 @@
-﻿
+﻿TRUNCATE TABLE Category
+TRUNCATE TABLE Employee
+TRUNCATE TABLE Inventory
+TRUNCATE TABLE OrderDetails
+TRUNCATE TABLE Orders
+TRUNCATE TABLE OrderStatus
+TRUNCATE TABLE Product
+TRUNCATE TABLE Product_Locations
+TRUNCATE TABLE PurchaseOrderDetails
+TRUNCATE TABLE PurchaseOrders
+
 SET IDENTITY_INSERT [dbo].[Category] ON
 INSERT INTO [dbo].[Category] ([Category_Id], [Category_Text]) VALUES (2, N'Baking')
 INSERT INTO [dbo].[Category] ([Category_Id], [Category_Text]) VALUES (3, N'Beverages')
