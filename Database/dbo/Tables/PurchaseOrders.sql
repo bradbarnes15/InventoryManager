@@ -9,8 +9,12 @@
     [Payment_Amount]    FLOAT (53)   NOT NULL,
     [Order_Subtotal]    FLOAT (53)   NOT NULL,
     [Order_Total]       FLOAT (53)   NOT NULL,
+    [Status]            VARCHAR (20) NOT NULL,
+    [Date_Received]     DATE         NOT NULL,
     PRIMARY KEY CLUSTERED ([PurchaseOrders_Id] ASC)
 );
+
+
 
 
 
