@@ -45,8 +45,8 @@ public class Category : DBConnection
             }
             else
             {
-                sql = "UPDATE Category SET"
-                    + "Category_Text = @Category_Text"
+                sql = "UPDATE Category SET "
+                    + "Category_Text = @Category_Text "
                     + "WHERE Category_Id = @Category_Id";
             }
 
@@ -73,8 +73,8 @@ public class Category : DBConnection
             conn.ConnectionString = DBConnection.CONNECTION_STRING;
             conn.Open();
 
-            string sql = "SELECT Category_Id, Category_Text"
-                       + "FROM Category"
+            string sql = "SELECT Category_Id, Category_Text "
+                       + "FROM Category "
                        + "WHERE Category_Id = @Category_Id";
 
             SqlCommand command = new SqlCommand(sql, conn);

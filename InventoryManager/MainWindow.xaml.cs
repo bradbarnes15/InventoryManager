@@ -26,6 +26,7 @@ namespace InventoryManager
 
             //listBox.ItemsSource = Category.GetAll();
             comboBox.ItemsSource = ProductLocation.GetAll();
+            
         }
 
         private void Add_Product_button_Click(object sender, RoutedEventArgs e)
@@ -68,20 +69,29 @@ namespace InventoryManager
             listBox.Items.Add(str);
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+
+
+
+        /*
+        private void button_Click_1(object sender, RoutedEventArgs e)
         {
             int x = 101;
             for (int y = 0; y < 100; y++)
             {
 
                 string a = "A";
-               // string g = x.ToString();
+                // string g = x.ToString();
                 string b = a + x.ToString();
                 Console.WriteLine(b);
-               ProductLocation t = new ProductLocation(b,"Empty",0);
-             //   t.Save();
-                x = x+1;
+                ProductLocation t = new ProductLocation(b, "Empty", 0);
+                   t.Save();
+                x = x + 1;
             }
-        }
+        }*/
+
+
+
+
+
     }
 }

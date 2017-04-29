@@ -9,7 +9,7 @@ public class Inventory : DBConnection
 {
     public int    Inventory_Id     { get; private set; }
     public string Product          { get; private set; }
-    public int    Product_Id       { get; private set; }
+    public string Product_Code     { get; private set; }
     public string Product_Location { get; private set; }
     public int    On_Hand          { get; private set; }
     public int    Reorder_Level    { get; private set; }
@@ -17,10 +17,10 @@ public class Inventory : DBConnection
     public int    On_Order         { get; private set; }
 
 
-    public Inventory(string Product, string Product_Location, int Product_Id, int On_Hand, int Reorder_Level, int Reorder_Quantity)
+    public Inventory(string Product, string Product_Location, string Product_Code, int On_Hand, int Reorder_Level, int Reorder_Quantity)
     {
         this.Product          = Product;
-        this.Product_Id       = Product_Id;
+        this.Product_Code     = Product_Code;
         this.Product_Location = Product_Location;
         this.On_Hand          = On_Hand;
         this.Reorder_Level    = Reorder_Level;
@@ -28,11 +28,11 @@ public class Inventory : DBConnection
         On_Order = 0;
     }
     
-    private Inventory(int Inventory_Id, string Product, int Product_Id, string Product_Location, int On_Hand, int Reorder_Level, int Reorder_quantity, int On_Order)
+    private Inventory(int Inventory_Id, string Product, string Product_Code, string Product_Location, int On_Hand, int Reorder_Level, int Reorder_Quantity, int On_Order)
     {
         this.Inventory_Id     = Inventory_Id;
         this.Product          = Product;
-        this.Product_Id       = Product_Id;
+        this.Product_Code     = Product_Code;
         this.Product_Location = Product_Location;
         this.On_Hand          = On_Hand;
         this.Reorder_Level    = Reorder_Level;
@@ -44,16 +44,15 @@ public class Inventory : DBConnection
     /// <summary>
     /// Update the amount of stock shown as on_hand
     /// </summary>
-    /// <param name="Product_Id">Value used to look up the item in the database</param>
+    /// <param name="Product_Code">Value used to look up the item in the database</param>
     /// <param name="newStockLevel"></param>
-    public static void ModifyItemStock(int Product_Id, int newStockLevel)
+    public void ModifyItemStock(int newStockLevel)
     {
-        Inventory item = Inventory.Get(Product_Id);
 
-        item.On_Hand = newStockLevel;
-        ProductLocation.UpdateQuantity(item.Product_Location, newStockLevel);
+        this.On_Hand = newStockLevel;
+        ProductLocation.UpdateQuantity(this.Product_Location, newStockLevel);
 
-        item.Save();
+        this.Save();
     }
 
 
@@ -149,21 +148,21 @@ public class Inventory : DBConnection
 
             if (Inventory_Id == -1)
             {
-                sql = "INSERT INTO Inventory(Product_Id, Product, Product_Location, On_Hand, Reorder_Level, Reorder_Quantity, On_Order)"
-                    + "VALUES(@Product_Id, @Product, @Product_Location, @On_Hand, @Reorder_Level, @Reorder_Quantity, @On_Order)"
+                sql = "INSERT INTO Inventory(Product_Code, Product, Product_Location, On_Hand, Reorder_Level, Reorder_Quantity, On_Order) "
+                    + "VALUES(@Product_Code, @Product, @Product_Location, @On_Hand, @Reorder_Level, @Reorder_Quantity, @On_Order) "
                     + "SELECT CAST (scope_identity() as int)";
             }
             else
             {
-                sql = "UPDATE Inventory"
-                    + "SET Product_Id = @Product_Id, Product = @Product, Product_Location = @Product_Location, On_Hand = @On_Hand, Reorder_Level = @Reorder_Level, Reorder_Quantity = @Reorder_Quantity, On_Order = @On_Order"
+                sql = "UPDATE Inventory "
+                    + "SET Product_Code = @Product_Code, Product = @Product, Product_Location = @Product_Location, On_Hand = @On_Hand, Reorder_Level = @Reorder_Level, Reorder_Quantity = @Reorder_Quantity, On_Order = @On_Order "
                     + "WHERE Inventory_Id = @Inventory_Id";
             }
 
             
             SqlCommand command = new SqlCommand(sql, conn);
 
-            command.Parameters.AddWithValue("Product_Id", Product_Id);
+            command.Parameters.AddWithValue("Product_Code", Product_Code);
             command.Parameters.AddWithValue("Product", Product);
             command.Parameters.AddWithValue("Product_Location", Product_Location);
             command.Parameters.AddWithValue("On_Hand", On_Hand);
@@ -191,9 +190,9 @@ public class Inventory : DBConnection
             conn.ConnectionString = DBConnection.CONNECTION_STRING;
             conn.Open();
 
-            string sql = "SELECT Inventory_Id, Product, Product_Id, Product_Location, On_Hand, Reorder_Level, Reorder_Quantity, On_Order"
-                       + "FROM Inventory"
-                       + "WHERE Inventory_Id = Inventory_Id";
+            string sql = "SELECT Inventory_Id, Product, Product_Code, Product_Location, On_Hand, Reorder_Level, Reorder_Quantity, On_Order "
+                       + "FROM Inventory "
+                       + "WHERE Inventory_Id = @Inventory_Id";
 
             SqlCommand command = new SqlCommand(sql, conn);
             command.Parameters.AddWithValue("Inventory_Id", IdValue);
@@ -206,7 +205,7 @@ public class Inventory : DBConnection
 
                     Inventory inv = new Inventory(read.GetInt32(0),
                                                   read.GetString(2),
-                                                  read.GetInt32(1),
+                                                  read.GetString(1),
                                                   read.GetString(3),
                                                   read.GetInt32(4),
                                                   read.GetInt32(5),
@@ -223,7 +222,11 @@ public class Inventory : DBConnection
     }
 
 
-
+    /// <summary>
+    /// Get an inventory item based off of the Products locations
+    /// </summary>
+    /// <param name="Product_Location"></param>
+    /// <returns></returns>
     public static Inventory Get(string Product_Location)
     {
         using (SqlConnection conn = new SqlConnection())
@@ -231,9 +234,9 @@ public class Inventory : DBConnection
             conn.ConnectionString = DBConnection.CONNECTION_STRING;
             conn.Open();
 
-            string sql = "SELECT Inventory_Id, Product, Product_Id, Product_Location, On_Hand, Reorder_Level, Reorder_Quantity, On_Order"
-                       + "FROM Inventory"
-                       + "WHERE Product_Location = Product_Location";
+            string sql = "SELECT Inventory_Id, Product_Code, Product, Product_Location, On_Hand, Reorder_Level, Reorder_Quantity, On_Order "
+                       + "FROM Inventory "
+                       + "WHERE Product_Location = @Product_Location";
 
             SqlCommand command = new SqlCommand(sql, conn);
             command.Parameters.AddWithValue("Product_Location", Product_Location);
@@ -246,7 +249,7 @@ public class Inventory : DBConnection
 
                     Inventory inv = new Inventory(read.GetInt32(0),
                                                   read.GetString(2),
-                                                  read.GetInt32(1),
+                                                  read.GetString(1),
                                                   read.GetString(3),
                                                   read.GetInt32(4),
                                                   read.GetInt32(5),
@@ -270,7 +273,7 @@ public class Inventory : DBConnection
             conn.ConnectionString = DBConnection.CONNECTION_STRING;
             conn.Open();
 
-            string sql = "SELECT Inventory_Id, Product, Product_Id, Product_Location, On_Hand, Reorder_Level, Reorder_Quantity, On_Order"
+            string sql = "SELECT Inventory_Id, Product, Product_Code, Product_Location, On_Hand, Reorder_Level, Reorder_Quantity, On_Order "
                        + "FROM Inventory";
 
             SqlCommand command = new SqlCommand(sql, conn);
@@ -282,7 +285,7 @@ public class Inventory : DBConnection
                 {
                     Inventory item = new Inventory(reader.GetInt32(0),
                                                   reader.GetString(2),
-                                                  reader.GetInt32(1),
+                                                  reader.GetString(1),
                                                   reader.GetString(3),
                                                   reader.GetInt32(4),
                                                   reader.GetInt32(5),
