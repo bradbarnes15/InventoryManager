@@ -181,7 +181,7 @@ public class Orders : DBConnection
 
 	public override string ToString()
 	{
-        return Convert.ToString(this.Order_Id);
+        return "Order #" + this.Order_Id;
 	}
 
 }
