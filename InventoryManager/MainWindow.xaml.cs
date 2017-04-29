@@ -25,7 +25,7 @@ namespace InventoryManager
             InitializeComponent();
 
             //listBox.ItemsSource = Category.GetAll();
-            comboBox.ItemsSource = ProductLocation.GetAll();
+            comboBox.ItemsSource = PurchaseOrder.GetAll();
             
         }
 
@@ -58,15 +58,12 @@ namespace InventoryManager
 
         private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            PurchaseOrder order = (PurchaseOrder)comboBox.SelectedItem;
+
             listBox.Items.Clear();
 
-            string value = comboBox.SelectedItem.ToString();
-
-            ProductLocation location = ProductLocation.Get(value);
-
-            string str = "Product: " + location.Product_Code;
-
-            listBox.Items.Add(str);
+            listBox.ItemsSource = PurchaseOrderDetails.GetAllAt(order.PurchaseOrders_Id);
+            
         }
 
 

@@ -18,11 +18,10 @@ public class PurchaseOrderDetails : DBConnection
     public int    Quantity                { get; private set; }
     public Double Unit_Price              { get; private set; }
     public Double Extended_Price          { get; private set; }
-    public string Date_Received           { get; private set; }
-    public string Status                  { get; private set; }
+    
 
 
-    public PurchaseOrderDetails(int Purchase_Order_Number, string Product, int Quantity, double Unit_Price, double Extended_Price, string Date_Received, string Status)
+    public PurchaseOrderDetails(int Purchase_Order_Number, string Product, int Quantity, double Unit_Price, double Extended_Price)
     {
         this.PurchaseOrderDetails_Id = -1;
         this.Purchase_Order_Number   = Purchase_Order_Number;
@@ -30,11 +29,9 @@ public class PurchaseOrderDetails : DBConnection
         this.Quantity                = Quantity;
         this.Unit_Price              = Unit_Price;
         this.Extended_Price          = Extended_Price;
-        this.Date_Received           = Date_Received;
-        this.Status                  = Status;
     }
 
-    private PurchaseOrderDetails(int PurchaseOrderDetails_Id, int Purchase_Order_Number, string Product, int Quantity, double Unit_Price, double Extended_Price, string Date_Received, string Status)
+    private PurchaseOrderDetails(int PurchaseOrderDetails_Id, int Purchase_Order_Number, string Product, int Quantity, double Unit_Price, double Extended_Price)
     {
         this.PurchaseOrderDetails_Id = PurchaseOrderDetails_Id;
         this.Purchase_Order_Number   = Purchase_Order_Number;
@@ -42,8 +39,6 @@ public class PurchaseOrderDetails : DBConnection
         this.Quantity                = Quantity;   
         this.Unit_Price              = Unit_Price;
         this.Extended_Price          = Extended_Price;
-        this.Date_Received           = Date_Received;
-        this.Status                  = Status;
     }
 
 
@@ -58,14 +53,14 @@ public class PurchaseOrderDetails : DBConnection
 
             if (PurchaseOrderDetails_Id == -1)
             {
-                sql = "INSERT INTO PurchaseOrderDetails(Purchase_Order_Number, Product, Quantity, Unit_Price, Extended_Price, Date_Received, Status) "
-                    + "VALUES(@Purchase_Order_Number, @Product, @Quantity, @Unit_Price, @Extended_Price, @Date_Received, @Status) "
+                sql = "INSERT INTO PurchaseOrderDetails(Purchase_Order_Number, Product, Quantity, Unit_Price, Extended_Price) "
+                    + "VALUES(@Purchase_Order_Number, @Product, @Quantity, @Unit_Price, @Extended_Price) "
                     + "SELECT CAST (scope_identity() as int)";
             }
             else
             {
                 sql = "UPDATE PurchaseOrderDetails SET "
-                    + "Purchase_Order_Number = @Purchase_Order_Number, Product = @Product, Quantity = @Quantity, Unit_Price = @Unit_Price, Extended_Price = @Extended_Price, Date_Received = @Date_Received, Status = @Status "
+                    + "Purchase_Order_Number = @Purchase_Order_Number, Product = @Product, Quantity = @Quantity, Unit_Price = @Unit_Price, Extended_Price = @Extended_Price "
                     + "WHERE PurchaseOrderDetails_Id = @PurchaseOrderDetails_Id";
             }
 
@@ -76,8 +71,6 @@ public class PurchaseOrderDetails : DBConnection
             command.Parameters.AddWithValue("Quantity", Quantity);
             command.Parameters.AddWithValue("Unit_Price", Unit_Price);
             command.Parameters.AddWithValue("Extended_Price", Extended_Price);
-            command.Parameters.AddWithValue("Date_Received", Date_Received);
-            command.Parameters.AddWithValue("Status", Status);
 
             if (PurchaseOrderDetails_Id == -1)
             {
@@ -92,19 +85,19 @@ public class PurchaseOrderDetails : DBConnection
     }
 
 
-    public PurchaseOrderDetails Get(int PurchaseOrderDetails_Id)
+    public static PurchaseOrderDetails Get(int Purchase_Order_Number)
     {
         using (SqlConnection conn = new SqlConnection())
         {
             conn.ConnectionString = DBConnection.CONNECTION_STRING;
             conn.Open();
 
-            string sql = "SELECT Purchase_Order_Number, Product, Quantity, Unit_Price, Extended_Price, Date_Received, Status "
+            string sql = "SELECT PurchaseOrderDetails_Id, Purchase_Order_Number, Product, Quantity, Unit_Price, Extended_Price "
                        + "FROM PurchaseOrderDetails "
-                       + "WHERE PurchaseOrderDetails_Id = @PurchaseOrderDetails_Id";
+                       + "WHERE Purchase_Order_Number = @Purchase_Order_Number";
 
             SqlCommand command = new SqlCommand(sql, conn);
-            command.Parameters.AddWithValue("PurchaseOrderDetails_Id", PurchaseOrderDetails_Id);
+            command.Parameters.AddWithValue("Purchase_Order_Number", Purchase_Order_Number);
 
             using (SqlDataReader reader = command.ExecuteReader())
             {
@@ -117,9 +110,7 @@ public class PurchaseOrderDetails : DBConnection
                                                                         reader.GetString(2),
                                                                         reader.GetInt32(3),
                                                                         reader.GetDouble(4),
-                                                                        reader.GetDouble(5),
-                                                                        reader.GetString(6),
-                                                                        reader.GetString(7));
+                                                                        reader.GetDouble(5));
                     return pod;
                 }
                 else
@@ -131,14 +122,14 @@ public class PurchaseOrderDetails : DBConnection
     }
 
 
-    public List<PurchaseOrderDetails> GetAll()
+    public static List<PurchaseOrderDetails> GetAll()
     {
         using (SqlConnection conn = new SqlConnection())
         {
             conn.ConnectionString = DBConnection.CONNECTION_STRING;
             conn.Open();
 
-            string sql = "SELECT Purchase_Order_Number, Product, Quantity, Unit_Price, Extended_Price, Date_Received, Status "
+            string sql = "SELECT PurchaseOrderDetails_Id, Purchase_Order_Number, Product, Quantity, Unit_Price, Extended_Price "
                        + "FROM PurchaseOrderDetails ";
 
             SqlCommand command = new SqlCommand(sql, conn);
@@ -153,9 +144,42 @@ public class PurchaseOrderDetails : DBConnection
                                                                         reader.GetString(2),
                                                                         reader.GetInt32(3),
                                                                         reader.GetDouble(4),
-                                                                        reader.GetDouble(5),
-                                                                        reader.GetString(6),
-                                                                        reader.GetString(7));
+                                                                        reader.GetDouble(5));
+                    podList.Add(pod);
+                }
+
+                return podList;
+            }
+        }
+    }
+
+
+    public static List<PurchaseOrderDetails> GetAllAt(int Purchase_Order_Number)
+    {
+        using (SqlConnection conn = new SqlConnection())
+        {
+            conn.ConnectionString = DBConnection.CONNECTION_STRING;
+            conn.Open();
+
+            string sql = "SELECT PurchaseOrderDetails_Id, Purchase_Order_Number, Product, Quantity, Unit_Price, Extended_Price "
+                       + "FROM PurchaseOrderDetails "
+                       + "WHERE Purchase_Order_Number = @Purchase_Order_Number ";
+
+            SqlCommand command = new SqlCommand(sql, conn);
+            command.Parameters.AddWithValue("Purchase_Order_Number", Purchase_Order_Number);
+
+            using (SqlDataReader reader = command.ExecuteReader())
+            {
+                List<PurchaseOrderDetails> podList = new List<PurchaseOrderDetails>();
+
+                while (reader.Read())
+                {
+                    PurchaseOrderDetails pod = new PurchaseOrderDetails(reader.GetInt32(0),
+                                                                        reader.GetInt32(1),
+                                                                        reader.GetString(2),
+                                                                        reader.GetInt32(3),
+                                                                        reader.GetDouble(4),
+                                                                        reader.GetDouble(5));
                     podList.Add(pod);
                 }
 
@@ -167,7 +191,7 @@ public class PurchaseOrderDetails : DBConnection
 
     public override string ToString()
     {
-		throw new System.NotImplementedException();
+        return this.Product + " Quantity " + this.Quantity;
         
 	}
 
