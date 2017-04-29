@@ -111,7 +111,13 @@ namespace InventoryManager
             listBox.Items.Add("Reorder Quantity : " + item.Reorder_Quantity);
         }
 
-
-
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            EmployeeInterface window = new EmployeeInterface ();
+            this.Close();
+            window.Top = 100;
+            window.Left = 400;
+            window.Show();
+        }
     }
 }
