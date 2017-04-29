@@ -191,7 +191,7 @@ public class PurchaseOrder : DBConnection
 
     public override string ToString()
     {
-		throw new System.NotImplementedException();
+        return "Order #" + this.PurchaseOrders_Id + " Status: " + this.Status;
 	}
 
 }
