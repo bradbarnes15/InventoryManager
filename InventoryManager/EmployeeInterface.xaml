@@ -13,8 +13,8 @@
                   Text="---- Select Job ----" 
                   Margin="80,230,0,0" VerticalAlignment="Top" 
                   Width="257" Height="30" SelectionChanged="comboBox_SelectionChanged">
-            <ComboBoxItem Content="Receving"/>
-            <ComboBoxItem Content="Order Picking"/>
+            <ComboBoxItem Content="Receving" Selected="ComboBoxItem_Selected"/>
+            <ComboBoxItem Content="OrderPicking"/>
             <ComboBoxItem Content="Inventory"/>
             <ComboBoxItem Content="Break"/>
             <ComboBoxItem Content="Lunch"/>
