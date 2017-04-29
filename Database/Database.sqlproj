@@ -180,5 +180,6 @@
     <None Include="dbo\Scripts\dbo.Orders.data.sql" />
     <None Include="dbo\Scripts\dbo.PurchaseOrderDetails.data.sql" />
     <None Include="dbo\Scripts\dbo.PurchaseOrders.data.sql" />
+    <None Include="dbo\Scripts\FillAllTablesScript.data.sql" />
   </ItemGroup>
 </Project>
