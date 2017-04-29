@@ -25,7 +25,7 @@ namespace InventoryManager
             InitializeComponent();
 
             //listBox.ItemsSource = Category.GetAll();
-            comboBox.ItemsSource = ProductLocation.GetAll();
+            comboBox.ItemsSource = PurchaseOrder.GetAll();
             
         }
 

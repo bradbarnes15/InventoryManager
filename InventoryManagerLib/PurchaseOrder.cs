@@ -109,7 +109,7 @@ public class PurchaseOrder : DBConnection
         }
     }
 
-    public PurchaseOrder Get(int PurchaseOrders_Id)
+    public static PurchaseOrder Get(int PurchaseOrders_Id)
     {
         using (SqlConnection conn = new SqlConnection())
         {
@@ -151,7 +151,7 @@ public class PurchaseOrder : DBConnection
         }
     }
 
-    public List<PurchaseOrder> GetAll()
+    public static List<PurchaseOrder> GetAll()
     {
         using (SqlConnection conn = new SqlConnection())
         {
