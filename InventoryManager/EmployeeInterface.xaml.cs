@@ -71,6 +71,27 @@ namespace InventoryManager
                 windowINV.Left = 400;
                 windowINV.Show();
              }
+            if (s == "Receving")
+            {
+                Receiving windowINV = new Receiving();
+                this.Close();
+                windowINV.Top = 100;
+                windowINV.Left = 400;
+                windowINV.Show();
+            }
+            if (s == "OrderPicking")
+            {
+                orderpicking windowINV = new orderpicking();
+                this.Close();
+                windowINV.Top = 100;
+                windowINV.Left = 400;
+                windowINV.Show();
+            }
+        }
+
+        private void ComboBoxItem_Selected(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
