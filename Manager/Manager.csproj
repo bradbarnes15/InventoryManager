@@ -58,6 +58,9 @@
     <Compile Include="CreateOrder.xaml.cs">
       <DependentUpon>CreateOrder.xaml</DependentUpon>
     </Compile>
+    <Compile Include="orderpicking.xaml.cs">
+      <DependentUpon>orderpicking.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Receiving.xaml.cs">
       <DependentUpon>Receiving.xaml</DependentUpon>
     </Compile>
@@ -98,6 +101,10 @@
       <DependentUpon>MainProductWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="orderpicking.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Receiving.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

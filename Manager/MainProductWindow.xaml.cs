@@ -49,13 +49,15 @@ namespace InventoryManager
         {
             string product_Code = Product_Code_Textbox.Text.ToString();
             string product_Name = Product_Name_textBox.Text.ToString();
+
             double list_price, unit_price;
             bool listPrice, unitPrice, reorderLevel, reorderQuant, onHand;
             int reorder_level, reorder_quant, on_Hand;
+
             CheckTextBoxes(out list_price, out listPrice, out unit_price, out unitPrice, out reorder_level, out reorderLevel, out reorder_quant, out reorderQuant, out on_Hand, out onHand);
 
             //Ensure all fields have actually been filled out
-            if (listPrice && unitPrice && reorderLevel && reorderQuant && onHand && product_Code.Length > 1 && product_Name.Length > 1)
+            if (listPrice && unitPrice && reorderLevel && reorderQuant && onHand && product_Code.Length >= 4 && product_Name.Length >= 1 && category_comboBox.SelectedIndex >= 0)
             {
                 //Create and Add the product to the database
                 string category = category_comboBox.Text.ToString();
@@ -101,6 +103,21 @@ namespace InventoryManager
 
         private void CheckTextBoxes(out double list_price, out bool listPrice, out double unit_price, out bool unitPrice, out int reorder_level, out bool reorderLevel, out int reorder_quant, out bool reorderQuant, out int on_Hand, out bool onHand)
         {
+            //Check the Product code
+            if(Product_Code_Textbox.Text.Length < 4)
+            {
+                Product_Code_Textbox.Background = new SolidColorBrush(Colors.Red);
+            }
+            else { Product_Code_Textbox.Background = new SolidColorBrush(Colors.White); }
+
+            //Check the product name
+            if(Product_Name_textBox.Text.Length < 1)
+            {
+                Product_Name_textBox.Background = new SolidColorBrush(Colors.Red);
+            }
+            else { Product_Name_textBox.Background = new SolidColorBrush(Colors.White); }
+
+            //Check the listprice
             listPrice = false;
             if (!double.TryParse(List_Price_textBox.Text, out list_price))
             {
@@ -108,6 +125,8 @@ namespace InventoryManager
                 List_Price_textBox.Background = new SolidColorBrush(Colors.Red);
             }
             else { List_Price_textBox.Background = new SolidColorBrush(Colors.White); listPrice = true; }
+
+            //Check the unit price
             unitPrice = false;
             if (!double.TryParse(Unit_Price_textBox.Text, out unit_price))
             {
@@ -115,6 +134,8 @@ namespace InventoryManager
                 Unit_Price_textBox.Background = new SolidColorBrush(Colors.Red);
             }
             else { Unit_Price_textBox.Background = new SolidColorBrush(Colors.White); unitPrice = true; }
+
+            //Check the reorder level
             reorderLevel = false;
             if (!int.TryParse(ReorderLevel_textBox.Text, out reorder_level))
             {
@@ -122,6 +143,8 @@ namespace InventoryManager
                 ReorderLevel_textBox.Background = new SolidColorBrush(Colors.Red);
             }
             else { ReorderLevel_textBox.Background = new SolidColorBrush(Colors.White); reorderLevel = true; }
+
+            //Check the reorder quantity
             reorderQuant = false;
             if (!int.TryParse(ReorderQuantity_textBox.Text, out reorder_quant))
             {
@@ -129,6 +152,8 @@ namespace InventoryManager
                 ReorderQuantity_textBox.Background = new SolidColorBrush(Colors.Red);
             }
             else { ReorderQuantity_textBox.Background = new SolidColorBrush(Colors.White); reorderQuant = true; }
+
+            //Check the On hand amount
             onHand = false;
             if (!int.TryParse(OnHand_textBox.Text, out on_Hand))
             {
@@ -136,6 +161,13 @@ namespace InventoryManager
                 OnHand_textBox.Background = new SolidColorBrush(Colors.Red);
             }
             else { OnHand_textBox.Background = new SolidColorBrush(Colors.White); onHand = true; }
+
+            //Check the category combobox
+            if (category_comboBox.SelectedIndex < 0)
+            {
+                category_comboBox.Background = new SolidColorBrush(Colors.Red);
+            }
+            else { category_comboBox.Background = new SolidColorBrush(Colors.White); }
         }
 
 
