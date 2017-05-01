@@ -1,17 +1,9 @@
 ﻿using InventoryManager;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Manager
 {
@@ -21,6 +13,7 @@ namespace Manager
     public partial class CreateOrder : Window
     {
         List<Product> list = new List<Product>();
+        List<MyItem> list1 = new List<MyItem>();
         double totalForOrder = 0;
         Employee k;
         
@@ -29,6 +22,7 @@ namespace Manager
             InitializeComponent();
             comboBox.ItemsSource = Product.GetAll();
             k = x;
+            button1.IsEnabled = false;
 
             // Add columns
             var gridView = new GridView();
@@ -70,8 +64,9 @@ namespace Manager
             window.Show();
         }
 
-        public class MyItem
+        public class MyItem 
         {
+           // List<MyItem> list1 = new List<MyItem>();
             public string Product { get; set; }
 
             public int Quanitity { get; set; }
@@ -90,50 +85,26 @@ namespace Manager
             int newValue;
             if (Int32.TryParse(textBox.Text, out newValue))
             {
-                listBox.Items.Add("Product : " + x.Product_Name+ " "  + newValue + " $" + x.List_Price + " " + (newValue*x.List_Price) );
+               // listBox.Items.Add("Product : " + x.Product_Name+ " "  + newValue + " $" + x.List_Price + " " + (newValue*x.List_Price) );
             }
             totalForOrder +=  (newValue* x.List_Price);
             textBox1.Text = totalForOrder.ToString();
 
             //  listView.Items.Add("Product : " + x.Product_Name + " " + newValue + " $" + x.List_Price + " " + (newValue * x.List_Price));
             //listView.Items[count] = ("Product : " + x.Product_Name + " " + newValue + " $" + x.List_Price + " " + (newValue * x.List_Price) );
-            //count += 1;
 
+            // used to fill listview
             listView.Items.Add(new MyItem { Product = x.Product_Name, Quanitity = newValue, Price = x.List_Price, Total = (Convert.ToDouble(newValue) * x.List_Price) });
-
-            /*
-            if ()
-            {
-                listBox.Items.Clear();
-          
-                listBox.Items.Add("Product location : " + x.Product_Location);
-                listBox.Items.Add("Product Code     : " + x.Product_Code);
-                listBox.Items.Add("Product Quantity : " + (x.Product_Quantity));
-
-                textBox.IsEnabled = false;
-             
-            }
-            else
-            {
-                Inventory item = Inventory.Get(value);
-
-                listBox.Items.Clear();
-                listBox.Items.Add("Product : " + item.Product);
-                listBox.Items.Add("Product Code : " + item.Product_Code);
-                listBox.Items.Add("On Hand : " + item.On_Hand);
-                listBox.Items.Add("On Order : " + item.On_Order);
-                listBox.Items.Add("Reorder Level : " + item.Reorder_Level);
-                listBox.Items.Add("Reorder Quantity : " + item.Reorder_Quantity);
-
-                textBox.IsEnabled = true;
-            }
-
-            */
+           
+            MyItem q = new MyItem();
+            q.Product = x.Product_Name; q.Quanitity = newValue; q.Price = x.List_Price; q.Total = (Convert.ToDouble(newValue) * x.List_Price);
+            list1.Add(q);
         }
 
         private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            button.IsEnabled = true;
+           if(textBox.Text != "")
+                button1.IsEnabled = true;
         }
 
         private void textBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -144,6 +115,19 @@ namespace Manager
         private void textBox1_TextChanged(object sender, TextChangedEventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+
+            // public PurchaseOrder(DateTime Order_Date, string Created_By, DateTime Created_Date, double Shipping_Fee, double Tax, DateTime Payment_Date, double Payment_Amount, double Order_Subtotal, double Order_Total, DateTime Date_Received, string Status)
+            PurchaseOrder order = new PurchaseOrder( DateTime.Parse("2017-05-01") , k.firstName , DateTime.Parse("2017-05-01"),20.00,.09, DateTime.Parse("2017-05-01"), totalForOrder,totalForOrder,totalForOrder, DateTime.Parse("2017-05-01"), "new" );
+            order.Save();
+            foreach (MyItem c in list1)
+            {
+                PurchaseOrderDetails item = new PurchaseOrderDetails(order.PurchaseOrders_Id,c.Product,c.Quanitity,c.Price,(c.Price*c.Quanitity));
+                item.Save();
+            }
         }
     }
 }
