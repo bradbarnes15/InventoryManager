@@ -25,7 +25,8 @@ public class Inventory : DBConnection
         this.On_Hand          = On_Hand;
         this.Reorder_Level    = Reorder_Level;
         this.Reorder_Quantity = Reorder_Quantity;
-        On_Order = 0;
+        this.On_Order         = 0;
+        this.Inventory_Id     = -1;
     }
     
     private Inventory(int Inventory_Id, string Product, string Product_Code, string Product_Location, int On_Hand, int Reorder_Level, int Reorder_Quantity, int On_Order)
@@ -225,7 +226,7 @@ public class Inventory : DBConnection
     /// <summary>
     /// Get an inventory item based off of the Products locations
     /// </summary>
-    /// <param name="Product_Location"></param>
+    /// <param name="Product_Code"></param>
     /// <returns></returns>
     public static Inventory Get(string Product_Location)
     {
@@ -240,6 +241,44 @@ public class Inventory : DBConnection
 
             SqlCommand command = new SqlCommand(sql, conn);
             command.Parameters.AddWithValue("Product_Location", Product_Location);
+
+            using (SqlDataReader read = command.ExecuteReader())
+            {
+                if (read.HasRows)
+                {
+                    read.Read();
+
+                    Inventory inv = new Inventory(read.GetInt32(0),
+                                                  read.GetString(2),
+                                                  read.GetString(1),
+                                                  read.GetString(3),
+                                                  read.GetInt32(4),
+                                                  read.GetInt32(5),
+                                                  read.GetInt32(6),
+                                                  read.GetInt32(7));
+                    return inv;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
+    }
+
+    public static Inventory GetWithCode(string Product_Code)
+    {
+        using (SqlConnection conn = new SqlConnection())
+        {
+            conn.ConnectionString = DBConnection.CONNECTION_STRING;
+            conn.Open();
+
+            string sql = "SELECT Inventory_Id, Product_Code, Product, Product_Location, On_Hand, Reorder_Level, Reorder_Quantity, On_Order "
+                       + "FROM Inventory "
+                       + "WHERE Product_Code = @Product_Code";
+
+            SqlCommand command = new SqlCommand(sql, conn);
+            command.Parameters.AddWithValue("Product_Code", Product_Code);
 
             using (SqlDataReader read = command.ExecuteReader())
             {

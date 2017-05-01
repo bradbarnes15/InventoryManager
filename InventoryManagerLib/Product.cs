@@ -39,13 +39,13 @@ public class Product : DBConnection
     }
 
 
-    public static void DiscontinueItem(int Product_Id, bool New_Value)
+    public void DiscontinueItem()
     {
-        Product item = Product.Get(Product_Id);
+        //Product item = Product.Get(Product_Id);
 
-        item.Discontinue = New_Value;
-
-        item.Save();
+        //item.Discontinue = !item.Discontinue;
+        this.Discontinue = !this.Discontinue;
+        this.Save();
 
     }
 
@@ -232,7 +232,14 @@ public class Product : DBConnection
 
     public override string ToString()
     {
-        return this.Product_Name;
+        string str = this.Product_Name;
+
+        if (this.Discontinue)
+        {
+            str += ": Discontinued";
+        }
+
+        return str;
     }
 
 

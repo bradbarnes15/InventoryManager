@@ -237,6 +237,39 @@ public class ProductLocation : DBConnection
         }
     }
 
+    public static List<ProductLocation> GetAllEmpty()
+    {
+        using (SqlConnection conn = new SqlConnection())
+        {
+            conn.ConnectionString = DBConnection.CONNECTION_STRING;
+            conn.Open();
+
+            string sql;
+
+            sql = "SELECT Locations_Id, Product_Location, Product_Quantity, Product_Code "
+                + "FROM Product_Locations "
+                + "WHERE Product_Code = 'Empty'";
+
+            SqlCommand command = new SqlCommand(sql, conn);
+            using (SqlDataReader reader = command.ExecuteReader())
+            {
+                List<ProductLocation> locationList = new List<ProductLocation>();
+
+                while (reader.Read())
+                {
+                    ProductLocation pl = new ProductLocation(
+                                               reader.GetInt32(0),
+                                               reader.GetString(1),
+                                               reader.GetString(3),
+                                               reader.GetInt32(2));
+                    locationList.Add(pl);
+                }
+
+                return locationList;
+            }
+        }
+    }
+
 
     public override string ToString()
     {
