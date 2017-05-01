@@ -25,7 +25,7 @@ namespace InventoryManager
             InitializeComponent();
 
             //listBox.ItemsSource = Category.GetAll();
-            comboBox.ItemsSource = PurchaseOrder.GetAll();
+            comboBox.ItemsSource = Orders.GetAll();
             
         }
 
@@ -35,7 +35,7 @@ namespace InventoryManager
 
             listPrice = (double)Convert.ToDouble(List_Price_textBox.Text);
 
-            Product product = new Product(Product_Name_textBox.Text, Product_Code_textBox.Text, "blank",listPrice, 5.0);
+            Product product = new Product(Product_Name_textBox.Text, Product_Code_textBox.Text, "blank", listPrice, 5.0);
 
             product.Save();
         }
@@ -48,7 +48,7 @@ namespace InventoryManager
 
             Product.UpdateListPrice(productID, listPrice);
 
-            Product.ChangeProductCategory(productID, comboBox.SelectedValue.ToString()); // comboBox xaml must have SelectedValuePath = "Content" in order to work
+            //Product.ChangeProductCategory(productID, comboBox.SelectedValue.ToString()); // comboBox xaml must have SelectedValuePath = "Content" in order to work
         }
 
         private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -58,12 +58,15 @@ namespace InventoryManager
 
         private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            /*
             PurchaseOrder order = (PurchaseOrder)comboBox.SelectedItem;
-
             listBox.Items.Clear();
-
             listBox.ItemsSource = PurchaseOrderDetails.GetAllAt(order.PurchaseOrders_Id);
-            
+            */
+
+            Orders order = (Orders)comboBox.SelectedItem;
+            listBox.Items.Clear();
+            listBox.ItemsSource = OrderDetails.GetAllAt(order.Order_Id);
         }
 
 

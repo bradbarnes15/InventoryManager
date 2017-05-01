@@ -18,20 +18,18 @@ public class OrderDetails : DBConnection
     public int    Quantity        { get; private set; }
     public Double Unit_Price      { get; private set; }
     public Double Extended_Price  { get; private set; }
-    public string Status          { get; private set; }
 
-    public OrderDetails(int Order_Id, string Product, int Quantity, double Unit_Price, double Extended_Price, string Status)
+    public OrderDetails(int Order_Id, string Product, int Quantity, double Unit_Price, double Extended_Price)
     {
         this.Order_Id       = Order_Id;
         this.Product        = Product;
         this.Quantity       = Quantity;
         this.Unit_Price     = Unit_Price;
         this.Extended_Price = Extended_Price;
-        this.Status         = Status;
         OrderDetails_Id     = -1;
     }
 
-    private OrderDetails(int OrderDetails_Id, int Order_Id, string Product, int Quantity, double Unit_Price, double Extended_Price, string Status)
+    private OrderDetails(int OrderDetails_Id, int Order_Id, string Product, int Quantity, double Unit_Price, double Extended_Price)
     {
         this.OrderDetails_Id = OrderDetails_Id;
         this.Order_Id        = Order_Id;
@@ -39,7 +37,6 @@ public class OrderDetails : DBConnection
         this.Quantity        = Quantity;
         this.Unit_Price      = Unit_Price;
         this.Extended_Price  = Extended_Price;
-        this.Status          = Status;
     }
 
 
@@ -54,14 +51,14 @@ public class OrderDetails : DBConnection
 
             if (OrderDetails_Id == -1)
             {
-                sql = "INSERT INTO OrderDetails(Order_Id, Product, Quantity, Unit_Price, Extended_Price, Status) "
-                    + "VALUES(@Order_Id, @Product, @Quantity, @Unit_Price, @Extended_Price, @Status) "
+                sql = "INSERT INTO OrderDetails(Order_Id, Product, Quantity, Unit_Price, Extended_Price) "
+                    + "VALUES(@Order_Id, @Product, @Quantity, @Unit_Price, @Extended_Price) "
                     + "SELECT CAST (scope_identity() as int)";
             }
             else
             {
                 sql = "UPDATE OrderDetails SET "
-                    + "Order_Id = @Order_Id, Product = @Product, Quantity = @Quantity, Unit_Price = @Unit_Price, Extended_Price = @Extended_Price, Status = @Status "
+                    + "Order_Id = @Order_Id, Product = @Product, Quantity = @Quantity, Unit_Price = @Unit_Price, Extended_Price = @Extended_Price "
                     + "WHERE OrderDetails_Id = @OrderDetails_Id";
             }
 
@@ -72,7 +69,6 @@ public class OrderDetails : DBConnection
             command.Parameters.AddWithValue("Quantity", Quantity);
             command.Parameters.AddWithValue("Unit_Price", Unit_Price);
             command.Parameters.AddWithValue("Extended_Price", Extended_Price);
-            command.Parameters.AddWithValue("Status", Status);
 
             if (OrderDetails_Id == -1)
             {
@@ -94,7 +90,7 @@ public class OrderDetails : DBConnection
             conn.ConnectionString = DBConnection.CONNECTION_STRING;
             conn.Open();
             
-            string sql = "SELECT OrderDetails_Id, Order_Id, Product, Quantity, Unit_Price, Extended_Price, Status "
+            string sql = "SELECT OrderDetails_Id, Order_Id, Product, Quantity, Unit_Price, Extended_Price "
                        + "FROM OrderDetails "
                        + "WHERE OrderDetails_Id = @OrderDetails_Id";
 
@@ -112,8 +108,7 @@ public class OrderDetails : DBConnection
                                                        reader.GetString(2),
                                                        reader.GetInt32(3),
                                                        reader.GetDouble(4),
-                                                       reader.GetDouble(5),
-                                                       reader.GetString(5));
+                                                       reader.GetDouble(5));
                     return od;
                 }
                 else
@@ -132,7 +127,7 @@ public class OrderDetails : DBConnection
             conn.ConnectionString = DBConnection.CONNECTION_STRING;
             conn.Open();
 
-            string sql = "SELECT OrderDetails_Id, Order_Id, Product, Quantity, Unit_Price, Extended_Price, Status "
+            string sql = "SELECT OrderDetails_Id, Order_Id, Product, Quantity, Unit_Price, Extended_Price "
                        + "FROM OrderDetails ";
 
             SqlCommand command = new SqlCommand(sql, conn);
@@ -147,8 +142,43 @@ public class OrderDetails : DBConnection
                                                        reader.GetString(2),
                                                        reader.GetInt32(3),
                                                        reader.GetDouble(4),
-                                                       reader.GetDouble(5),
-                                                       reader.GetString(5));
+                                                       reader.GetDouble(5));
+
+                    OrderDetailsList.Add(od);
+                }
+
+                return OrderDetailsList;
+            }
+        }
+    }
+
+
+    public static List<OrderDetails> GetAllAt(int Order_Id)
+    {
+        using (SqlConnection conn = new SqlConnection())
+        {
+            conn.ConnectionString = DBConnection.CONNECTION_STRING;
+            conn.Open();
+
+            string sql = "SELECT OrderDetails_Id, Order_Id, Product, Quantity, Unit_Price, Extended_Price "
+                       + "FROM OrderDetails "
+                       + "WHERE Order_Id = @Order_Id";
+
+            SqlCommand command = new SqlCommand(sql, conn);
+            command.Parameters.AddWithValue("Order_Id", Order_Id);
+
+            using (SqlDataReader reader = command.ExecuteReader())
+            {
+                List<OrderDetails> OrderDetailsList = new List<OrderDetails>();
+
+                while (reader.Read())
+                {
+                    OrderDetails od = new OrderDetails(reader.GetInt32(0),
+                                                       reader.GetInt32(1),
+                                                       reader.GetString(2),
+                                                       reader.GetInt32(3),
+                                                       reader.GetDouble(4),
+                                                       reader.GetDouble(5));
 
                     OrderDetailsList.Add(od);
                 }
@@ -161,7 +191,7 @@ public class OrderDetails : DBConnection
 
     public override string ToString()
     {
-		throw new System.NotImplementedException();
+		return this.Product + " Quantity: " + this.Quantity;
 	}
 
 }
