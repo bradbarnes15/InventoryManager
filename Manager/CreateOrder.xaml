@@ -7,23 +7,21 @@
         mc:Ignorable="d"
         Title="CreateOrder" Height="500" Width="500">
     <Grid>
-        <Button x:Name="button" Content="Back" HorizontalAlignment="Left" Margin="378,382,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
-        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="78,73,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="comboBox_SelectionChanged"/>
+        <Button x:Name="button" Content="Back" HorizontalAlignment="Left" Margin="287,417,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="44,71,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="comboBox_SelectionChanged"/>
         <Label x:Name="label" Content="Quantity" HorizontalAlignment="Left" Margin="250,39,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="251,74,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="textBox_TextChanged"/>
-        <Button x:Name="button1" Content="add to order" HorizontalAlignment="Left" Margin="85,273,0,0" VerticalAlignment="Top" Width="75" Click="button1_Click"/>
-        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="139" Margin="82,114,0,0" VerticalAlignment="Top" Width="288"/>
-        <Label x:Name="label1" Content="total" HorizontalAlignment="Left" Margin="240,268,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="23" Margin="305,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="textBox1_TextChanged"/>
-        <ListView x:Name="listView" HorizontalAlignment="Left" Height="100" Margin="17,320,0,0" VerticalAlignment="Top" Width="350" RenderTransformOrigin="0.493,-0.058">
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="234,72,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="textBox_TextChanged"/>
+        <Button x:Name="button1" Content="add to order" HorizontalAlignment="Left" Margin="45,267,0,0" VerticalAlignment="Top" Width="75" Click="button1_Click"/>
+        <Label x:Name="label1" Content="total" HorizontalAlignment="Left" Margin="209,264,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="23" Margin="268,265,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="textBox1_TextChanged"/>
+        <ListView x:Name="listView" HorizontalAlignment="Left" Height="141" Margin="39,110,0,0" VerticalAlignment="Top" Width="350" RenderTransformOrigin="0.493,-0.058">
             <ListView ItemsSource="{Binding SourceCollection}" Width="325">
                 <ListView.View>
                     <GridView>
-                
                     </GridView>
                 </ListView.View>
             </ListView>
         </ListView>
-
+        <Button x:Name="button2" Content="Save" HorizontalAlignment="Left" Margin="47,417,0,0" VerticalAlignment="Top" Width="75" Click="button2_Click"/>
     </Grid>
 </Window>
