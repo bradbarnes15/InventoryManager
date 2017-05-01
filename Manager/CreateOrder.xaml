@@ -13,6 +13,17 @@
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="251,74,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="textBox_TextChanged"/>
         <Button x:Name="button1" Content="add to order" HorizontalAlignment="Left" Margin="85,273,0,0" VerticalAlignment="Top" Width="75" Click="button1_Click"/>
         <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="139" Margin="82,114,0,0" VerticalAlignment="Top" Width="288"/>
+        <Label x:Name="label1" Content="total" HorizontalAlignment="Left" Margin="240,268,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="23" Margin="305,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="textBox1_TextChanged"/>
+        <ListView x:Name="listView" HorizontalAlignment="Left" Height="100" Margin="17,320,0,0" VerticalAlignment="Top" Width="350" RenderTransformOrigin="0.493,-0.058">
+            <ListView ItemsSource="{Binding SourceCollection}" Width="325">
+                <ListView.View>
+                    <GridView>
+                
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </ListView>
 
     </Grid>
 </Window>
