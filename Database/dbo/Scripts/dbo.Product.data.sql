@@ -33,4 +33,5 @@ INSERT INTO [dbo].[Product] ([Product_Id], [Product_Code], [Product_Name], [Unit
 INSERT INTO [dbo].[Product] ([Product_Id], [Product_Code], [Product_Name], [Unit_Cost], [List_Price], [Discontinue], [Category]) VALUES (43, N'SP001', N'Ramen', 0.05, 0.55, 0, N'Soups')
 INSERT INTO [dbo].[Product] ([Product_Id], [Product_Code], [Product_Name], [Unit_Cost], [List_Price], [Discontinue], [Category]) VALUES (44, N'SP002', N'Chicken Noodle Soup', 0.25, 0.75, 0, N'Soups')
 INSERT INTO [dbo].[Product] ([Product_Id], [Product_Code], [Product_Name], [Unit_Cost], [List_Price], [Discontinue], [Category]) VALUES (45, N'OL001', N'Olive Oil', 0.15, 1.99, 0, N'Oils')
+INSERT INTO [dbo].[Product] ([Product_Id], [Product_Code], [Product_Name], [Unit_Cost], [List_Price], [Discontinue], [Category]) VALUES (46, N'DA005', N'Eggs', 0.55, 1.89, 0, N'Dairy')
 SET IDENTITY_INSERT [dbo].[Product] OFF

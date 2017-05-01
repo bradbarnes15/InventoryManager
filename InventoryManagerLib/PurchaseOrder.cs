@@ -59,6 +59,23 @@ public class PurchaseOrder : DBConnection
     }
 
     
+    public void CompleteOrder()
+    {
+        this.Status = "Completed";
+
+        //need to get all products in the purchaseorderdetails and add them to inventory
+        foreach(PurchaseOrderDetails item in PurchaseOrderDetails.GetAllAt(this.PurchaseOrders_Id))
+        {
+            Inventory product = Inventory.GetWithName(item.Product);
+
+            int newStockValue = product.On_Hand + item.Quantity;
+
+            product.ModifyItemStock(newStockValue);
+            product.UpdateOnOrderQuantity(product.On_Order - item.Quantity);
+        }
+
+        this.Save();
+    }
 
 
     public void Save()
@@ -80,7 +97,7 @@ public class PurchaseOrder : DBConnection
             {
                 sql = "UPDATE PurchaseOrders SET "
                     + "Order_Date = @Order_Date, Created_By = @Created_By, Created_Date = @Created_Date, Shipping_Fee = @Shipping_Fee, Tax = @Tax, Payment_Date = @Payment_Date, Payment_Amount = @Payment_Amount, Order_Subtotal = @Order_Subtotal, Order_Total = @Order_Total, Date_Received = @Date_Received, Status = @Status "
-                    + "WHERE PurchaseOrder_Id = @PurchaseOrder_Id ";
+                    + "WHERE PurchaseOrders_Id = @PurchaseOrders_Id ";
             }
 
             SqlCommand command = new SqlCommand(sql, conn);

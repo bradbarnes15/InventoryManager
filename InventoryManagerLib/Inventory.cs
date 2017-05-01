@@ -111,13 +111,11 @@ public class Inventory : DBConnection
     /// </summary>
     /// <param name="Product_Id"></param>
     /// <param name="On_Order"></param>
-    public static void UpdateOnOrderQuantity(int Product_Id, int On_Order)
+    public void UpdateOnOrderQuantity( int On_Order)
     {
-        Inventory item = Inventory.Get(Product_Id);
+        this.On_Order = On_Order;
 
-        item.On_Order = On_Order;
-
-        item.Save();
+        this.Save();
     }
 
     /// <summary>
@@ -279,6 +277,45 @@ public class Inventory : DBConnection
 
             SqlCommand command = new SqlCommand(sql, conn);
             command.Parameters.AddWithValue("Product_Code", Product_Code);
+
+            using (SqlDataReader read = command.ExecuteReader())
+            {
+                if (read.HasRows)
+                {
+                    read.Read();
+
+                    Inventory inv = new Inventory(read.GetInt32(0),
+                                                  read.GetString(2),
+                                                  read.GetString(1),
+                                                  read.GetString(3),
+                                                  read.GetInt32(4),
+                                                  read.GetInt32(5),
+                                                  read.GetInt32(6),
+                                                  read.GetInt32(7));
+                    return inv;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
+    }
+
+
+    public static Inventory GetWithName(string Product)
+    {
+        using (SqlConnection conn = new SqlConnection())
+        {
+            conn.ConnectionString = DBConnection.CONNECTION_STRING;
+            conn.Open();
+
+            string sql = "SELECT Inventory_Id, Product_Code, Product, Product_Location, On_Hand, Reorder_Level, Reorder_Quantity, On_Order "
+                       + "FROM Inventory "
+                       + "WHERE Product = @Product";
+
+            SqlCommand command = new SqlCommand(sql, conn);
+            command.Parameters.AddWithValue("Product", Product);
 
             using (SqlDataReader read = command.ExecuteReader())
             {

@@ -7,10 +7,12 @@
         mc:Ignorable="d"
         Title="Receiving" Height="500" Width="500">
     <Grid>
-        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="136" Margin="31,27,0,0" VerticalAlignment="Top" Width="251"/>
-        <Button x:Name="button" Content="Ok" HorizontalAlignment="Left" Margin="33,182,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="button1" Content="Back" HorizontalAlignment="Left" Margin="173,182,0,0" VerticalAlignment="Top" Width="75" Click="button1_Click" RenderTransformOrigin="0.28,-1.2"/>
-        <Button x:Name="button2" Content="create order" HorizontalAlignment="Left" Margin="326,29,0,0" VerticalAlignment="Top" Width="116" Height="61" Click="button2_Click"/>
+        <ListBox x:Name="orderDetails_listBox" HorizontalAlignment="Left" Height="319" Margin="231,10,0,0" VerticalAlignment="Top" Width="251"/>
+        <ListBox x:Name="orders_listBox" HorizontalAlignment="Left" Height="319" Margin="13,10,0,0" VerticalAlignment="Top" Width="194" SelectionChanged="orders_listBox_SelectionChanged"/>
+        <Button x:Name="completeOrder_button" Content="Complete Order" HorizontalAlignment="Left" Margin="231,368,0,0" VerticalAlignment="Top" Width="98" IsEnabled="False" Click="completeOrder_button_Click"/>
+        <Button x:Name="button1" Content="Back" HorizontalAlignment="Left" Margin="407,439,0,0" VerticalAlignment="Top" Width="75" Click="button1_Click" RenderTransformOrigin="0.28,-1.2"/>
+        <Button x:Name="button2" Content="create order" HorizontalAlignment="Left" Margin="366,348,0,0" VerticalAlignment="Top" Width="116" Height="61" Click="button2_Click"/>
+
 
     </Grid>
 </Window>
