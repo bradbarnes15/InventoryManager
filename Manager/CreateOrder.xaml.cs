@@ -127,6 +127,12 @@ namespace Manager
             {
                 PurchaseOrderDetails item = new PurchaseOrderDetails(order.PurchaseOrders_Id,c.Product,c.Quanitity,c.Price,(c.Price*c.Quanitity));
                 item.Save();
+
+                if (Inventory.GetWithName(item.Product) != null)
+                {
+                    Inventory invItem = Inventory.GetWithName(item.Product);
+                    invItem.UpdateOnOrderQuantity(invItem.On_Order + item.Quantity);
+                }
             }
         }
     }
