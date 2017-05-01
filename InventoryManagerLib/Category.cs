@@ -99,6 +99,39 @@ public class Category : DBConnection
         }
     }
 
+    public static Category Get(string Category_Text)
+    {
+        using (SqlConnection conn = new SqlConnection())
+        {
+            conn.ConnectionString = DBConnection.CONNECTION_STRING;
+            conn.Open();
+
+            string sql = "SELECT Category_Id, Category_Text "
+                       + "FROM Category "
+                       + "WHERE Category_Text= @Category_Text";
+
+            SqlCommand command = new SqlCommand(sql, conn);
+            command.Parameters.AddWithValue("Category_Text", Category_Text);
+
+            using (SqlDataReader reader = command.ExecuteReader())
+            {
+                if (reader.HasRows)
+                {
+                    reader.Read();
+
+                    Category c = new Category(reader.GetInt32(0),
+                                              reader.GetString(1));
+
+                    return c;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
+    }
+
 
     public static List<Category> GetAll()
     {

@@ -69,6 +69,8 @@ namespace InventoryManager
             listBox.ItemsSource = OrderDetails.GetAllAt(order.Order_Id);
         }
 
+        
+
 
 
 

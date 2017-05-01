@@ -28,9 +28,9 @@ INSERT INTO [dbo].[Inventory] ([Inventory_Id], [Product_Code], [Product], [Produ
 INSERT INTO [dbo].[Inventory] ([Inventory_Id], [Product_Code], [Product], [Product_Location], [On_Hand], [Reorder_Level], [Reorder_Quantity], [On_Order]) VALUES (4, N'BG001', N'Flour', N'A104', 15, 5, 5, 0)
 INSERT INTO [dbo].[Inventory] ([Inventory_Id], [Product_Code], [Product], [Product_Location], [On_Hand], [Reorder_Level], [Reorder_Quantity], [On_Order]) VALUES (5, N'BG002', N'Sugar', N'A105', 15, 5, 5, 0)
 INSERT INTO [dbo].[Inventory] ([Inventory_Id], [Product_Code], [Product], [Product_Location], [On_Hand], [Reorder_Level], [Reorder_Quantity], [On_Order]) VALUES (6, N'BG003', N'Vanilla Extract', N'A106', 15, 5, 5, 0)
-INSERT INTO [dbo].[Inventory] ([Inventory_Id], [Product_Code], [Product], [Product_Location], [On_Hand], [Reorder_Level], [Reorder_Quantity], [On_Order]) VALUES (7, N'BG004', N'Baking Powder', N'A106', 15, 5, 5, 0)
-INSERT INTO [dbo].[Inventory] ([Inventory_Id], [Product_Code], [Product], [Product_Location], [On_Hand], [Reorder_Level], [Reorder_Quantity], [On_Order]) VALUES (8, N'BD001', N'Dr.Pepsi', N'A107', 10, 3, 5, 0)
-INSERT INTO [dbo].[Inventory] ([Inventory_Id], [Product_Code], [Product], [Product_Location], [On_Hand], [Reorder_Level], [Reorder_Quantity], [On_Order]) VALUES (9, N'BD002', N'Nuka Cola', N'A108', 10, 3, 5, 0)
+INSERT INTO [dbo].[Inventory] ([Inventory_Id], [Product_Code], [Product], [Product_Location], [On_Hand], [Reorder_Level], [Reorder_Quantity], [On_Order]) VALUES (7, N'BG004', N'Baking Powder', N'A107', 15, 5, 5, 0)
+INSERT INTO [dbo].[Inventory] ([Inventory_Id], [Product_Code], [Product], [Product_Location], [On_Hand], [Reorder_Level], [Reorder_Quantity], [On_Order]) VALUES (8, N'BD001', N'Dr.Pepsi', N'A108', 10, 3, 5, 0)
+INSERT INTO [dbo].[Inventory] ([Inventory_Id], [Product_Code], [Product], [Product_Location], [On_Hand], [Reorder_Level], [Reorder_Quantity], [On_Order]) VALUES (9, N'BD002', N'Nuka Cola', N'A109', 10, 3, 5, 0)
 INSERT INTO [dbo].[Inventory] ([Inventory_Id], [Product_Code], [Product], [Product_Location], [On_Hand], [Reorder_Level], [Reorder_Quantity], [On_Order]) VALUES (10, N'CD001', N'Reese''s', N'A110', 10, 3, 5, 0)
 INSERT INTO [dbo].[Inventory] ([Inventory_Id], [Product_Code], [Product], [Product_Location], [On_Hand], [Reorder_Level], [Reorder_Quantity], [On_Order]) VALUES (11, N'CD002', N'Smarties', N'A111', 10, 3, 5, 0)
 INSERT INTO [dbo].[Inventory] ([Inventory_Id], [Product_Code], [Product], [Product_Location], [On_Hand], [Reorder_Level], [Reorder_Quantity], [On_Order]) VALUES (13, N'CD003', N'Air Heads', N'A112', 10, 3, 5, 0)
@@ -59,10 +59,10 @@ INSERT INTO [dbo].[Inventory] ([Inventory_Id], [Product_Code], [Product], [Produ
 INSERT INTO [dbo].[Inventory] ([Inventory_Id], [Product_Code], [Product], [Product_Location], [On_Hand], [Reorder_Level], [Reorder_Quantity], [On_Order]) VALUES (36, N'OL001', N'Olive Oil', N'A182', 10, 5, 5, 0)
 SET IDENTITY_INSERT [dbo].[Inventory] OFF
 
-INSERT INTO [dbo].[OrderDetails] ([OrderDetails_Id], [Order_Id], [Product], [Quantity], [Unit_Price], [Extended_Price]) VALUES (1, 2, N'Apple', 20, 0.99, 19.8)
-INSERT INTO [dbo].[OrderDetails] ([OrderDetails_Id], [Order_Id], [Product], [Quantity], [Unit_Price], [Extended_Price]) VALUES (2, 2, N'Banana', 25, 0.55, 13.75)
-INSERT INTO [dbo].[OrderDetails] ([OrderDetails_Id], [Order_Id], [Product], [Quantity], [Unit_Price], [Extended_Price]) VALUES (3, 2, N'Grapes', 25, 1.55, 38.75)
-INSERT INTO [dbo].[OrderDetails] ([OrderDetails_Id], [Order_Id], [Product], [Quantity], [Unit_Price], [Extended_Price]) VALUES (4, 2, N'Strawberries', 25, 0.99, 24.75)
+INSERT INTO [dbo].[OrderDetails] ([OrderDetails_Id], [Order_Id], [Product], [Product_Code], [Quantity], [Unit_Price], [Extended_Price]) VALUES (1, 2, N'Apple', N'4133', 20, 0.99, 19.8)
+INSERT INTO [dbo].[OrderDetails] ([OrderDetails_Id], [Order_Id], [Product], [Product_Code], [Quantity], [Unit_Price], [Extended_Price]) VALUES (2, 2, N'Banana', N'4011', 25, 0.55, 13.75)
+INSERT INTO [dbo].[OrderDetails] ([OrderDetails_Id], [Order_Id], [Product], [Product_Code], [Quantity], [Unit_Price], [Extended_Price]) VALUES (3, 2, N'Grapes', N'4022', 25, 1.55, 38.75)
+INSERT INTO [dbo].[OrderDetails] ([OrderDetails_Id], [Order_Id], [Product], [Product_Code], [Quantity], [Unit_Price], [Extended_Price]) VALUES (4, 2, N'Strawberries', N'4028', 25, 0.99, 24.75)
 
 SET IDENTITY_INSERT [dbo].[Orders] ON
 INSERT INTO [dbo].[Orders] ([Order_Id], [Order_Date], [Employee], [Shipping_Address], [Ship_City], [Ship_State], [Zip], [Order_Total], [Tax], [Status], [Closed_Date]) VALUES (2, N'2017-04-29', N'Sam', N'132 AP drive', N'Clarksville', N'TN', 37043, 105.78, 8.73, N'New', N'2017-04-29')
