@@ -53,6 +53,23 @@ public class Orders : DBConnection
         this.Closed_Date      = Closed_Date;
     }
 
+    public void CompleteOrder()
+    {
+        this.Status = "Completed";
+        
+        foreach(OrderDetails item in OrderDetails.GetAllAt(this.Order_Id))
+        {
+            Inventory product = Inventory.GetWithCode(item.Product_Code);
+
+            //Calculate the new value for the On hand quantity in inventory
+            int newStockValue = product.On_Hand - item.Quantity;
+
+            product.ModifyItemStock(newStockValue);
+        }
+
+        this.Save();
+    }
+
     public void Save()
     {
         using (SqlConnection conn = new SqlConnection())
@@ -181,7 +198,7 @@ public class Orders : DBConnection
 
 	public override string ToString()
 	{
-        return "Order #" + this.Order_Id;
+        return "Order #" + this.Order_Id + " :" + this.Status;
 	}
 
 }
