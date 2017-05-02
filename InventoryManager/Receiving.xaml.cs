@@ -1,16 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace InventoryManager
 {
@@ -23,9 +12,49 @@ namespace InventoryManager
         public Receiving(Employee x)
         {
             InitializeComponent();
+
+            orders_listBox.ItemsSource = PurchaseOrder.GetAll();
+
+            //This is the employee that is logged in
             k = x;
         }
 
+
+
+        private void orders_listBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            if ((PurchaseOrder)orders_listBox.SelectedItem != null)
+            {
+                PurchaseOrder order = (PurchaseOrder)orders_listBox.SelectedItem;
+
+                //if the order has already been completed, you cannot complete it again.
+                if (order.Status.ToUpper() == "COMPLETED")
+                {
+                    completeOrder_button.IsEnabled = false;
+                }
+                else { completeOrder_button.IsEnabled = true; }
+
+                orderDetails_listBox.Items.Clear();
+                foreach (PurchaseOrderDetails item in PurchaseOrderDetails.GetAllAt(order.PurchaseOrders_Id))
+                {
+                    orderDetails_listBox.Items.Add(item);
+                }
+            }
+        }
+
+
+        private void completeOrder_button_Click(object sender, RoutedEventArgs e)
+        {
+            PurchaseOrder order = (PurchaseOrder)orders_listBox.SelectedItem;
+
+            order.CompleteOrder();
+
+            orders_listBox.ItemsSource = PurchaseOrder.GetAll();
+            orderDetails_listBox.Items.Clear();
+            completeOrder_button.IsEnabled = false;
+        }
+
+        //Return to previous menu
         private void button1_Click(object sender, RoutedEventArgs e)
         {
             EmployeeInterface window = new EmployeeInterface(k);
@@ -34,5 +63,8 @@ namespace InventoryManager
             window.Left = 400;
             window.Show();
         }
+
+      
+
     }
 }
