@@ -13,6 +13,7 @@ Install instructions
 	The tables should now be on the local database
 3.)In the Database project select the ResetAllTables.sql file 
 	It will be under Database\dbo\scripts
+	Ensure the script is connected to "C:\DATABASE\INVENTORY.MDF"
 	This will truncate and refill all of the tables with test data and can be used at any time
 You should now be able to run the InventoryManager(Employee access level) or Manager(Manager access level) interfaces
 
