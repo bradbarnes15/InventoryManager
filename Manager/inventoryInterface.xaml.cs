@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 
+
 namespace InventoryManager
 {
     /// <summary>
@@ -15,33 +16,19 @@ namespace InventoryManager
         {
             InitializeComponent();
             comboBox.ItemsSource = ProductLocation.GetAll();
+            comboBox1.ItemsSource = Product.GetAllActiveItems();
         }
         public inventoryInterface(Employee x)
         {
             InitializeComponent();
             comboBox.ItemsSource = ProductLocation.GetAll();
+            comboBox1.ItemsSource = Product.GetAllActiveItems();
+
             k = x;
         }
 
-        private void dataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
+        
 
-        }
-
-        private void button_Click(object sender, RoutedEventArgs e)
-        {
-          
-        }
-
-        private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void textBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
 
         private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -72,11 +59,42 @@ namespace InventoryManager
                 listBox.Items.Add("Reorder Level : " + item.Reorder_Level);
                 listBox.Items.Add("Reorder Quantity : " + item.Reorder_Quantity);
 
+                
                 textBox.IsEnabled = true;
                 button2.IsEnabled = true;
             }
 
         }
+
+
+        private void comboBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if ((Product)comboBox1.SelectedItem != null)
+            {
+                Product product = (Product)comboBox1.SelectedItem;
+
+                if (Inventory.GetWithCode(product.Product_Code) != null)
+                {
+                    Inventory item = Inventory.GetWithCode(product.Product_Code);
+
+                    listBox.Items.Clear();
+                    listBox.Items.Add("Product : " + item.Product);
+                    listBox.Items.Add("Product Code : " + item.Product_Code);
+                    listBox.Items.Add("On Hand : " + item.On_Hand);
+                    listBox.Items.Add("On Order : " + item.On_Order);
+                    listBox.Items.Add("Reorder Level : " + item.Reorder_Level);
+                    listBox.Items.Add("Reorder Quantity : " + item.Reorder_Quantity);
+
+                    textBox.IsEnabled = true;
+                    button2.IsEnabled = true;
+                    
+                }
+                else { /*should probably output an error*/ }
+            }
+            else { /*should probably output an error*/ }
+        }
+
+
 
         private void textBox_TextChanged_1(object sender, TextChangedEventArgs e)
         {
@@ -86,9 +104,14 @@ namespace InventoryManager
         private void button2_Click(object sender, RoutedEventArgs e)
         {
             //Get the selected item
-            string value = comboBox.SelectedItem.ToString();
-            Inventory item = Inventory.Get(value);
+            //string value = comboBox.SelectedItem.ToString();
 
+            string product_Code = listBox.Items.GetItemAt(1).ToString();
+
+            product_Code = product_Code.Remove(0, 15);
+
+            Inventory item = Inventory.GetWithCode(product_Code);
+            
             //update the item quantity
             int newValue;
             if(Int32.TryParse(textBox.Text, out newValue))
@@ -105,6 +128,7 @@ namespace InventoryManager
             listBox.Items.Add("Reorder Level : " + item.Reorder_Level);
             listBox.Items.Add("Reorder Quantity : " + item.Reorder_Quantity);
         }
+
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
@@ -123,5 +147,28 @@ namespace InventoryManager
             x.Show();
             this.Close();
         }
+
+
+
+        private void dataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void textBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
     }
 }

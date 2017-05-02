@@ -34,7 +34,8 @@ namespace InventoryManager
                 }
                 else { completeOrder_button.IsEnabled = true; }
 
-                foreach(PurchaseOrderDetails item in PurchaseOrderDetails.GetAllAt(order.PurchaseOrders_Id))
+                orderDetails_listBox.Items.Clear();
+                foreach (PurchaseOrderDetails item in PurchaseOrderDetails.GetAllAt(order.PurchaseOrders_Id))
                 {
                     orderDetails_listBox.Items.Add(item);
                 }

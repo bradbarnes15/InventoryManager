@@ -7,9 +7,11 @@
         mc:Ignorable="d"
         Title="Receiving" Height="500" Width="500">
     <Grid>
-        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="136" Margin="37,33,0,0" VerticalAlignment="Top" Width="172"/>
-        <Button x:Name="button" Content="Ok" HorizontalAlignment="Left" Margin="37,195,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="button1" Content="Back" HorizontalAlignment="Left" Margin="323,377,0,0" VerticalAlignment="Top" Width="75" Click="button1_Click"/>
+        <ListBox x:Name="orderDetails_listBox" HorizontalAlignment="Left" Height="319" Margin="231,10,0,0" VerticalAlignment="Top" Width="251"/>
+        <ListBox x:Name="orders_listBox" HorizontalAlignment="Left" Height="319" Margin="13,10,0,0" VerticalAlignment="Top" Width="194" SelectionChanged="orders_listBox_SelectionChanged"/>
+        <Button x:Name="completeOrder_button" Content="Complete Order" HorizontalAlignment="Left" Margin="231,368,0,0" VerticalAlignment="Top" Width="98" IsEnabled="False" Click="completeOrder_button_Click"/>
+        <Button x:Name="button1" Content="Back" HorizontalAlignment="Left" Margin="407,439,0,0" VerticalAlignment="Top" Width="75" Click="button1_Click" RenderTransformOrigin="0.28,-1.2"/>
+
 
     </Grid>
 </Window>

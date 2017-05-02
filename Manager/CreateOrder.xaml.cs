@@ -20,8 +20,9 @@ namespace Manager
         public CreateOrder(Employee x)
         {
             InitializeComponent();
-            comboBox.ItemsSource = Product.GetAll();
+            comboBox.ItemsSource = Product.GetAllActiveItems();
             k = x;
+
             button1.IsEnabled = false;
 
             // Add columns
@@ -99,11 +100,13 @@ namespace Manager
             MyItem q = new MyItem();
             q.Product = x.Product_Name; q.Quanitity = newValue; q.Price = x.List_Price; q.Total = (Convert.ToDouble(newValue) * x.List_Price);
             list1.Add(q);
+
+            button1.IsEnabled = false;
         }
 
         private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-           if(textBox.Text != "")
+           //if(textBox.Text != "")
                 button1.IsEnabled = true;
         }
 
@@ -134,6 +137,8 @@ namespace Manager
                     invItem.UpdateOnOrderQuantity(invItem.On_Order + item.Quantity);
                 }
             }
+
+            
         }
     }
 }
