@@ -1,0 +1,18 @@
+Install instructions
+
+1.) Create a Microsoft SQL Server Database File (SqlClient) at c:\database\Inventory.mdf
+2.) Create a Schema compare to get the tables into the local database\Inventory
+	2.1)Select Source - Project radio button -> database in dropdown
+	2.2)Select Target - Database radio button -> Select Connection button
+		2.2.1) Select Browse tab
+		2.2.2) Select Local
+		2.2.3) Select MSSQLLocalDB
+		2.2.4) You should theb be able to select "C:\DATABASE\INVENTORY.MDF" in the "Database Name" dropdown
+	2.3) Press compare
+	2.4) After loading press Update
+	The tables should now be on the local database
+3.)In the Database project select the ResetAllTables.sql file 
+	It will be under Database\dbo\scripts
+	This will truncate and refill all of the tables with test data and can be used at any time
+You should now be able to run the InventoryManager(Employee access level) or Manager(Manager access level) interfaces
+
